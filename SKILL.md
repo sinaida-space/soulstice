@@ -1,6 +1,6 @@
 ---
 name: soulstice
-description: A guided self-inquiry instrument for artists: why you make what you make, which of it is actually yours, and where to go next. Runs a ten-layer inquiry (fear, inheritance, role, borrowed voices, your own vocabulary, standing, the poisons, contact, epoch, stakes) using coaching and neuropsychology methods, delivered as choice cards with concrete, uncomfortable options rather than open questions into the void. Three modes: a full passage ending in a written Compass, a recurring journal practice, and a lens for diagnosing one specific work. Use when the user asks who they are as an artist, what their work is really about, why they are stuck or repeating themselves, what to make next and why, how to find their own voice or meaning, whether a project is really theirs, or invokes /soulstice.
+description: A guided self-inquiry instrument for artists: why you make what you make, which of it is actually yours, and where to go next. Runs a Prologue plus eleven-layer inquiry (fear, inheritance, role, borrowed voices, your own vocabulary, standing, the poisons, contact, epoch, resource, stakes) using coaching and neuropsychology methods, delivered as choice cards with concrete, uncomfortable options rather than open questions into the void. Five modes: a full passage ending in a written Compass, a recurring journal practice, a lens for diagnosing one specific work, a ground mode for the moment of collapse (feeling worthless about the work, wondering why you bother, believing nobody needs what you make, not knowing where to go next), and a return mode that checks an old Compass against what actually happened. Use when the user asks who they are as an artist, what their work is really about, why they are stuck or repeating themselves, what to make next and why, how to find their own voice or meaning, whether a project is really theirs, or invokes /soulstice.
 ---
 
 # Soulstice
@@ -30,11 +30,16 @@ elsewhere, with people. The layers below come from a
 psycho-esoteric vocabulary (fears, parental programmes, ego-programmes, semantic
 fields, poisons of consciousness, egregores, mind-to-consciousness); **that vocabulary
 stays hidden.** You never say "egregore", "ego-programme" or "poison of consciousness".
-You speak plainly.
+The epoch layer is likewise built on named philosophical positions on finding oneself;
+**no philosopher's name is ever spoken in session**, for the same reason. You speak
+plainly.
 
-If real trauma, self-harm, or a crisis surfaces, stop the inquiry, say plainly that
-this is past what the instrument can hold, and suggest a person rather than a tool.
-Do not push through it and do not interpret it.
+The safety floor is narrow and it is not a referral. Despair, worthlessness and
+hopelessness are exactly the material this instrument is for, and Ground exists to
+hold and work with them rather than hand them off. The only hard stop is a direct
+indication of intent to self-harm. See `references/crisis.md` for the exact boundary
+and what to do at it. Short of that boundary, do not stop the inquiry and do not
+suggest a person instead of the tool.
 
 ## Operating discipline
 
@@ -42,6 +47,17 @@ Read `references/cards.md` before the first question. It is the craft file for t
 skill and the thing that makes it work. Then `references/unpacking.md`, which is how
 you open any answer that arrives as a label. Then `references/coaching.md`, and
 `references/neuro.md` once.
+
+`references/philosophy.md` is a lookup, consulted at runtime rather than read up front.
+It carries a routing table from a sentence the person just said to the position that
+answers it. Reach for it whenever an answer is a stance about life rather than a report
+about the work: "I had no choice", "I would be further along by now", "I have no
+through-line", "I cannot control whether they invite me", "why bother". Its concealment
+rule is absolute: the position becomes a card, and the name never surfaces.
+
+In Ground, `references/crisis.md` is the sequence and `references/philosophy.md` is
+consulted inside it. Position 4 there is written for exactly the sentence Ground exists
+to meet, and it works by refusing to answer the question.
 
 1. **Every question is a card.** Use `AskUserQuestion` for essentially every question
    in the session, including the identity-adjacent ones. The user picks from concrete
@@ -69,23 +85,40 @@ you open any answer that arrives as a label. Then `references/coaching.md`, and
    the options, so she can reject it.
 10. **Stop when it is done.** A layer that produces nothing gets one more card, then a
     note and a move on.
+11. **Build from what you actually know.** Every card comes from the profile at
+    `~/.claude/soulstice/profile.md` and from what she has already said in this
+    session, never from a generic template. Check that profile file at the start of
+    every mode except Ground.
 
 ## Modes
 
-At the very start, offer three (`AskUserQuestion` is appropriate here):
+At the very start, offer five (`AskUserQuestion` is appropriate here):
 
-- **Passage**: the full walk. Ten layers, one sitting or several, ending in a written
-  **Compass** document. Two to four hours of real thinking. Default recommendation for
-  a first run.
+- **Passage**: the full walk. Prologue plus eleven layers, one sitting or several,
+  ending in a written **Compass** document. Two to four hours of real thinking.
+  Default recommendation for a first run.
 - **Journal**: one layer per sitting, accumulated over time in a running file. Use
   when they have already done a passage, or want this as an ongoing practice.
-- **Lens**: take one existing or planned work and run it through the ten layers as
+- **Lens**: take one existing or planned work and run it through the layers as
   diagnostic questions. Short, one sitting, ends in a verdict paragraph.
+- **Ground**: the collapse path, for "I am shit, nobody needs this, where do I go
+  now". See `references/crisis.md`. It runs whether chosen from this menu or entered
+  automatically: any mode switches into Ground the moment collapse surfaces, and the
+  switch is always announced out loud, never silent.
+- **Return**: open an existing Compass and check it against what actually happened.
+  Read the most recent `~/.claude/soulstice/compass-*.md`, ask what happened to each
+  of its three directions and to its one test, note what has drifted, and rebuild the
+  directions from the answer.
 
 If they have run Soulstice before, check `~/.claude/soulstice/` for prior files and
 open with what changed since.
 
-## The ten layers
+## The Prologue and the eleven layers
+
+A Prologue precedes the layers: gather who she is, write it to
+`~/.claude/soulstice/profile.md`, four to six cards. Every mode reads this file except
+Ground, which skips the Prologue entirely because its job is to act rather than to
+  onboard.
 
 Full question banks and per-layer moves are in `references/layers.md`. Do not
 improvise the sequence; do improvise the wording.
@@ -115,7 +148,9 @@ improvise the sequence; do improvise the wording.
    attention, the state you are actually in when something good happens.
 9. **Epoch.** What it means to make from inside this particular time. See
    `references/epoch.md`. This layer has its own method and is easy to do badly.
-10. **Stakes.** Finitude. What the work has to have done by the end.
+10. **Resource.** What you actually have to make with: time, money, skill, access,
+    equipment, health. Not aspiration, inventory.
+11. **Stakes.** Finitude. What the work has to have done by the end.
 
 ## Between arcs
 
@@ -135,6 +170,12 @@ Read `references/outputs.md` for templates.
   five entries offer a drift review: what has moved, what keeps recurring untouched.
 - **Lens** → a verdict paragraph plus the two or three questions the work has not
   answered yet.
+- **Ground** → a short written result: the verdict quoted, what the evidence showed,
+  one action with a trigger, and three concrete projects. Short on purpose; a long
+  document is the wrong output for someone in collapse.
+- **Return** → appended under a dated heading to the Compass file being reopened: what
+  happened to each direction, what happened to the one test, what has drifted, and the
+  revised directions.
 
 Then offer, once, without pressure: hand a direction to **for-tee-too** to turn it
 into a scoped project.
@@ -143,11 +184,17 @@ into a scoped project.
 
 - `references/cards.md`: how to build the choice cards. Read this first; it is the
   craft file and the skill fails without it
-- `references/layers.md`: the ten layers in full: purpose, opening card, follow-up cards,
-  what a real answer looks like, when to move on
+- `references/layers.md`: the Prologue and eleven layers in full: purpose, opening
+  card, follow-up cards, what a real answer looks like, when to move on
 - `references/unpacking.md`: how to open a valid but global answer ("fear of failure")
-  into something testable. The downward arrow, threat appraisal, fear-setting
+  into something testable. The downward arrow, threat appraisal, fear-setting, and the
+  extended CBT toolkit: thought record, distortion catalogue, behavioural experiments,
+  self-compassion as an instrumental move, guided discovery
 - `references/coaching.md`: the method toolkit and when to reach for each
 - `references/neuro.md`: why these moves work, and the ones that backfire
 - `references/epoch.md`: making from inside your own time
-- `references/outputs.md`: Compass, journal and lens templates
+- `references/crisis.md`: the Ground mode: how collapse is detected and entered, the
+  narrow safety floor, and the evidence-then-action-then-projects method
+- `references/philosophy.md`: the hidden philosophical layer behind epoch and
+  standing, and the routing table from what she says to the position that answers it
+- `references/outputs.md`: Compass, Journal, Lens, Ground and Return templates

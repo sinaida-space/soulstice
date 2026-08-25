@@ -83,7 +83,7 @@ feels to be in" is a direction.
 Moves:
 - Sort every stated ambition into goal or direction. Ask which goals serve which
   direction. Orphaned goals are usually layer 4 material.
-- **The eulogy move,** used only in layer 10 and only once: "someone who knows the work
+- **The eulogy move,** used only in layer 11 and only once: "someone who knows the work
   well describes your practice in thirty years. What do you want them to be able to say
   truthfully?" Powerful and easily overused; one deployment per passage.
 - **Willingness:** "what discomfort are you willing to carry to go that way?" A value

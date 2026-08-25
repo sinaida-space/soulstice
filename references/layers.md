@@ -1,4 +1,4 @@
-# The ten layers
+# The eleven layers
 
 Each layer has: **what it is after**, **the opening card**, **follow-up cards**,
 **what a real answer looks like**, **failure mode**, **when to move on**.
@@ -11,6 +11,50 @@ has already told you. An option that could be shown to any artist is a wasted op
 
 Budget per layer: 4 to 6 cards, alternating beat one and beat two. If you are past
 eight cards in one layer you are circling. Name what you have and move.
+
+---
+
+## Prologue
+
+The layers run on cards, and a card is only as strong as the context it is built
+from. The strongest option in this whole instrument is one that quotes the person
+back to herself, and that requires knowing something about her before the first
+question of Arc I is asked. The Prologue exists to establish who is asking, once,
+briefly, before the subtraction of Arc I begins.
+
+**Check for existing context first.** If `~/.claude/soulstice/profile.md` exists,
+read it and confirm rather than re-interviewing: play back what it holds in two or
+three lines and ask what has changed since. If the session already carries context
+about her, the same rule applies: say what you already know and ask only for what is
+missing. Never run the full Prologue on someone you already have material on. Asking
+her to repeat herself is not groundwork, it is friction.
+
+**If there is no context, gather it, briefly.** What she has done with her life so
+far. What she trained in and what she actually does now. What she believes. What she
+values. What other people say about her. What she is known for among the people who
+know her. Four to six cards cover this; more than six and the Prologue has become an
+intake form, which is exactly what it must not become.
+
+A workable card for the "known for" question:
+
+> **Q:** People who have worked with you before you'd say knew you well. Ask one of
+> them what you are known for. What would they say?
+> **header:** Known for
+
+Build the four options from anything she has already mentioned about her practice,
+her training, or her collaborators; if nothing is available yet, use the specific and
+plausible tier from `references/cards.md` rather than generic labels.
+
+**Write the result.** Once gathered, write the profile to `~/.claude/soulstice/profile.md`
+and say so out loud. Every card in every layer from here on should be built from this
+file first, before the specific and plausible tier. It is the strongest material the
+instrument has, because it is hers.
+
+**Ground skips the Prologue entirely.** Someone arriving in collapse, in the state
+Ground exists for, will not answer a questionnaire, and being asked to answer one is
+itself harmful at that moment: it demands composure from someone who has none to
+spend. Ground gathers whatever context it needs incidentally, inside the work of
+stabilising her, never as a separate interview up front.
 
 ---
 
@@ -442,7 +486,74 @@ example from the last month, with four options that are all specific occasions.
 
 ---
 
-### 10. Stakes
+### 10. Resource
+
+**After:** what she actually has to make with. Every layer so far has asked what
+matters. None of them has asked what is available, which is how an instrument like
+this produces a direction there is no way to walk. Resource inventories time, money,
+skill, access, equipment and space, and health, as fact rather than aspiration.
+
+**Opening card.** Time first, and designed so overstating it is hard. Do not ask for
+a general capacity; ask about one week that already happened.
+
+> **Q:** Take last week, the one that actually happened rather than the one you
+> planned. After the job, after everyone else's needs, after the admin, how many hours
+> were left over for making anything?
+> **header:** Real hours
+
+- Two hours, taken in fragments too small to start anything in
+- Five to seven hours, usually one weekend stretch and one weekday evening
+- Ten to twelve hours, most of it blocked out and defended in advance
+- I counted afterward, and the number was smaller than what I would have guessed
+  before the week started
+
+The fourth option is not an escape hatch, it is the honest finding this card is
+built to surface: most people's estimate and their counted total do not match, and
+naming that gap is more useful than any single number.
+
+**Follow-up cards**
+
+- The audit card, beat two on whichever hours she picked: "Of those hours, how many
+  were actually making, and how many were preparing to make, admin, or looking at
+  other people's work?" Four ratios as options, none of them flattering.
+- The money card: what can you lose without consequence? Four framings at different
+  scales: a weekend's freelance fee if a project produces nothing · a residency
+  deposit if it falls through · nothing, every euro is already spoken for before it
+  arrives · more than I would say out loud, because nobody checks.
+- The skill card: what can you actually execute today without learning anything new,
+  against what you would have to learn first? Options in her real toolchain, naming
+  specific techniques rather than categories.
+- The access card: who already answers your messages? Four named categories: a
+  specific collaborator by name if she has named one · one gallery or venue · nobody,
+  currently · I have not tested this in over a year, so I do not actually know.
+- The equipment and space card: what you can put your hands on this week. Options
+  should be concrete: a fixed studio · a shared or borrowed space for a few days a
+  month · a desk in a room used for other things · nothing beyond what fits in a bag.
+- **The health and energy card.** State the constraint as fact, not moral failing.
+  "What caps how much you can actually do in a week, physically?" Four options, at
+  least one of them a named condition or pattern rather than a euphemism, and one
+  option that names chronic underestimation of recovery time as the constraint itself.
+
+**Real answer:** an hours figure that has survived the audit card rather than the
+first guess, a real number for what money is actually at risk, an honest split
+between what she can execute now and what she would need to learn, a named or
+explicitly unnamed access route, and a health or energy limit stated plainly rather
+than apologised for.
+
+**Failure mode:** aspirational answers throughout: the hours she wishes she had, the
+skill she is "basically" fluent in, the access she "could probably get" if she wrote
+the email. Catch it by asking for the specific last instance, a real week, a real
+message that got answered or did not, rather than a general capacity.
+
+**Move on when:** a weekly hours number exists that has been tested against a real
+week, and the gap between what her directions from Arc II and Arc III require and
+what this layer just produced is named out loud. **Do not close that gap here.** It
+is the finding this layer exists to produce, and resolving it belongs later, at
+Compass time, if at all.
+
+---
+
+### 11. Stakes
 
 **After:** finitude as a clarifier.
 
@@ -491,9 +602,9 @@ Whatever comes back goes into the Compass verbatim, at the top.
 
 ## Origin of the sequence
 
-The ten layers are a rearrangement of an eight-item framework from a psycho-esoteric
+Layers 1 to 8 are a rearrangement of an eight-item framework from a psycho-esoteric
 teaching: work with fears, awareness of child-parent programmes, ego-programmes,
 male and female programmes, semantic fields, poisons of consciousness, injections and
-egregores, transition from mind to consciousness. Layers 9 and 10 are additions;
-the three-arc order is a redesign. **This vocabulary never appears in session.** It is
+egregores, transition from mind to consciousness. The Prologue and layers 9, 10 and 11
+are additions; the three-arc order is a redesign. **This vocabulary never appears in session.** It is
 recorded here only so the structure is auditable.

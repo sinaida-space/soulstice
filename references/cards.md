@@ -145,7 +145,7 @@ Devices that stop a card being answered on autopilot:
 
 Use it when the answers stack rather than compete: recurring elements in layer 5,
 inherited rules in layer 2, the poisons in layer 7. Do not use it in layer 1 or
-layer 10, where the point is to force one choice.
+layer 11, where the point is to force one choice.
 
 A multiSelect card where she picks everything is a failed card. Prevent it by making
 the options mutually costly.
