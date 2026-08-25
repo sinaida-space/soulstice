@@ -14,25 +14,54 @@ attacks whatever you picked: what is inaccurate in it, what it leaves out, what 
 harder version is. Picking is easy and produces nothing; the correction is where the
 real sentence appears, and it appears in your own words because you typed it.
 
-## Ten layers, three arcs
+## A Prologue and eleven layers, three arcs
 
+**Prologue.** Who you are, before any layer starts.
 **What is not yours.** Fear · Inheritance · Role · Voices
 **What is yours.** Field · Standing · Poisons
-**Where you make from.** Contact · Epoch · Stakes
+**Where you make from.** Contact · Epoch · Resource · Stakes
 
 Arc I subtracts: inherited taste, gendered expectation, borrowed wants that arrived
 from a feed and got mistaken for desire. Arc II finds what survived the subtraction:
 the vocabulary that keeps returning across years, including in the work you dismissed.
 Arc III locates the position you actually make from, including your relation to the
-present moment.
+present moment and what you actually have to make with: time, money, skill, access,
+equipment, health.
 
-## Three modes
+## Five modes
 
 | Mode | What it does | Ends in |
 |---|---|---|
-| **Passage** | The full walk through all ten layers, over one or several sittings | A written **Compass**: your own words organised, contradictions left standing, three directions, a stop list, one testable assumption |
+| **Passage** | The full walk through the Prologue and all eleven layers, over one or several sittings | A written **Compass**: your own words organised, contradictions left standing, three directions, a stop list, one testable assumption |
 | **Journal** | One layer per sitting, accumulated over time | A running journal with a drift review every fifth entry |
-| **Lens** | One existing or planned work run through all ten layers as diagnostics | A verdict paragraph and the questions the work has not answered |
+| **Lens** | One existing or planned work run through the layers as diagnostics | A verdict paragraph and the questions the work has not answered |
+| **Ground** | The collapse path, for the moment the verdict is “I am shit, nobody needs this” | Three concrete projects rather than insight |
+| **Return** | Reopens an existing Compass and checks it against what actually happened | Revised directions, appended to the same file |
+
+Soulstice never scopes a direction into a project itself. When a Passage, Lens or
+Ground session produces one worth building, it hands that direction to the sibling
+skill [for-tee-too](https://github.com/sinaida-space/for-tee-too), which turns a
+direction into something scoped and buildable.
+
+## Ground
+
+Ground is the mode for the moment the verdict is already in: “I am shit, nobody needs
+this, where do I go now.” It is chosen from the mode menu, and it is also entered
+automatically from any other mode the instant collapse surfaces, with the switch
+always said out loud, never silent.
+
+It never runs Arc I. Arc I subtracts, and subtracting from someone already in
+collapse does harm rather than clarity. Instead it gathers evidence against the
+verdict she arrived with, lands on one action for today, and ends in three concrete
+projects rather than in insight, because insight is not what collapse needs. Scoping
+one of the three is, again, a job for
+[for-tee-too](https://github.com/sinaida-space/for-tee-too). Soulstice stops one step
+short of that.
+
+Its safety floor is narrow, and stated here plainly: despair, worthlessness and
+hopelessness are exactly what this mode holds and works with. The only hard stop is a
+direct indication of intent to self-harm. That is the one point where the instrument
+stops and says plainly that this is past what it can hold.
 
 ## Labels are the door
 
@@ -88,6 +117,14 @@ The epoch layer runs on Agamben's contemporary who does not coincide with their 
 Williams’ structure of feeling, Bourdieu on position in a field, and Terry Smith on
 contemporaneity. It is the layer that fails most often, and `references/epoch.md`
 exists mostly to name the ways.
+
+A wider set of positions on finding oneself sits behind the epoch and standing layers,
+each one converted into a card. Like the clinical and coaching apparatus listed above,
+no philosopher's name is ever spoken in session: the position appears as a card, not
+as attribution. The unpacking method has also grown a full cognitive-therapy toolkit
+beyond the downward arrow: a thought record, a catalogue of distortions that is never
+named to the user, behavioural experiments, self-compassion used as an instrumental
+move rather than a comfort, and guided discovery.
 
 ## Language
 

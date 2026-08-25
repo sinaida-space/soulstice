@@ -1,11 +1,13 @@
 # Output templates
 
-All three modes write to `~/.claude/soulstice/`. Create the directory if it does not
+All five modes write to `~/.claude/soulstice/`. Create the directory if it does not
 exist. Write in the session language. Run the `typography` skill over the finished file
 before saving.
 
 **Rules for every output:**
 
+- The Prologue's profile lives at `~/.claude/soulstice/profile.md`. It is updated,
+  never rewritten, at the end of any mode that learned something new about her.
 - Quote the user. Their sentences go in verbatim, including the awkward ones. Your job
   is arrangement, not translation.
 - **Prefer their "Other" text over their picks.** A picked option is your sentence,
@@ -132,3 +134,74 @@ particular work and skip the rest.
 Output: a verdict paragraph naming what the work is actually doing, whether that
 matches what they said it was for, and the two or three questions it has not answered.
 Be direct. This mode is short and its value is bluntness.
+
+---
+
+## Ground
+
+Always written, always short. Write it to `~/.claude/soulstice/ground-YYYY-MM-DD.md`
+and say the filename, which is the exit gate for the mode in `references/crisis.md`. Keep
+it to one screen: a long document is the wrong output for someone in collapse, and the
+reason to write it at all is that tomorrow she will not remember what the evidence
+showed.
+
+```markdown
+# Ground: <date>
+
+## The verdict she arrived with
+<quoted, exactly as said>
+
+## What the evidence actually showed
+<the counter-evidence gathered in the session, hers, not yours>
+
+## One action, today
+<the single action, with its trigger: "on <trigger>, I <action>">
+
+## Three projects
+
+### 1. <name>
+- What it is:
+- Why this one, given what she said:
+- Smallest version that counts as finished:
+- How it scales up if it works:
+
+### 2. <name>
+- What it is:
+- Why this one, given what she said:
+- Smallest version that counts as finished:
+- How it scales up if it works:
+
+### 3. <name>
+- What it is:
+- Why this one, given what she said:
+- Smallest version that counts as finished:
+- How it scales up if it works:
+```
+
+Then, once: point to **for-tee-too** to scope whichever of the three she picks. One
+pointer, nothing more. This file is short by design and stays that way.
+
+---
+
+## Return
+
+Appended to the Compass file being reopened, under a new dated heading. Do not create
+a new file and do not rewrite the original Compass above this heading.
+
+```markdown
+---
+
+## Return: <date>
+
+### What happened to each direction
+<direction one, direction two, direction three, each with what actually happened to it>
+
+### What happened to the one test
+<did she run it, what it showed>
+
+### What has drifted
+<named plainly, no softening>
+
+### Revised directions
+<the directions rebuilt from the answers above>
+```
