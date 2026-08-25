@@ -1,6 +1,6 @@
 ---
 name: soulstice
-description: A guided self-inquiry instrument for artists: why you make what you make, which of it is actually yours, and where to go next. Runs a Prologue plus eleven-layer inquiry (fear, inheritance, role, borrowed voices, your own vocabulary, standing, the poisons, contact, epoch, resource, stakes) using coaching and neuropsychology methods, delivered as choice cards with concrete, uncomfortable options rather than open questions into the void. Five modes: a full passage ending in a written Compass, a recurring journal practice, a lens for diagnosing one specific work, a ground mode for the moment of collapse (feeling worthless about the work, wondering why you bother, believing nobody needs what you make, not knowing where to go next), and a return mode that checks an old Compass against what actually happened. Use when the user asks who they are as an artist, what their work is really about, why they are stuck or repeating themselves, what to make next and why, how to find their own voice or meaning, whether a project is really theirs, or invokes /soulstice.
+description: A guided self-inquiry instrument for artists: why you make what you make, which of it is actually yours, and where to go next. Runs a Prologue plus eleven-layer inquiry (fear, inheritance, role, borrowed voices, your own vocabulary, standing, the poisons, contact, epoch, resource, stakes) using coaching and neuropsychology methods, delivered as choice cards with concrete, uncomfortable options rather than open questions into the void. Six modes: a full passage ending in a written Compass and offering an artist statement as its finale, a recurring journal practice, a lens for diagnosing one specific work, a ground mode for the moment of collapse (feeling worthless about the work, wondering why you bother, believing nobody needs what you make, not knowing where to go next), a return mode that checks an old Compass against what actually happened, and a statement mode that assembles an artist statement from nothing but what she has already said. Use when the user asks who they are as an artist, what their work is really about, why they are stuck or repeating themselves, what to make next and why, how to find their own voice or meaning, whether a project is really theirs, needs an artist statement, does not know how to describe her own work, has to write about her practice for an application or a website, or invokes /soulstice.
 ---
 
 # Soulstice
@@ -89,6 +89,12 @@ to meet, and it works by refusing to answer the question.
     `~/.claude/soulstice/profile.md` and from what she has already said in this
     session, never from a generic template. Check that profile file at the start of
     every mode except Ground.
+12. **In Statement, the card rule is deliberately relaxed.** Cards are still used to
+    excavate material, but no phrase from a card option ever reaches the statement
+    itself, because an option is written by the model and a statement assembled from
+    model-written options would not be hers. Every section ends in an open-text
+    question, and only what she writes there becomes draft text. See
+    `references/statement.md` for the exact boundary.
 
 ## Modes
 
@@ -96,7 +102,8 @@ At the very start, offer five (`AskUserQuestion` is appropriate here):
 
 - **Passage**: the full walk. Prologue plus eleven layers, one sitting or several,
   ending in a written **Compass** document. Two to four hours of real thinking.
-  Default recommendation for a first run.
+  Default recommendation for a first run. It now closes by offering the **Statement**
+  mode as its finale, built from the Compass just written.
 - **Journal**: one layer per sitting, accumulated over time in a running file. Use
   when they have already done a passage, or want this as an ongoing practice.
 - **Lens**: take one existing or planned work and run it through the layers as
@@ -109,6 +116,11 @@ At the very start, offer five (`AskUserQuestion` is appropriate here):
   Read the most recent `~/.claude/soulstice/compass-*.md`, ask what happened to each
   of its three directions and to its one test, note what has drifted, and rebuild the
   directions from the answer.
+- **Statement**: assemble an artist statement in three lengths, entered two ways: as
+  its own mode from the menu, standalone, or automatically as the finale of a Passage,
+  where it builds from the Compass just written and runs much shorter. See
+  `references/statement.md` for the five-section structure, the draft-and-edit loop,
+  and the rule that nothing in it may be invented.
 
 If they have run Soulstice before, check `~/.claude/soulstice/` for prior files and
 open with what changed since.
@@ -176,6 +188,10 @@ Read `references/outputs.md` for templates.
 - **Return** → appended under a dated heading to the Compass file being reopened: what
   happened to each direction, what happened to the one test, what has drifted, and the
   revised directions.
+- **Statement** → write `~/.claude/soulstice/statement-YYYY-MM-DD.md`: three lengths
+  of the same statement, a provenance appendix tying each sentence to something she
+  said, and a gaps section naming any part left unwritten for want of material. See
+  `references/statement.md`.
 
 Then offer, once, without pressure: hand a direction to **for-tee-too** to turn it
 into a scoped project.
@@ -197,4 +213,9 @@ into a scoped project.
   narrow safety floor, and the evidence-then-action-then-projects method
 - `references/philosophy.md`: the hidden philosophical layer behind epoch and
   standing, and the routing table from what she says to the position that answers it
-- `references/outputs.md`: Compass, Journal, Lens, Ground and Return templates
+- `references/statement.md`: the artist statement mode: five sections, entry paths,
+  the nothing-is-invented rule, the draft-and-edit loop, and the three output lengths
+- `references/design-system.md`: how to detect or elicit her visual design system,
+  record it, and use it for the statement's Form section and for typesetting its PDF
+- `references/outputs.md`: Compass, Journal, Lens, Ground, Return and Statement
+  templates, plus the design-system record pointer

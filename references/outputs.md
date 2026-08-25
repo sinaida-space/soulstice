@@ -19,6 +19,9 @@ before saving.
   did not name it, it goes in the open-questions section as a question.
 - Leave contradictions standing and labelled. A tidy document is a failed one.
 - No praise, no summary of how well the session went, no next-steps enthusiasm.
+- **In the Statement output, "quote the user" is absolute, not preferred.** Every
+  sentence in the statement must trace to something she said. A sentence that cannot
+  be traced is removed before the file is written, not softened, not kept as a maybe.
 
 ---
 
@@ -205,3 +208,46 @@ a new file and do not rewrite the original Compass above this heading.
 ### Revised directions
 <the directions rebuilt from the answers above>
 ```
+
+---
+
+## Statement
+
+File: `~/.claude/soulstice/statement-YYYY-MM-DD.md`. See `references/statement.md`
+for how the five sections are drafted and edited; this is the file shape only.
+
+```markdown
+# Statement: <date>
+
+## Bio line (about 50 words)
+<the shortest version>
+
+## Open call (about 150 words)
+<the mid version, for applications with a character limit>
+
+## Website (about 400 words)
+<the long version>
+
+## Provenance
+<each claim in the three versions above, mapped to the session line it came from.
+Quote her, with a rough pointer to when she said it. This appendix stays in the file
+and is stripped from any version she actually sends out.>
+
+## Gaps
+<any of the five sections, or any claim within one, that was left unwritten for want
+of material, named plainly rather than filled in>
+```
+
+A PDF is also produced, typeset in her own design system where one is on record at
+`~/.claude/soulstice/design-system.md`, through the `sinaida-grid-style` skill when it
+is available. See `references/design-system.md`.
+
+---
+
+## Design system
+
+The full record lives at `~/.claude/soulstice/design-system.md`, written and
+maintained by `references/design-system.md`, which holds the elicitation method and
+the complete template. This file only says where it lands: it is a pointer, read by
+the Statement mode when typesetting the PDF and updated by the design-system skill
+whenever a decision changes.
