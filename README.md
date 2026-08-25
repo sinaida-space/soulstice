@@ -5,8 +5,15 @@
 A guided self-inquiry instrument for artists, packaged as a Claude Code skill.
 
 It does not generate ideas, write statements, or plan projects. It asks questions, one
-at a time, mostly open, answered in your own words, about why you make what you
-make, how much of it is actually yours, and where the material wants to go next.
+card at a time, about why you make what you make, how much of it is actually yours,
+and where the material wants to go next.
+
+Every question arrives as a choice card with three or four concrete answers, each one
+a full sentence somebody could actually say about their own life. Categories like
+“fear of failure” are banned from the options. Then the second card attacks whatever
+you picked: what is inaccurate in it, what it leaves out, what the harder version is.
+Picking is easy and produces nothing; the correction is where the real sentence
+appears, and it appears in your own words because you typed it.
 
 ## Ten layers, three arcs
 
@@ -27,6 +34,18 @@ present moment.
 | **Passage** | The full walk through all ten layers, over one or several sittings | A written **Compass**: your own words organised, contradictions left standing, three directions, a stop list, one testable assumption |
 | **Journal** | One layer per sitting, accumulated over time | A running journal with a drift review every fifth entry |
 | **Lens** | One existing or planned work run through all ten layers as diagnostics | A verdict paragraph and the questions the work has not answered |
+
+## Why cards
+
+Producing a self-description from nothing is a hard generative task performed under
+evaluation, and it returns the answer you have given before. Judging whether a
+specific proposed sentence is true of you is a comparison against actual memory, and
+it returns a verdict with a reason attached. So the options are often deliberately
+near-misses: four wrong sentences get a better answer out of someone than one open
+question does.
+
+Two places keep open text, because no card can substitute: listing everything you have
+made in five years, and the closing question, which is “what did you not say?”
 
 ## Method
 

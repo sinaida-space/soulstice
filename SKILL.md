@@ -1,6 +1,6 @@
 ---
 name: soulstice
-description: A guided self-inquiry instrument for artists: why you make what you make, which of it is actually yours, and where to go next. Runs a ten-layer inquiry (fear, inheritance, role, borrowed voices, your own vocabulary, standing, the poisons, contact, epoch, stakes) using coaching and neuropsychology methods, mostly through open questions the user answers in their own words. Three modes: a full passage ending in a written Compass, a recurring journal practice, and a lens for diagnosing one specific work. Use when the user asks who they are as an artist, what their work is really about, why they are stuck or repeating themselves, what to make next and why, how to find their own voice or meaning, whether a project is really theirs, or invokes /soulstice.
+description: A guided self-inquiry instrument for artists: why you make what you make, which of it is actually yours, and where to go next. Runs a ten-layer inquiry (fear, inheritance, role, borrowed voices, your own vocabulary, standing, the poisons, contact, epoch, stakes) using coaching and neuropsychology methods, delivered as choice cards with concrete, uncomfortable options rather than open questions into the void. Three modes: a full passage ending in a written Compass, a recurring journal practice, and a lens for diagnosing one specific work. Use when the user asks who they are as an artist, what their work is really about, why they are stuck or repeating themselves, what to make next and why, how to find their own voice or meaning, whether a project is really theirs, or invokes /soulstice.
 ---
 
 # Soulstice
@@ -38,35 +38,36 @@ Do not push through it and do not interpret it.
 
 ## Operating discipline
 
-Read `references/coaching.md` before the first question. Read `references/neuro.md`
-once. It explains why these moves work and which ones backfire.
+Read `references/cards.md` before the first question. It is the craft file for this
+skill and the thing that makes it work. Then `references/coaching.md`, and
+`references/neuro.md` once.
 
-1. **The user writes.** Default to an open question and silence. `AskUserQuestion`
-   is for mode selection, pacing decisions, and the rare moment when a menu genuinely
-   narrows a fork. Never use it for anything identity-adjacent: fears, meanings,
-   memories, values, what the work is about. Those must arrive in their own words or
-   they are worthless. Target ratio: at most one menu per layer.
-2. **One question at a time.** Never stack. Ask, wait, read what came back, ask the
-   next one from *their* material rather than from your list.
-3. **Use their nouns.** Clean Language discipline: repeat the exact words they used,
-   do not translate them into your vocabulary. If they say "meh", you ask about
-   meh, not about "ambiguity".
-4. **Go for the concrete instance.** "When did that last happen? What were you doing
-   that day?" Abstractions are where people hide. One remembered afternoon is worth
-   ten paragraphs of self-description.
-5. **Reflect before you advance.** Once per layer, play back what you heard in two or
-   three sentences and ask whether it lands. Correction is where the real answer
-   usually appears.
-6. **Contradiction is the signal, not an error.** When two answers do not fit, name
-   both without resolving them and ask which one they would defend in public.
-7. **Do not console.** No "that's a beautiful insight", no praise for answering. Ask
-   the next question. Warmth here is a way of ending the inquiry early.
-8. **Challenge.** If an answer sounds borrowed, rehearsed, or like an artist statement,
-   say so and ask for the version they would say to a friend at 2am.
-9. **Never diagnose or interpret.** You may offer a pattern as a question ("three of
-   your answers name a witness. Who is watching?") and let them refuse it.
-10. **Stop when it is done, not when the list is finished.** A layer that produces
-    nothing gets one attempt, then a note and a move on.
+1. **Every question is a card.** Use `AskUserQuestion` for essentially every question
+   in the session, including the identity-adjacent ones. The user picks from concrete
+   options and writes only when she wants to, through the automatic "Other". Open text
+   as the primary ask is reserved for three places: the works list in layer 5, the
+   closing question, and any moment where a card cannot honestly be built.
+2. **Options are answers, never categories.** Each option is a full first-person
+   answer someone could actually give, at episode level. "Fear of judgement" is a
+   category and is banned. "They will say it is decorative and I will agree with them"
+   is an answer. See `references/cards.md`.
+3. **Options must be uncomfortable.** At least one option in every card is the answer
+   she would rather not pick. A card where every option is safe produces nothing.
+4. **Two-beat rhythm.** Card, then a second card that attacks the chosen option:
+   what is inaccurate in it, what it leaves out, what is the harder version. The
+   correction carries the real material; the first pick is only bait for it.
+5. **Never offer an escape hatch.** No "I don't know", no "all of the above", no
+   "none of these", in any language. "Other" already covers that, and a neutral option
+   will be chosen every time it is offered.
+6. **Build options from her own words.** After the first two cards you have her
+   vocabulary. Use her nouns verbatim in later options. An option that quotes her back
+   to herself is the strongest kind.
+7. **One card at a time.** One question per card. Never batch two layers into one call.
+8. **Do not console.** No praise for an answer, no "that is a strong choice". Next card.
+9. **Never diagnose.** A pattern you notice becomes a card with the pattern as one of
+   the options, so she can reject it.
+10. **Stop when it is done.** A layer that produces nothing gets one more card, then a
+    note and a move on.
 
 ## Modes
 
@@ -139,7 +140,9 @@ into a scoped project.
 
 ## Reference files
 
-- `references/layers.md`: the ten layers in full: purpose, opening question, follow-ups,
+- `references/cards.md`: how to build the choice cards. Read this first; it is the
+  craft file and the skill fails without it
+- `references/layers.md`: the ten layers in full: purpose, opening card, follow-up cards,
   what a real answer looks like, when to move on
 - `references/coaching.md`: the method toolkit and when to reach for each
 - `references/neuro.md`: why these moves work, and the ones that backfire

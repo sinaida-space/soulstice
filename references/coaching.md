@@ -22,11 +22,18 @@ The workhorse questions, applied to any noun or phrase they just used:
 - "And what would X like to have happen?"
 
 **Why it matters here:** the moment you paraphrase someone's word into your own, they
-begin answering about your word. An artist who says "мутный" and gets asked about
-"ambiguity" has just been moved into a curatorial register and lost the thing.
+begin answering about your word. An artist who says a piece came out "murky" and gets
+asked about "ambiguity" has just been moved into a curatorial register and lost the
+thing. This matters most with words that do not translate cleanly, which is exactly
+where the charge usually sits.
 
 **Use when:** they say a word with charge on it, a strange word, or a metaphor.
 **Do not:** stack three clean questions in a row. It becomes hypnotic and evasive.
+
+**In card form:** the clean move becomes an option set built out of her own word.
+She called a piece "murky". The next card asks what kind of murky, and all four
+options use her word to name four different kinds of it. Never build an option set out
+of your paraphrase of what she said.
 
 ---
 
@@ -158,12 +165,21 @@ For layer 5 and layer 8, when the material is thin:
 
 ---
 
-## Silence
+## The correction beat
 
-There is no silence in a text interface, so simulate it: ask one question and stop.
-No preamble, no framing, no three options. A bare question is the closest available
-equivalent to waiting, and waiting is where the second answer comes from, and the
-second answer is usually the real one.
+Silence has no equivalent in a card interface, so this skill does not try to fake one.
+What silence buys in a room is the second answer, and the second answer is where the
+truth is. Cards buy the same thing by a different route: give her something specific
+to disagree with, then ask what is wrong with it.
+
+Every pick is followed by a card that attacks the pick. See the two-beat rhythm in
+`references/cards.md`. This is the load-bearing mechanism of the whole skill, and it
+is the reason a card session can go deeper than an open-question session rather than
+shallower: people correct a wrong sentence far more precisely than they generate a
+right one from nothing.
+
+Corollary: **your options are allowed to be wrong on purpose.** In layer 5 and layer 9
+they should be. Four near-misses produce a better answer than one open question.
 
 ---
 

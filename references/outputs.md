@@ -8,6 +8,11 @@ before saving.
 
 - Quote the user. Their sentences go in verbatim, including the awkward ones. Your job
   is arrangement, not translation.
+- **Prefer their "Other" text over their picks.** A picked option is your sentence,
+  not theirs. Anything they typed themselves outranks anything they selected, and the
+  Compass should be built mostly out of the typed corrections. If a section can only
+  be filled with picked options, say so in the section: "this one you only picked,
+  never said".
 - Never add an insight they did not reach. If a pattern seems obvious to you and they
   did not name it, it goes in the open-questions section as a question.
 - Leave contradictions standing and labelled. A tidy document is a failed one.
@@ -101,8 +106,10 @@ Write the drift review into the journal as a dated entry of its own.
 
 For one specific work. No file needed unless they ask; deliver in the conversation.
 
-Run abbreviated versions of the layers as diagnostics, one question each, skipping any
-that do not apply:
+Run abbreviated versions of the layers as cards, one card each, skipping any that do
+not apply. Options are built from the work itself: its actual materials, its actual
+audience, its actual reason for existing. The questions below are the stems; you write
+four concrete options for each one out of what she has told you about the piece.
 
 1. Fear: what is the safe version of this piece, and are you making it?
 2. Inheritance: whose approval is built into this?
@@ -114,6 +121,9 @@ that do not apply:
 8. Contact: have you touched the material yet, or only the plan?
 9. Epoch: what does it know that only now could know?
 10. Stakes: if this is one of your last twenty pieces, does it earn the slot?
+
+Ten cards is a lot for a short mode. Pick the five that bite hardest for this
+particular work and skip the rest.
 
 Output: a verdict paragraph naming what the work is actually doing, whether that
 matches what they said it was for, and the two or three questions it has not answered.

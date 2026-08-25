@@ -1,15 +1,16 @@
 # The ten layers
 
-Each layer has: **what it is after**, **the way in**, **follow-ups**, **what a real
-answer looks like**, **failure mode**, **when to move on**.
+Each layer has: **what it is after**, **the opening card**, **follow-up cards**,
+**what a real answer looks like**, **failure mode**, **when to move on**.
 
-Questions here are written in English. Translate them into the session language, and
-translate them into the user's own vocabulary rather than delivering them verbatim.
-The question bank is raw material for you. Do not read it out as a script.
+**Everything here is delivered as `AskUserQuestion` cards.** Read `references/cards.md`
+first. The option sets below are worked examples in English, written for an artist
+working with projection, light and moving bodies. **Do not ship them as they are.**
+Rebuild every option set in the session language, out of what this particular person
+has already told you. An option that could be shown to any artist is a wasted option.
 
-Rough budget for a full passage: 4-8 exchanges per layer in Arc I and II, 6-10 in
-Arc III. If a layer is running past twelve exchanges, you are circling; name what you
-have, and move.
+Budget per layer: 4 to 6 cards, alternating beat one and beat two. If you are past
+eight cards in one layer you are circling. Name what you have and move.
 
 ---
 
@@ -25,27 +26,41 @@ it. Do not offer reassurance during this arc. It is supposed to feel like losing
 
 **After:** the work that is not being made, and the function of not making it.
 
-**Way in:** "Name a work you have wanted to make for a while and have not made. Not the
-one you are too busy for. The one you keep finding reasons about."
+**Opening card.** Do not ask what she is afraid of. Put her in a room where it has
+already gone wrong, and make every option a social consequence with a person in it.
 
-**Follow-ups**
-- What would have to be true about you for that work to be possible?
-- Imagine it finished and shown, and it goes badly. Describe the specific bad thing:
-  who says what, in what room.
-- Now imagine it goes well. Is there anything unpleasant in that picture?
-- What does not making it protect?
-- Whose face is in the room when you imagine showing it?
-- Is there a kind of work you make instead? What does the substitute do for you?
+> **Q:** A studio, a dancer working, your projection running live, and it is going
+> badly. What exactly is going badly?
+> **header:** Failure
 
-**Real answer:** names a concrete unmade piece and a specific humiliation or loss,
-usually involving a named or nameable person. Often the "good outcome" turns out to be
-frightening too, and that is the useful finding, follow it.
+- The choreographer politely says they will try it without the projection
+- The dancer cannot find a way to move with it
+- Everything works and nobody is moved by it
+- They invite you back and you cannot do it a second time
 
-**Failure mode:** "fear of failure", "impostor syndrome", "perfectionism". These are
-labels standing in for content. Push: "what specifically fails, in front of whom".
+Note the load-bearing design: no option lets the image itself be the subject. "It is
+an artistic effect" is not available. The failure is social every time.
 
-**Move on when:** they have named at least one unmade work and one thing the avoidance
-buys them.
+**Follow-up cards**
+
+- Beat two on whichever she picked: whose voice is saying it? Options: a specific
+  choreographer she has worked with · one she has not dared write to · someone from
+  her training saying it about something else · herself, a week before the show.
+- The unmade work: name a piece you keep finding reasons about. Options built from
+  her actual project list if you have it, otherwise by scale and risk.
+- Inversion card: it goes well. What is unpleasant in that picture? Options: you have
+  to repeat it · you become the projection person · you owe everyone an encore · the
+  people who ignored you now want in.
+- What does not making it buy you? Options: you stay someone with potential · you
+  never find out the ceiling · you keep the day job justified · nobody can steal it.
+
+**Real answer:** a named or nameable person and a specific humiliation. The
+best outcome is when the "it goes well" card lands harder than the failure card.
+
+**Failure mode:** she treats the scenario as aesthetic rather than social. If the
+picture cannot fail, the card was built wrong. Rebuild with people, not images.
+
+**Move on when:** one unmade work is named and one thing the avoidance buys her.
 
 ---
 
@@ -53,158 +68,206 @@ buys them.
 
 **After:** aesthetic and moral defaults installed before there was a choice.
 
-**Way in:** "Before you had any taste of your own, what was considered good in your
-house? And what was considered pretentious, or a waste of time?"
+**Opening card.** Aim at the house, not at the biography.
 
-**Follow-ups**
-- What kind of work did the adults around you respect? What did they mock?
-- What was the rule about money and art in your family, spoken or not?
-- Your first teacher who mattered: what did they praise you for? Are you still
-  collecting that praise?
-- Which of your current standards did you never actually choose?
-- Name something you dislike in art. Where did that dislike come from?
-- Is there anything you like that you would be embarrassed to admit liking here?
+> **Q:** Before you had any taste of your own, what counted as good in your house?
+> **header:** Дом
 
-**Real answer:** concrete and slightly petty. A sentence someone actually said. The
-embarrassing-liking question is the most productive one in this layer; do not skip it.
+- Something useful. Art was fine as long as it was also a profession
+- Something difficult. Effort was the proof of value
+- Something respectable. What other people would recognise as culture
+- Nothing in particular. Nobody discussed it and that was its own instruction
 
-**Failure mode:** turning into a family history. You are not after the biography, only
-the transmitted rules. Redirect to "and what rule did that leave you with".
+**Follow-up cards**
 
-**Move on when:** they can state two or three inherited rules in one sentence each, and
-have at least one they want to keep and one they want to drop.
+- What was mocked? Options: pretension · idleness · anything decorative · anything
+  that needed explaining.
+- The money rule, as a sentence someone actually said. Four candidate sentences.
+- **The embarrassing-liking card.** The most productive one in this layer, do not
+  skip it. "What do you like that you would not admit here?" with four genuinely
+  embarrassing options and a description that makes each specific.
+- Multi-select: which of these standards did you never actually choose? Built from
+  her answers to the previous three cards, quoted back.
+
+**Real answer:** concrete and slightly petty. A sentence someone said. The embarrassing
+liking is the one to keep for the Compass.
+
+**Failure mode:** it turns into family history. Cut back with a card that asks only
+"and what rule did that leave you with", four rules as options.
+
+**Move on when:** two or three inherited rules are stated, at least one to keep and
+one to drop.
 
 ---
 
 ### 3. Role
 
-**After:** expectations attached to their category: gender, age, nationality, class,
+**After:** expectations attached to her category. Gender, age, nationality, class,
 migration status, being self-taught, being technical, being decorative.
 
-**Way in:** "What kind of artist are you expected to be by people who do not know your
-work? What does the category promise about you?"
+**Opening card.**
 
-**Follow-ups**
-- What are you supposed to be good at because of who you are? What does that make
-  invisible?
-- Is there a scale of ambition that feels immodest to say out loud? Say it.
-- What do you soften before you send it?
-- Where do you underclaim: say "just", "a bit", "I only", and why there?
-- Whose permission are you waiting for, and is that person aware of it?
-- If your work were signed with a different name and body, what would change in how
-  it is read? What would you make differently?
+> **Q:** People who have not seen your work already expect a certain kind of artist.
+> What does the category promise about you?
+> **header:** Роль
 
-**Real answer:** contains a specific softening move they recognise in their own emails,
-captions or statements. Ask for an example sentence.
+- Decorative. Pretty, atmospheric, safe for a lobby
+- Technical support. Someone who runs the equipment for a real artist
+- Emerging. Permanently promising, never yet arrived
+- Foreign. Interesting because of where you came from, read through that first
 
-**Failure mode:** a general essay about sexism or the art world. True but inert. Bring
-it back to one sentence they wrote and then edited.
+**Follow-up cards**
 
-**Move on when:** at least one underclaim and one immodest ambition are on the table.
+- The softening card: what do you cut before you send it? Options should be actual
+  edit moves: dropping the price, adding "just", offering to do it for free the
+  first time, calling it an experiment.
+- The immodest ambition card. Four ambitions, escalating, the largest one last, all
+  four stated in first person without hedging. Whichever she picks, beat two asks who
+  would laugh.
+- The different-name card: if the same work were signed by someone else, what changes?
+  Options: read as technical rather than pretty · taken as a position rather than a
+  mood · priced higher · nothing changes and that is worse.
+
+**Real answer:** a specific softening she recognises from her own emails or captions.
+Ask for the sentence.
+
+**Failure mode:** a general essay about sexism in the art world. True and inert.
+Return with a card about one sentence she wrote and then edited.
+
+**Move on when:** one underclaim and one immodest ambition are on the table.
 
 ---
 
 ### 4. Voices
 
 **After:** wants that arrived from outside and are being experienced as personal desire.
-The market, the algorithm, the open-call circuit, a scene, a rival, a trend, a curator's
-taste, a platform's format.
 
-**Way in:** "List the last five things you decided to make or apply to. For each one,
-where did the impulse come from? Be honest about the ones that came from a feed."
+**Opening card.** Aim at recent decisions, not at attitudes.
 
-**Follow-ups**
-- Which decision would you not have made if nobody could see the result for ten years?
-- Whose approval, specifically, do you check for after posting?
-- What format do you make in because it fits a platform, not because it fits the idea?
-- Is there a current in your field you are riding? What happens to your work when it
-  passes?
-- Which artist do you check on most often? What does checking do to you afterwards?
-- Name one thing you believe about art that you have never verified against your own
-  experience.
+> **Q:** Your last few decisions about what to make or apply to. Where did the
+> impulse actually come from? Pick the one you are least comfortable admitting.
+> **header:** Импульс
 
-**Real answer:** at least one project they can now see was made for the feed, an
-open call, or a rivalry. Expect resistance. Do not argue; ask the ten-year question again.
+- I saw something in a feed and wanted to be able to do that
+- An open call had a deadline and a theme and I fitted myself to it
+- Someone specific was doing well and I wanted to be in that conversation
+- It came from the work itself and nothing outside it
 
-**Failure mode:** blanket cynicism about the art world, which is itself a borrowed voice.
-Note it and move to layer 7, where it belongs.
+The fourth option exists so the card is not a trap. If she picks it, beat two asks
+for the date and what she was doing that week.
 
-**Move on when:** they can separate their last five impulses into "mine" and "arrived",
-even roughly.
+**Follow-up cards**
+
+- **The ten-year card.** The strongest question in the layer. "Which of these would
+  you still make if nobody could see the result for ten years?" multiSelect, options
+  are her own recent projects. Whatever she does not tick is the finding.
+- Whose approval do you check for after posting? Four named categories of person,
+  one of which should be a single specific individual if she has named one.
+- Which artist do you check on most often, and what does checking do? Options: makes
+  me work · makes me stop for two days · makes me change what I was making · I do not
+  check anyone, which is its own answer.
+- Format card: what do you make in because a platform wants it? Options in her media.
+
+**Real answer:** at least one project she can now see was made for a feed, a call or
+a rivalry. Expect resistance. Do not argue, ask the ten-year card again with
+different options.
+
+**Failure mode:** blanket cynicism about the art world, which is itself a borrowed
+voice. Note it and move it to layer 7.
+
+**Move on when:** her recent impulses are sorted into hers and arrived, even roughly.
 
 ---
 
 ### Arc I break
 
-Play back three lines. Ask: "Which of these three would you argue with?" Then offer to
-continue or stop. If they continue, say once that Arc II is where the material comes back.
+A card here, never a paragraph. Play back three findings as the three options and ask:
+"Which of these would you argue with?" Then a second card: continue now, break and
+come back, or stop here with what we have.
 
 ---
 
 ## Arc II: what is yours
 
-Arc I removed; Arc II finds what survived removal. The tone shifts: here you may be
-attentive and specific, though still not congratulatory.
+Arc I removed. Arc II finds what survived. Tone shifts to attentive and specific,
+still not congratulatory.
 
 ---
 
 ### 5. Field
 
-**After:** the actual recurring vocabulary. This is the most important layer in the
-instrument and deserves the most time.
+**After:** the actual recurring vocabulary. The most important layer in the instrument.
 
-**Way in:** "List every piece you have made in the last five years, including the failed
-and the abandoned and the commercial. Just titles or descriptions, no judgement."
+**Open text, and it is one of the three exceptions.** Ask her to list everything she
+has made in the last five years, including the failed, the abandoned and the paid.
+Titles or one-line descriptions, no judgement. No card can substitute for this list.
 
-Then work the list rather than asking new abstract questions.
+**Everything after it is cards built from her list.** This is where the skill gets
+its power: from here on, options are her own work, quoted.
 
-**Follow-ups**
-- What repeats across these? Materials, colours, scale, speed, subject, the kind of
-  attention they ask for.
-- Which three would you still defend in ten years? What do those three share?
-- Which was the most fun to make? Which was the most frightening?
-- Is there something that keeps appearing that you find slightly embarrassing?
-- What do you photograph or save when you are not working?
-- What did you make as a child, before there was an audience?
-- If someone stole one of your obsessions, which one would actually hurt?
-- Formulate the question your work keeps asking. Then throw that formulation away and
-  write a worse, more specific one.
+**Follow-up cards**
 
-**Real answer:** three to seven recurring elements, at least one of which surprises them,
-and a badly-phrased but genuine question. The badly-phrased version is usually the true
-one. Keep it in the Compass verbatim.
+- multiSelect: what repeats across these? Options are the actual recurrences you can
+  see in her list, named concretely: a material, a scale, a speed, a kind of light,
+  a relation to a body. Include one you are unsure about.
+- Which three would you still defend in ten years? multiSelect over her own titles.
+- Which of these was the most frightening to make? Single select over her titles.
+  Beat two: frightening how? Technically, or because of what it said?
+- The embarrassing recurrence card: "Something in this list keeps coming back and you
+  find it slightly embarrassing." Four candidates from her own list.
+- The theft card: "Someone takes one of your obsessions and does it better. Which one
+  would actually hurt?" Options are the recurrences she ticked earlier.
+- **The question card.** "Your work keeps asking one question. Which of these is
+  closest?" Four badly-phrased, specific, non-curatorial formulations built from her
+  list. All four should be slightly wrong. She will pick one and correct it in
+  "Other", and the correction is the line that goes into the Compass verbatim.
 
-**Failure mode:** a curator-ready statement ("I explore the intersection of technology
-and the body"). Refuse it politely and ask for the version with a specific noun in it.
+**Real answer:** three to seven recurring elements, at least one surprising, and a
+badly-phrased genuine question that arrived as a correction to your options.
 
-**Move on when:** the recurring vocabulary is written down and one obsession has been
-identified as non-negotiable.
+**Failure mode:** curator-ready phrasing. Prevent it structurally: never put a
+well-formed statement among the options. If all four options sound like wall text,
+she will pick one and the layer is lost.
+
+**Move on when:** the vocabulary is written down and one obsession is marked
+non-negotiable.
 
 ---
 
 ### 6. Standing
 
-**After:** the portion of the work that exists to produce a certain image of its maker,
-and an honest verdict on whether that is fuel or corrosion.
+**After:** the portion of the work that exists to produce an image of its maker, and
+an honest verdict on whether that is fuel or corrosion.
 
-**Way in:** "When someone sees your work, what do you want them to conclude about you?
-Answer the vain version first, then the true one."
+**Opening card.** Ask for the vain answer directly. Permission removes the performance.
 
-**Follow-ups**
-- What would you like to be introduced as at a party?
-- What do you want to be envied for?
-- If your work were shown anonymously and loved, what would be missing for you?
-- If it were shown with your name and ignored, what would that take from you?
-- Which is worse: being called derivative, or being called minor?
-- Is there work you would make if reputation were already secured?
+> **Q:** Someone sees your work and concludes something about you. What do you want
+> them to conclude? Take the vain version.
+> **header:** Признание
 
-**Real answer:** honest vanity. Reputation motives are ordinary and often productive;
-the goal is visibility, not renunciation. Say so if they start apologising.
+- That I can do things other people cannot do technically
+- That I see something other people do not see
+- That I am serious, and the pretty surface was a test
+- That I am ahead, and they are looking at what comes next
 
-**Failure mode:** performed humility. If they claim not to care about recognition, ask
-the anonymous-showing question twice.
+**Follow-up cards**
 
-**Move on when:** they can say what they want to be known for and whether that matches
+- The anonymous card: shown without your name and loved. What is missing? Options
+  should make the loss concrete: nobody knows to invite me · I cannot use it · it
+  would not exist for the person I want to see it · nothing, which would surprise me.
+- The named-and-ignored card: shown with your name and ignored. What does that take?
+- The forced ranking card: "Which is worse, being called derivative or being called
+  minor?" Two options only. This one is deliberately cruel and produces a lot.
+- What would you make if reputation were already secured? Four options, one of which
+  is "the same thing", so the answer can be that reputation is not the constraint.
+
+**Real answer:** honest vanity. Reputation motives are ordinary and often productive.
+If she starts apologising, say plainly that this is fuel and move on.
+
+**Failure mode:** performed humility. Run the anonymous card twice with different
+options.
+
+**Move on when:** she can say what she wants to be known for and whether it matches
 layer 5.
 
 ---
@@ -212,35 +275,46 @@ layer 5.
 ### 7. Poisons
 
 **After:** the specific distortions that comparison, envy, resentment, cynicism and
-despair put on their judgement about their own work.
+despair put on her judgement of her own work.
 
-**Way in:** "Name the artist whose success is hardest for you to look at. Not the one
-you admire. The one that stings."
+**Opening card.**
 
-**Follow-ups**
-- What exactly do they have? Attention, freedom, money, skill, a scene, ease?
-- Envy points at wanting. What is yours pointing at?
-- What have you stopped attempting because someone else does it better?
-- Where does contempt show up in how you talk about your field? What does the contempt
-  save you from trying?
-- Is there a grudge doing structural work in your practice?
-- What do you tell yourself when the work is not going anywhere? Is that sentence true?
+> **Q:** Somebody's success is hard to look at. Not the one you admire, the one that
+> stings. What exactly do they have?
+> **header:** Яды
 
-**Real answer:** a named person or scene, and the recognition that the envy is a
-compass needle pointing at an unclaimed want. Convert every envy into a want before
-leaving this layer.
+- Ease. It looks like it costs them nothing
+- Access. The right people already know them
+- Permission. They make the obvious thing and nobody calls it obvious
+- Time. They are not doing three other jobs
 
-**Failure mode:** confession and self-flagellation. Interrupt it. This layer is
-extraction, not penance.
+**Follow-up cards**
 
-**Move on when:** each named poison has been converted into a stated want or a stated
-avoidance.
+- **The conversion card.** Envy is a wanting signal with poor aim. "If that is what
+  they have, what is it pointing at in you?" Four wants, stated in first person,
+  built from her pick. Every named poison must be converted into a stated want before
+  the layer ends.
+- The abandonment card: what have you stopped attempting because someone does it
+  better? Options from her medium.
+- The contempt card: where does contempt show up in how you talk about your field?
+  Options: about curators · about people who cannot code · about work that is only
+  beautiful · about artists who are good at self-promotion. Beat two: what does that
+  contempt save you from trying?
+- The sentence card: "What do you tell yourself when the work is going nowhere?"
+  Four candidate sentences, all plausible, none flattering. Beat two: is it true?
+
+**Real answer:** every poison converted into a want or an avoidance.
+
+**Failure mode:** confession and self-flagellation. Interrupt it with the conversion
+card. This layer is extraction, not penance.
+
+**Move on when:** each named poison has a want attached.
 
 ---
 
 ### Arc II break
 
-Play back what survived. Ask: "Anything in here you now think is false?"
+One card: which of these findings do you now think is false? Options are the findings.
 
 ---
 
@@ -250,29 +324,40 @@ Play back what survived. Ask: "Anything in here you now think is false?"
 
 ### 8. Contact
 
-**After:** the actual conditions and bodily state under which good work happens, as
-opposed to the conditions they believe they need.
+**After:** the actual conditions and bodily state under which good work happens.
 
-**Way in:** "Describe the last time making something went well. Not the result. The
-hours. Where were you, what time, what was in the room, what had you done that day?"
+**Opening card.** Anchor to one remembered session, not to a routine.
 
-**Follow-ups**
-- What was your body doing? Where do you feel it when the work is right?
-- How do you know a piece is wrong? What is the physical signal, before the argument?
-- What state do you have to be in before you can start? How do you get there?
-- What reliably destroys it?
-- How much of your practice is thinking about work rather than in contact with material?
-- What would happen if you started before you knew what you were making?
-- When did you last make something with no plan for where it would go?
+> **Q:** The last time making something went well. What was actually true about
+> those hours?
+> **header:** Контакт
 
-**Real answer:** a concrete somatic marker and at least one condition they had not
-noticed was necessary. This layer produces the most immediately actionable material;
-keep it.
+- Night, alone, no deadline, nobody knew I was working
+- Deadline pressure, and it was the pressure that cleared the noise
+- With other people in the room, responding to something happening live
+- I do not remember the hours, only the result, and that is worth noticing
 
-**Failure mode:** productivity talk: routines, tools, apps. Redirect to the body and
-to one specific remembered session.
+**Follow-up cards**
 
-**Move on when:** they can name their signal for "right" and their signal for "wrong".
+- **The signal card.** "How do you know a piece is wrong, before you can argue why?"
+  Options are somatic and specific: something goes tight in the chest · I start
+  tidying the file · I want to show it to someone immediately · I add one more layer.
+  This is the most portable finding in the whole instrument. Keep it.
+- The right-signal card, same shape. Where in the body, what changes.
+- The destroyer card: what reliably kills the state? Four options, one of which is
+  a person.
+- The ratio card: "How much of your practice is thinking about work rather than
+  touching material?" Four honest ratios as options.
+- The no-plan card: when did you last start before you knew what you were making?
+  Options by recency, including "I do not work that way", which is a real answer.
+
+**Real answer:** a somatic marker for wrong and one for right, plus one condition she
+had not noticed was necessary.
+
+**Failure mode:** productivity talk. If the options drift toward tools and apps,
+rebuild them around the body and one remembered afternoon.
+
+**Move on when:** both signals are named.
 
 ---
 
@@ -280,61 +365,90 @@ to one specific remembered session.
 
 **After:** making from inside this time rather than about it or against it. This layer
 has its own method and its own failure modes. **Read `references/epoch.md` before
-running it.**
+running it.** It is the hardest layer to card correctly.
 
-**Way in:** "What is it possible to feel now that was not possible to feel twenty
-years ago? Do not answer with a technology. Answer with a feeling."
+**Opening card.** The options must be feelings. If any option names a technology, the
+card is broken.
 
-**Follow-ups**
-- What does everyone around you know without being told, that would need an hour of
-  explanation to someone from 1995?
-- What is your generation ashamed of? What is it numb to?
-- Name something your time makes easy that should be hard, and something it makes
-  hard that should be easy.
-- What is being lost right now that nobody is documenting?
-- Where do you refuse to be contemporary? What are you deliberately out of step with?
-- Your tools are of this moment. What do they want you to make? What happens if you
-  refuse that?
+> **Q:** Something is possible to feel now that was not possible to feel twenty years
+> ago. Which is closest?
+> **header:** Эпоха
 
-**Real answer:** one felt quality of the present stated without nostalgia or panic,
-plus one refusal. Both matter. Agamben's contemporary belongs to their time precisely
-by not coinciding with it.
+- Being continuously slightly observed, including by yourself
+- Grief for places and people you have never lost contact with
+- Knowing everything about a catastrophe and being able to do nothing
+- Suspecting that anything you make already exists somewhere
 
-**Failure mode:** a think-piece about AI, attention or late capitalism. Everyone can
-produce this and none of it is theirs. If it happens, go back to the feeling question
-and require a first-person example from the last month.
+All four should be slightly wrong so that the correction in "Other" is hers. Say so
+in the question stem if it helps: "none of these will be exact, pick the nearest".
 
-**Move on when:** they have one felt quality and one refusal, both in their own words.
+**Follow-up cards**
+
+- The numbness card: what is your generation numb to? Four options, none of them
+  about technology.
+- The easy-and-hard card: "Name something this time makes easy that ought to be hard."
+  Four options, then beat two for the inverse.
+- The undocumented card: what is being lost right now that nobody is recording?
+- **The refusal card.** The layer's main instrument, per Agamben. "Where are you
+  deliberately out of step? What do you refuse to be current about?" Options should
+  be specific refusals with a cost, not poses. Beat two: what does that refusal
+  protect? If the answer is "nothing, it is a position I like having", it is a costume
+  and the layer is not done.
+- The tools card: your tools have preferences. What do they want you to make? Options
+  in her actual toolchain. Beat two: what happens if you make what they resist?
+
+**Real answer:** one felt quality of the present and one refusal with a stated cost,
+both arriving as corrections rather than as picks.
+
+**Failure mode:** the think-piece. Structurally prevented here, because a card cannot
+be answered with an essay. The residual risk is that she picks a plausible option and
+means nothing by it. Beat two is mandatory in this layer: ask for a first-person
+example from the last month, with four options that are all specific occasions.
+
+**Move on when:** one felt quality and one refusal, both in her own words.
 
 ---
 
 ### 10. Stakes
 
-**After:** finitude as a clarifier. What the work has to have done by the end.
+**After:** finitude as a clarifier.
 
-**Way in:** "You have twenty more working years. Say what has to exist by the end of
-them. Then cut the list in half."
+**Opening card.** Single select. Do not allow multiSelect here; the cut is the point.
 
-**Follow-ups**
-- Five years, same question.
-- What do you want to have been in the room for?
-- What would you regret not attempting more than you would regret attempting badly?
-- Who is this for? Name a real person who needs this to exist.
-- If your practice ended tomorrow, what would be unfinished in a way that matters?
-- What are you willing to be worse at in order to be better at this?
+> **Q:** Twenty more working years. One of these has to exist by the end of them.
+> Which one, if you can only have one?
+> **header:** Ставки
 
-**Real answer:** a short list that contradicts how their time is currently spent. Name
-that contradiction plainly and do not resolve it for them.
+Options are built from the three directions that emerged in Arcs II and III, stated
+as things that would exist, plus one that is deliberately larger than she has claimed.
 
-**Failure mode:** legacy grandiosity. Bring it back with "name a real person".
+**Follow-up cards**
 
-**Move on when:** there is a halved list and a named trade-off.
+- Five years, same shape, options scaled down.
+- The regret card: "What would you regret not attempting more than you would regret
+  attempting badly?" Four attempts.
+- **The real person card.** "Name a real person who needs this to exist." Options:
+  a specific collaborator · a stranger in an audience · a version of yourself at
+  nineteen · nobody, and that is the honest answer. If she picks the last one, do not
+  fix it. Put it in the Compass.
+- The trade card: "What are you willing to be worse at in order to be better at this?"
+  Four costs, all real: money, output, a technique she is proud of, a relationship
+  to a scene.
+
+**Real answer:** a short list that contradicts how her time is currently spent. Name
+that contradiction plainly and do not resolve it for her.
+
+**Failure mode:** legacy grandiosity. The real-person card is the antidote; run it
+immediately if the answers inflate.
+
+**Move on when:** there is a cut list and a named trade-off.
 
 ---
 
 ## Closing move
 
-Before writing the Compass, ask one final open question and do not comment on the answer:
+**Open text. The second of the three exceptions, and the more important one.** No card.
+Ask once, and do not comment on the answer:
 
 > "What did you not say in this session?"
 
