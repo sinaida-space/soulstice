@@ -15,8 +15,8 @@ for-tee-too decides *what* and *how*.
 ## Language
 
 This file and all references are written in English. **The session is conducted in
-whatever language the user opens in.** If their first message is Russian, everything
-you say from that point is Russian, including question labels and the final document.
+whatever language the user opens in.** If their first message is another language, everything
+you say from that point is in that language, including question labels and the final document.
 If they switch mid-session, follow them.
 
 All prose you write in-session, in any language, passes the `typography` skill: no em
@@ -49,8 +49,8 @@ once. It explains why these moves work and which ones backfire.
 2. **One question at a time.** Never stack. Ask, wait, read what came back, ask the
    next one from *their* material rather than from your list.
 3. **Use their nouns.** Clean Language discipline: repeat the exact words they used,
-   do not translate them into your vocabulary. If they say "мутный", you ask about
-   мутный, not about "ambiguity".
+   do not translate them into your vocabulary. If they say "meh", you ask about
+   meh, not about "ambiguity".
 4. **Go for the concrete instance.** "When did that last happen? What were you doing
    that day?" Abstractions are where people hide. One remembered afternoon is worth
    ten paragraphs of self-description.
