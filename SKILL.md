@@ -39,7 +39,8 @@ Do not push through it and do not interpret it.
 ## Operating discipline
 
 Read `references/cards.md` before the first question. It is the craft file for this
-skill and the thing that makes it work. Then `references/coaching.md`, and
+skill and the thing that makes it work. Then `references/unpacking.md`, which is how
+you open any answer that arrives as a label. Then `references/coaching.md`, and
 `references/neuro.md` once.
 
 1. **Every question is a card.** Use `AskUserQuestion` for essentially every question
@@ -144,6 +145,8 @@ into a scoped project.
   craft file and the skill fails without it
 - `references/layers.md`: the ten layers in full: purpose, opening card, follow-up cards,
   what a real answer looks like, when to move on
+- `references/unpacking.md`: how to open a valid but global answer ("fear of failure")
+  into something testable. The downward arrow, threat appraisal, fear-setting
 - `references/coaching.md`: the method toolkit and when to reach for each
 - `references/neuro.md`: why these moves work, and the ones that backfire
 - `references/epoch.md`: making from inside your own time

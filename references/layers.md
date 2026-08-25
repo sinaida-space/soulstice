@@ -24,10 +24,19 @@ it. Do not offer reassurance during this arc. It is supposed to feel like losing
 
 ### 1. Fear
 
-**After:** the work that is not being made, and the function of not making it.
+**After:** the work that is not being made, and what the avoidance is protecting.
 
-**Opening card.** Do not ask what she is afraid of. Put her in a room where it has
-already gone wrong, and make every option a social consequence with a person in it.
+**Method:** this layer runs the unpacking ladder. **Read `references/unpacking.md`
+before starting it.** The sequence is: locate the feared event, walk the downward
+arrow down to the belief underneath it, appraise the threat honestly, then convert
+the belief into one dateable test. Six cards, sometimes seven.
+
+If she names a label at any point ("fear of failure", "impostor syndrome"), that is a
+correct answer and the start of the ladder. Do not push back on it. Ask what it would
+mean if it happened.
+
+**Card 1: locate the event.** Do not ask what she fears. Put her in a room where it
+has already gone wrong, and make every option a social consequence with a person in it.
 
 > **Q:** A studio, a dancer working, your projection running live, and it is going
 > badly. What exactly is going badly?
@@ -38,29 +47,53 @@ already gone wrong, and make every option a social consequence with a person in 
 - Everything works and nobody is moved by it
 - They invite you back and you cannot do it a second time
 
-Note the load-bearing design: no option lets the image itself be the subject. "It is
-an artistic effect" is not available. The failure is social every time.
+Note the load-bearing design: no option lets the image itself be the subject, so "it
+is an artistic effect" is not available as an answer. The failure is social every time.
 
-**Follow-up cards**
+**Card 2: whose voice.** Options: a specific choreographer she has worked with · one
+she has not dared write to · someone from her training saying it about something else
+· herself, a week before the show. The last one is load-bearing.
 
-- Beat two on whichever she picked: whose voice is saying it? Options: a specific
-  choreographer she has worked with · one she has not dared write to · someone from
-  her training saying it about something else · herself, a week before the show.
-- The unmade work: name a piece you keep finding reasons about. Options built from
-  her actual project list if you have it, otherwise by scale and risk.
-- Inversion card: it goes well. What is unpleasant in that picture? Options: you have
-  to repeat it · you become the projection person · you owe everyone an encore · the
-  people who ignored you now want in.
-- What does not making it buy you? Options: you stay someone with potential · you
-  never find out the ceiling · you keep the day job justified · nobody can steal it.
+**Cards 3 and 4: the downward arrow.** "Suppose that happened. What would it mean?"
+Four candidate meanings per card, escalating from the practical to the identity-level,
+built from her answer to the card before. Two rungs is the minimum, four is the
+maximum. Stop when the answer becomes a statement about who she is rather than about
+what happens.
 
-**Real answer:** a named or nameable person and a specific humiliation. The
-best outcome is when the "it goes well" card lands harder than the failure card.
+The rung you are looking for reads like: *that the last three years were a hobby I
+called a career*, or *that I am a technician who was allowed to call herself an artist
+for a while*. Keep it verbatim. It goes in the Compass.
 
-**Failure mode:** she treats the scenario as aesthetic rather than social. If the
-picture cannot fail, the card was built wrong. Rebuild with people, not images.
+**Card 5: appraisal.** Take the specific feared event and price it. One card, four
+options, on whichever of the three is most inflated:
 
-**Move on when:** one unmade work is named and one thing the avoidance buys her.
+- probability, as frequencies rather than percentages
+- cost, in months, money, and who stops answering
+- coping, four things she would actually do the next morning, one of which she has
+  already survived once
+
+**Card 6: the inversion.** It goes well. What is unpleasant in that picture? Options:
+you have to repeat it · you become the projection person · you owe everyone an encore
+· the people who ignored you now want in.
+
+This card is often the most productive one in the layer. When the good outcome lands
+harder than the bad one, the fear was never about failing.
+
+**Card 7, if time: what does not making it buy you?** Options: you stay someone with
+potential · you never find out where the ceiling is · the day job stays justified ·
+nobody can take it from you. This is the Kegan and Lahey hidden commitment, asked
+without the vocabulary.
+
+**Real answer:** a named or nameable person, a specific consequence, and one belief at
+identity level that arrived through the arrow rather than being offered by you.
+
+**Failure mode:** she treats the scenario as aesthetic rather than social, and every
+outcome reads as an intentional effect. If the picture cannot fail, the card was built
+wrong. Rebuild with people in a room, not with images on a wall.
+
+**Move on when:** one unmade work is named, one identity-level belief is written down,
+and one thing the avoidance buys her is on the table. The test against that belief is
+designed later, at Compass time.
 
 ---
 
@@ -71,7 +104,7 @@ picture cannot fail, the card was built wrong. Rebuild with people, not images.
 **Opening card.** Aim at the house, not at the biography.
 
 > **Q:** Before you had any taste of your own, what counted as good in your house?
-> **header:** Дом
+> **header:** House
 
 - Something useful. Art was fine as long as it was also a profession
 - Something difficult. Effort was the proof of value
@@ -109,7 +142,7 @@ migration status, being self-taught, being technical, being decorative.
 
 > **Q:** People who have not seen your work already expect a certain kind of artist.
 > What does the category promise about you?
-> **header:** Роль
+> **header:** Role
 
 - Decorative. Pretty, atmospheric, safe for a lobby
 - Technical support. Someone who runs the equipment for a real artist
@@ -146,7 +179,7 @@ Return with a card about one sentence she wrote and then edited.
 
 > **Q:** Your last few decisions about what to make or apply to. Where did the
 > impulse actually come from? Pick the one you are least comfortable admitting.
-> **header:** Импульс
+> **header:** Impulse
 
 - I saw something in a feed and wanted to be able to do that
 - An open call had a deadline and a theme and I fitted myself to it
@@ -243,7 +276,7 @@ an honest verdict on whether that is fuel or corrosion.
 
 > **Q:** Someone sees your work and concludes something about you. What do you want
 > them to conclude? Take the vain version.
-> **header:** Признание
+> **header:** Standing
 
 - That I can do things other people cannot do technically
 - That I see something other people do not see
@@ -281,7 +314,7 @@ despair put on her judgement of her own work.
 
 > **Q:** Somebody's success is hard to look at. Not the one you admire, the one that
 > stings. What exactly do they have?
-> **header:** Яды
+> **header:** Poisons
 
 - Ease. It looks like it costs them nothing
 - Access. The right people already know them
@@ -330,7 +363,7 @@ One card: which of these findings do you now think is false? Options are the fin
 
 > **Q:** The last time making something went well. What was actually true about
 > those hours?
-> **header:** Контакт
+> **header:** Contact
 
 - Night, alone, no deadline, nobody knew I was working
 - Deadline pressure, and it was the pressure that cleared the noise
@@ -372,7 +405,7 @@ card is broken.
 
 > **Q:** Something is possible to feel now that was not possible to feel twenty years
 > ago. Which is closest?
-> **header:** Эпоха
+> **header:** Epoch
 
 - Being continuously slightly observed, including by yourself
 - Grief for places and people you have never lost contact with
@@ -417,7 +450,7 @@ example from the last month, with four options that are all specific occasions.
 
 > **Q:** Twenty more working years. One of these has to exist by the end of them.
 > Which one, if you can only have one?
-> **header:** Ставки
+> **header:** Stakes
 
 Options are built from the three directions that emerged in Arcs II and III, stated
 as things that would exist, plus one that is deliberately larger than she has claimed.
