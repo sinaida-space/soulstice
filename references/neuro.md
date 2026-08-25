@@ -32,6 +32,32 @@ self-model. It works for coherence, and accuracy is incidental to it.
 
 ---
 
+## Recognition is cheap, correction is not
+
+Recognising a fitting description is far easier than generating one. That is the
+risk this skill runs by using choice cards everywhere: someone can pick four plausible
+options in a row and never once say anything of her own.
+
+It is also the opportunity. Producing a self-description from nothing is a hard
+generative task performed under evaluation, and it returns the cached narrative.
+Judging whether a specific proposed sentence is true of you is a comparison against
+actual episodic memory, and it returns a verdict with a reason attached.
+
+**Consequences:**
+
+- The card is not the question. The card is the stimulus; the question is "what is
+  wrong with this". Never let a pick stand unattacked.
+- Options that are all slightly wrong outperform options that include the right
+  answer. A near-miss forces her to locate the difference, and the difference is the
+  material. Build layer 5 and layer 9 this way deliberately.
+- A card whose options are generic returns nothing, because a generic option matches
+  everyone and therefore produces no comparison against memory. This is the whole
+  reason `references/cards.md` bans category options.
+- Watch for autopilot: three fast picks with no "Other" text and no hesitation means
+  the options are too comfortable. Raise the cost of the next card.
+
+---
+
 ## Naming a feeling reduces its grip
 
 Affect labelling, putting a specific word to an emotional state, is associated with
@@ -46,7 +72,9 @@ itself.
 - Precision matters more than intensity. "Fear of being seen as decorative by people
   whose technical opinion I respect" does more than "fear of judgement".
 - Do not label *for* them. A label you supply does not produce the effect and does
-  produce compliance.
+  produce compliance. A card option is a supplied label, so the labelling has to
+  happen in the correction beat: she picks the near-miss, then says in her own words
+  what it actually is. That sentence is the one that does the work.
 
 ---
 
@@ -109,7 +137,11 @@ instrument is trying to avoid.
 
 **Consequences:**
 
-- One question at a time. Stacked questions get one answer, always the easiest one.
+- One question per card. Never batch two questions into one card, and never fire two
+  cards before reading the first answer.
+- Cards reduce load compared to open questions, which is why this skill can run ten
+  layers where an open-question version would exhaust someone by layer 6. Spend the
+  saved capacity on the correction beats, not on more layers.
 - The arc breaks are load management, not ceremony. Take them.
 - A long passage is better across three sittings than one. Say this out loud when
   offering the mode.
