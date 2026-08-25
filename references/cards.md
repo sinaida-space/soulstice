@@ -13,7 +13,7 @@ is the fastest way into someone's actual material that a text interface allows.
 
 ```
 question:    one sentence, second person, no preamble
-header:      ≤12 characters, a noun, in the session language
+header:      12 characters or fewer, a noun, in the session language
 options:     3 or 4, each an answer, each with a description that sharpens it
 multiSelect: true only when the answers genuinely coexist
 ```
@@ -22,25 +22,35 @@ The interface adds "Other" automatically. Never add your own version of it.
 
 ---
 
-## Options are answers
+## Options are answers, not labels
 
 The single rule that matters. An option is a sentence the user could say out loud
-about her own life. It is not a label for a class of sentences.
+about her own life. A label names a class of experiences and ends the conversation,
+because there is nothing left to be specific about.
 
-**Banned (categories):**
-- "Страх провала"
-- "Синдром самозванца"
-- "Влияние семьи"
-- "Коммерческое давление"
+**Labels, which make useless options:**
+- Fear of failure
+- Impostor syndrome
+- Family influence
+- Commercial pressure
 
-**Correct (answers):**
-- "Скажут, что это красиво и пусто, и я соглашусь"
-- "Никто ничего не скажет, просто не позовут второй раз"
-- "Позовут, и я не вывезу технически, и это увидят"
-- "Получится, и придётся делать это ещё раз, и ещё"
+**Answers, which make working options:**
+- They will say it is beautiful and empty, and I will agree with them
+- Nobody will say anything, they just will not call a second time
+- They will call, and I will not be able to deliver it technically, and it will show
+- It will work, and then I will have to do it again, and again
 
 The second set is usable. Someone reading it recognises herself in one line and knows
 immediately that the other three are wrong. That recognition is the data.
+
+**The labels are true.** Fear of failure is a real fear. What it cannot do is be
+tested, acted on, or written into a Compass, because it is not specific enough to be
+proved wrong about anything. So a label never appears as an option you offer, and it
+is entirely welcome when she types it herself into "Other". That is the front door.
+
+**When a label arrives, run the ladder.** See `references/unpacking.md`. Never treat
+a label as evasion, never sigh at it, never say "can you be more specific". Ask what
+it would mean if it happened, four times, one card per rung.
 
 ---
 
@@ -81,8 +91,8 @@ Never order them so the uncomfortable one is last by habit. Vary the position.
 The `description` field is not a gloss on the label. Use it to add the detail that
 makes the option cost something.
 
-    label:       "Позовут второй раз, и я не вывезу"
-    description: "Технический провал при свидетелях, которые разбираются лучше меня."
+    label:       "They will call again and I will not be able to deliver"
+    description: "A technical failure in front of witnesses who know the tools better."
 
 A description that only restates the label wastes the strongest part of the card.
 
@@ -97,11 +107,12 @@ A description that only restates the label wastes the strongest part of the card
 
 Beat-two question forms, rotate them:
 
-- "Что в этом ответе неточно?" with options that each name a different distortion
-- "Какая часть этого правда, а какая то, что положено отвечать?"
-- "Более резкая версия того же самого: какая?" with three escalations of her pick
-- "Если это правда, что из этого следует?" with three consequences
-- "Что этот ответ позволяет не говорить?"
+- "What is inaccurate in that answer?" with options naming different distortions
+- "Which part of that is true and which part is what one is supposed to say?"
+- "Suppose that happened. What would it mean?" with four candidate meanings. This is
+  the downward arrow, and it is the strongest beat two in the skill
+- "A sharper version of the same thing: which?" with three escalations of her pick
+- "What does that answer let you avoid saying?"
 
 Recognition is cheap; correction is not. Someone who picks an option and is then asked
 what is wrong with it will produce, in "Other", the sentence you could never have got
@@ -117,16 +128,16 @@ cards total.
 
 Devices that stop a card being answered on autopilot:
 
-- **Force a ranking.** "Что хуже?" with two bad options is harder than "что тебя
-  беспокоит" with four.
+- **Force a ranking.** "Which is worse?" with two bad options is harder than "what
+  concerns you" with four.
 - **Remove the comfortable exit.** If every option is an admission, she must admit
   something or write her own.
 - **Put a real name in it.** Once she has named an artist, a curator, a studio, use
   that name in later options.
-- **Make one option flattering and obviously false.** She will reject it and in
+- **Make one option flattering and obviously false.** She will reject it, and in
   rejecting it say what is true.
-- **Ask about the last time, not about generally.** "В последний раз, когда это было"
-  in the question stem, and each option is a different kind of last time.
+- **Ask about the last time, not about generally.** Put "the last time this happened"
+  in the stem, and make each option a different kind of last time.
 
 ---
 
@@ -145,10 +156,10 @@ the options mutually costly.
 
 Three places only:
 
-1. **Layer 5, the works list.** "Перечисли всё, что ты сделала за пять лет." No card
+1. **Layer 5, the works list.** "List everything you have made in five years." No card
    can substitute. Everything after it is cards built from her list.
-2. **The closing question.** "Что ты не сказала за эту сессию?" A card here would be
-   obscene.
+2. **The closing question.** "What did you not say in this session?" A card here would
+   be obscene.
 3. **When you cannot build honest options.** If you have no idea what four plausible
    answers look like, do not fake it with generic ones. Ask plainly and say why you
    are not offering options.
@@ -159,54 +170,63 @@ Everywhere else, if you are about to write a bare question, you have broken the 
 
 ## Language
 
-Cards are written in the session language. Headers too. Examples in this file are in
-Russian because that is the most likely session language for this skill's author; they
-demonstrate shape, and none of them should be shipped in any language.
+Cards are written in the session language, headers included. The examples in this file
+are English because the skill files are English. None of them ships as it stands, in
+any language.
 
-Russian headers must fit 12
-characters: «Страх», «Наследство» (10), «Роль», «Голоса», «Поле», «Яды», «Эпоха»,
-«Ставки», «Контакт», «Признание» (9).
+Headers must fit 12 characters. Check the length in the session language before
+sending, since a header that is short in English may not be short elsewhere.
 
-Option labels are 1 to 5 words where the interface allows, but this skill needs
-sentences more than it needs brevity. Put the sentence in the label and let it be
-long; put the sharpening detail in the description.
+Option labels are short where the interface allows, but this skill needs sentences
+more than it needs brevity. Put the sentence in the label and let it run long; put the
+sharpening detail in the description.
 
-Run the `typography` skill over every card before sending: «ёлочки», nbsp, no em dash,
-no "not A, but B".
+Run the `typography` skill over every card before sending: correct quotes for the
+language, non-breaking spaces, no em dash, no "not A, but B".
 
 ---
 
 ## Worked example
 
-Layer 1, for an artist who does interactive projection for dance.
+Layer 1, for an artist who makes interactive projection for dance.
 
-**Beat one**
+**Beat one.** Do not ask what she fears. Put her in the room after it has gone wrong.
 
-> question: Представь: студия, танцовщик работает, твоя проекция идёт живьём, и всё
-> идёт плохо. Что именно пошло плохо?
-> header: Провал
-
-| label | description |
-|---|---|
-| Хореограф вежливо говорит, что попробует без проекции | Работа оказалась украшением, которое можно снять. |
-| Танцовщик не понимает, как с этим взаимодействовать | Ты построила систему, в которую невозможно войти телом. |
-| Всё сработало, и это никого не тронуло | Технически безупречно и эмоционально пусто. |
-| Тебя зовут дальше, и ты не можешь это повторить | Успех, который нечем поддержать. |
-
-Note what this card does that the open version did not: it forecloses «это
-художественный эффект». No option lets the picture be the subject. The failure is
-social, and every option names a person in a room.
-
-**Beat two**, after she picks the first option:
-
-> question: «Попробую без проекции». Чей это голос? Кто это говорит?
-> header: Голос
+> **question:** A studio, a dancer working, your projection running live, and it is
+> going badly. What exactly is going badly?
+> **header:** Failure
 
 | label | description |
 |---|---|
-| Конкретный хореограф, с которым ты уже работала | Реальный человек, реальная студия. |
-| Хореограф, к которому ты ещё не решилась написать | Отказ, который ты проигрываешь заранее, чтобы не просить. |
-| Кто-то из твоего образования, кто говорил это про другое | Старая фраза, надетая на новую ситуацию. |
-| Ты сама, за неделю до показа | Ты снимаешь проекцию первой, чтобы никто не успел. |
+| The choreographer politely says they will try it without the projection | The work turns out to be decoration, and decoration can be removed. |
+| The dancer cannot find a way to move with it | You built a system there is no way to enter with a body. |
+| Everything works and nobody is moved | Technically flawless and emotionally empty. |
+| They invite you back and you cannot do it twice | Success with nothing behind it. |
 
-The last option is the load-bearing one. If she picks it, layer 1 is done in two cards.
+Note the load-bearing design: no option lets the image itself be the subject, so "it
+is an artistic effect" is not available as an answer. Every failure here is social and
+has a person in the room.
+
+**Beat two,** after she picks the first option:
+
+> **question:** "We will try it without the projection." Whose voice is that? Who says it?
+> **header:** Voice
+
+| label | description |
+|---|---|
+| A specific choreographer you have already worked with | A real person, a real studio, a real afternoon. |
+| One you have not dared write to | A refusal you rehearse in advance so you never have to ask. |
+| Someone from your training, saying it about something else | An old sentence fitted onto a new situation. |
+| You, a week before the show | You remove the projection first, so that nobody else gets to. |
+
+The last option is load-bearing. If she picks it, layer 1 is half done in two cards.
+
+**Beat three,** the downward arrow, if she picked one of the first three:
+
+> **question:** Suppose they do try it without your projection. What would that mean?
+> **header:** Meaning
+
+Four candidate meanings, escalating from the practical ("one job I do not get") to the
+identity-level ("I am a technician who was allowed to call herself an artist for a
+while"). Whichever she picks, ask the same question again about her answer. See
+`references/unpacking.md`.

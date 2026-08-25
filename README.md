@@ -9,11 +9,10 @@ card at a time, about why you make what you make, how much of it is actually you
 and where the material wants to go next.
 
 Every question arrives as a choice card with three or four concrete answers, each one
-a full sentence somebody could actually say about their own life. Categories like
-“fear of failure” are banned from the options. Then the second card attacks whatever
-you picked: what is inaccurate in it, what it leaves out, what the harder version is.
-Picking is easy and produces nothing; the correction is where the real sentence
-appears, and it appears in your own words because you typed it.
+a full sentence somebody could actually say about their own life. Then a second card
+attacks whatever you picked: what is inaccurate in it, what it leaves out, what the
+harder version is. Picking is easy and produces nothing; the correction is where the
+real sentence appears, and it appears in your own words because you typed it.
 
 ## Ten layers, three arcs
 
@@ -34,6 +33,21 @@ present moment.
 | **Passage** | The full walk through all ten layers, over one or several sittings | A written **Compass**: your own words organised, contradictions left standing, three directions, a stop list, one testable assumption |
 | **Journal** | One layer per sitting, accumulated over time | A running journal with a drift review every fifth entry |
 | **Lens** | One existing or planned work run through all ten layers as diagnostics | A verdict paragraph and the questions the work has not answered |
+
+## Labels are the door
+
+“Fear of failure” is a real fear and a correct answer. What it cannot do is be tested
+or acted on, because it is not specific enough to be proved wrong about anything. So
+the skill never offers a label as an option, and it never asks you to “be more
+specific” when you give one. It runs the downward arrow instead: suppose that
+happened, what would it mean? Four rungs, one card each, until the answer stops being
+about what happens and starts being about who you are. That last sentence is the one
+worth having.
+
+Then the fear gets priced (how likely, what it actually costs, what you would do the
+next morning), and the belief underneath it gets one small dateable test with a
+trigger attached, because an intention without a trigger does not survive the loss of
+motivation.
 
 ## Why cards
 
@@ -61,6 +75,8 @@ never named in session:
 - **ACT values work**: directions rather than goals, always with a cost attached
 - **Narrative externalising**: the block as a thing with habits, and the exceptions
   that disprove the story
+- **The downward arrow, threat appraisal and fear-setting**, out of cognitive therapy
+  and Stoic practice, for turning a global fear into one testable belief
 
 Grounded in what is known about how self-description works: autobiographical memory is
 reconstructive and preferentially returns material that fits the current self-model, so

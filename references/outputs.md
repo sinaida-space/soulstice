@@ -58,9 +58,13 @@ of going rather than a thing to deliver. Each one names which layers it comes ou
 <what to stop doing, from layers 4, 6 and 7. Concrete and small.>
 
 ## One test
-<a single small real-world test of one big assumption from layer 1, in the Kegan &
-Lahey sense. Something doable this month, that they would not do if the assumption
-were true.>
+<a single small real-world test of the identity-level belief the downward arrow
+reached in layer 1. Something doable this month that they would not do if the belief
+were true, small enough to be safe and real enough to be informative.
+
+Write it as an implementation intention, with a trigger: "on the first Monday after
+the render is done, I send it to one choreographer." An intention without a trigger
+does not survive the loss of motivation. See `references/unpacking.md`.>
 
 ## Open questions
 <what the session did not answer. Patterns you noticed and they did not confirm, put

@@ -128,6 +128,15 @@ Use sparingly; they are quick and can feel glib in this context.
 
 ---
 
+## The downward arrow
+
+Lives in `references/unpacking.md` with its own worked ladder, because it is the
+method for layer 1 and the answer to every label that arrives in "Other". In short:
+"suppose that happened, what would it mean?", four times, one card per rung. Never
+"why does that frighten you", which asks for a theory and gets one.
+
+---
+
 ## Concreteness ladder
 
 The single most reliable technique in this instrument. Any abstract answer gets pushed
@@ -140,6 +149,11 @@ were they actually wearing, what did they say, what did you do with your hands".
 
 Insight lives at the bottom two rungs. If a session feels intelligent but nothing is
 shifting, you are stuck at the top of the ladder.
+
+The concreteness ladder and the downward arrow move in opposite directions and are
+both needed. Concreteness goes outward, toward the episode: who, when, wearing what.
+The arrow goes inward, toward the belief: and what would that mean about you. Run
+concreteness first to get a real event, then the arrow on that event.
 
 ---
 
