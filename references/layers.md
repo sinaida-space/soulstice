@@ -10,7 +10,12 @@ Rebuild every option set in the session language, out of what this particular pe
 has already told you. An option that could be shown to any artist is a wasted option.
 
 Budget per layer: 4 to 6 cards, alternating beat one and beat two. If you are past
-eight cards in one layer you are circling. Name what you have and move.
+eight cards in one layer you are circling. Name what you have and move. Layers 4
+through 7 now carry more cards than that budget allows in one pass — treat the
+extra ones as a pool to choose from, not a sequence to run in full; pick whichever
+cluster fits what she has already given you and leave the rest for another session.
+Layers 4, 5, 6 and 7 have method notes in `references/voice.md`; delivery craft for
+all of them, and for every layer, is in `references/rapport.md`.
 
 ---
 
@@ -254,6 +259,108 @@ voice. Note it and move it to layer 7.
 
 **Move on when:** her recent impulses are sorted into hers and arrived, even roughly.
 
+**Two additional clusters live in this layer, added because the impulse-sorting
+above only subtracts — it never asks what she is genuinely, helplessly responsive
+to. Read `references/voice.md` before running either. Read `references/rapport.md`
+before running the resonance cluster: it depends on tone more than any other cards
+in the skill.**
+
+**The role-model gap.** Career Construction Interview method (Savickas). A gap left
+open between an admired figure and her own practice is a want still running on
+autopilot.
+
+> **Q:** Before you had a style, someone else's work made you think "that's what I
+> want to be able to do." Who, and what did they have that you didn't?
+> **header:** Model
+
+- A specific artist whose technical control I didn't have yet, and still measure
+  myself against
+- Someone whose confidence in a room I didn't have, more than their work itself
+- A person who was allowed to be difficult and still get shown, which I was not
+- Nobody specific — I built my sense of "good" from a scene, not a person
+
+Beat two, mirrored: "You said [her exact words]. Is that gap still open, or did you
+close it and keep chasing the person anyway?"
+
+- Closed, and I still check on them anyway
+- Open, and I have stopped pretending otherwise
+- Closed, and I hadn't noticed until this question
+- It was never about the gap — it's about being seen by that specific person
+
+**header:** Chasing
+
+**Resonance, cross-domain.** Cognitive interview method: context reinstatement and
+report-everything, run as retrieval mechanics rather than as an interview step. Not
+about her art at all to start. The aim is what she is demonstrably, physically
+responsive to — a validated marker (frisson: the involuntary chill, distinct from
+liking or judged quality) — before asking what any of it has to do with her practice.
+
+> **Q:** Not art with a capital A. A sound, a smell, weather, a stranger's voice,
+> music heard in the wrong place. What's actually given you chills — the literal
+> goosebumps kind — in the last year or two?
+> **header:** Chills
+> multiSelect: true
+
+- Music heard outdoors, at the wrong volume, in the wrong season
+- A very ordinary domestic sound — keys, cutlery, someone typing nearby — landing
+  at exactly the right moment
+- A voice, not what it said, just the register of it
+- Weather doing something dramatic while something mundane was happening near it
+
+Build the real options from anything she has already mentioned — a city, a medium,
+a season, a person — before falling back to these.
+
+**Beat two, context reinstatement.** Take whichever she picked, or the one that
+surprised her most if she ticked several.
+
+> **Q:** That one — where were you, actually? What time of day, who else was around,
+> what had just happened right before it?
+> **header:** Setting
+
+Four options built from plausible settings in her actual life: alone and not
+expecting it · in a crowd, unexpectedly private inside it · mid-conversation, so it
+interrupted something · during a task boring enough that nothing should have broken
+through.
+
+**The good-memory card.** Same retrieval logic, aimed at warmth rather than
+intensity, and it is where the layer's register has to hold: run flatly, this reads
+as small talk; run per `references/rapport.md`, it is evidence with the same weight
+as everything else here.
+
+> **Q:** A good memory — doesn't have to be about art at all. Something that still
+> feels warm to think about. What kind of thing is it?
+> **header:** Memory
+> multiSelect: true
+
+- A place, more than what happened in it
+- A person, and one specific thing they said or did
+- A physical sensation — exhausted, sunburned, cold water, out of breath
+- A piece of music or a smell that still does it every time
+
+**Beat two, open text, the fourth exception in this skill (see `references/cards.md`
+for the other three; this one is justified the same way layer 5's works list is —
+no card can substitute for the actual content).** "Say more about that one." Do not
+follow it with another card immediately. Let it sit.
+
+**The bridge card.** Connects resonance back to practice, options entirely her own
+words from the cards above.
+
+> **Q:** Of everything you just named, what comes closest to how you want your own
+> work to feel to someone else — even using completely different material?
+> **header:** Closest
+
+Options are her own answers from the resonance and memory cards, quoted verbatim,
+plus one that reads "none of them, and that gap is worth sitting with."
+
+**Real answer, for both new clusters:** at least one cross-domain resonance that
+surprised her by not being about art, and one connection she draws herself between
+that and her practice — not one you draw for her.
+
+**Failure mode:** she answers the chills card as a taste inventory, a list of things
+she approves of rather than things that happened to her body. Catch it with the
+setting card: if she cannot place herself in a room for it, it was approval, not
+resonance, and the card needs to run again on a different pick.
+
 ---
 
 ### Arc I break
@@ -299,6 +406,54 @@ its power: from here on, options are her own work, quoted.
   list. All four should be slightly wrong. She will pick one and correct it in
   "Other", and the correction is the line that goes into the Compass verbatim.
 
+**Two more cards, added because everything above finds what recurs and stops —
+it never asks what the recurrence is for. Read `references/voice.md` first.**
+
+**Laddering up.** Means-end chain method: an attribute is never the actual reason;
+climb from it toward the value it serves, two or three rungs, the mirror image of
+the downward arrow in `references/unpacking.md`, which climbs toward a fear instead.
+
+> **Q:** You keep returning to [her own named recurrence]. What does that give you
+> that nothing else does?
+> **header:** Why that
+
+Four options built from her own material, e.g.: it's the only way I know to make
+time visible to someone standing still · it hides how little I decided and how much
+I let happen · it's the one thing I can do that nobody else in the room does as
+well · I don't know yet, I just know when it's missing the piece is dead.
+
+**Beat two, one rung further,** mirrored: "You said [her exact words]. Suppose that's
+true — what does it actually give you, in a sentence that isn't about the work at
+all?" Four candidate values, built from Arc I and II material so far: control ·
+being irreplaceable · permission to not decide · being witnessed changing.
+**header:** One more
+
+**First yours.** Self-defining memory method (McAdams): the memory where a person
+first felt authored rather than assigned functions differently from an ordinary
+memory, and the shape of how she narrates what happened right after — kept, hidden,
+or built into a practice — matters as much as the memory itself.
+
+> **Q:** Of everything on your list, when did something first feel like it was
+> actually yours, not an exercise or an assignment? What was different about that one?
+> **header:** First yours
+
+- Nobody had asked for it and I made it anyway
+- I broke a rule from my training and it didn't collapse
+- I stopped explaining it in the statement and it still worked
+- I still haven't had that moment, and this list is proof
+
+**Beat two.** "What did you do right after you noticed that?"
+**header:** After that
+
+- Trusted it and kept going
+- Hid it, and did the expected thing again next
+- Repeated it once, on purpose, then stopped
+- Built the last few years on it, and hadn't said so until now
+
+If she picked the fourth option on the opening card ("I still haven't had that
+moment"), do not treat it as a gap to fix. It is the finding. Move it to the
+Compass as stated.
+
 **Real answer:** three to seven recurring elements, at least one surprising, and a
 badly-phrased genuine question that arrived as a correction to your options.
 
@@ -337,6 +492,28 @@ an honest verdict on whether that is fuel or corrosion.
   minor?" Two options only. This one is deliberately cruel and produces a lot.
 - What would you make if reputation were already secured? Four options, one of which
   is "the same thing", so the answer can be that reputation is not the constraint.
+
+**The working self.** Added from art therapy's finding on professional identity: the
+self a maker presents (statement, bio, feed) is routinely a different person from
+the one in the room while the work gets made — usually more mechanical, less
+resolved. See `references/voice.md`. This card pairs with the opening card above
+rather than replacing it: that one asks what she wants concluded, this one asks who
+is actually there when nobody is concluding anything.
+
+> **Q:** Your artist statement describes one person. Who shows up in the studio at
+> two in the morning that the statement doesn't mention?
+> **header:** 2am self
+
+- Someone far more mechanical and obsessive about tiny detail than the statement's
+  language admits
+- Someone angrier than the calm, poetic voice the statement uses
+- Someone still improvising and unsure, while the statement claims a method
+- No gap — the statement is accurate, which is itself worth checking twice
+
+**Beat two.** "Which of the two would the work actually be better if it were made
+by — the statement-self, or the 2am one?" Four options naming what each self would
+change about the current direction, built from her list in layer 5.
+**header:** Better made by
 
 **Real answer:** honest vanity. Reputation motives are ordinary and often productive.
 If she starts apologising, say plainly that this is fuel and move on.
@@ -379,6 +556,28 @@ despair put on her judgement of her own work.
   contempt save you from trying?
 - The sentence card: "What do you tell yourself when the work is going nowhere?"
   Four candidate sentences, all plausible, none flattering. Beat two: is it true?
+
+**Two motives.** Added from research on frisson and on aesthetic experience's link
+to self-referential brain activity (see `references/voice.md`): a piece made to find
+something out and a piece made to be seen finding it out are measuring two different
+things, and comparison mostly poisons judgment by substituting the second measurement
+for the first without telling her it happened.
+
+> **Q:** Two pieces from your own list: one you made mostly to find out something
+> for yourself, one you made mostly so a specific person would see it. Name one of
+> each.
+> **header:** Two motives
+
+Options are her own titles from layer 5, single-select twice — once per prompt.
+
+**Beat two.** "Which of the two do you trust more, right now, as a measure of your
+own judgment?"
+**header:** Trust which
+
+- The for-yourself one, always
+- The for-someone one, when the someone is right
+- Neither — both were compromised in some way I can name
+- I didn't know until this question which one was which
 
 **Real answer:** every poison converted into a want or an avoidance.
 

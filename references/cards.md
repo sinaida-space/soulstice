@@ -168,6 +168,15 @@ Everywhere else, if you are about to write a bare question, you have broken the 
 
 ---
 
+## Register
+
+This file covers the shape of a card. `references/rapport.md` covers the voice
+around it: rapport before content, mirroring her own words into the next question,
+"what" and "how" instead of "why," and why deceptive elicitation tradecraft is
+deliberately not part of this skill even though some of its source material comes
+from that world. Read it once, then let it inform every stem you write — it is not
+layer-specific.
+
 ## Language
 
 Cards are written in the session language, headers included. The examples in this file
