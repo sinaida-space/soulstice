@@ -57,7 +57,12 @@ choose." No resolution offered.>
 
 ## Three directions
 <three directions the material actually supports. A direction rather than a project: a way
-of going rather than a thing to deliver. Each one names which layers it comes out of.>
+of going rather than a thing to deliver. Each one names which layers it comes out of.
+
+If the three-sentence manifesto was run (`references/style-workbook.md`), place its
+three lines here verbatim, above the directions. If all three arcs produced strong
+material, name the taste plus technique plus voice intersection from that file here;
+if one of the three is thin, move that observation to "Still unresolved".>
 
 ## Stop list
 <what to stop doing, from layers 4, 6 and 7. Concrete and small.>
@@ -99,6 +104,11 @@ File: `~/.claude/soulstice/journal.md`, appended.
 
 **Carried forward:** <the one thing to sit with>
 ```
+
+After a layer that ran thin, or when she wants something to do between sittings, offer
+one exercise from `references/style-workbook.md` (Museum without a guide, Body
+resonance scale, Genealogy map, Letter to the critic, Three objects, One
+manifesto-project). One at a time. Record what she brings back as its own dated entry.
 
 Every fifth entry, offer a **drift review** rather than a new layer:
 

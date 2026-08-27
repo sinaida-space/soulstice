@@ -128,6 +128,12 @@ you have to repeat it · you become the projection person · you owe everyone an
 This card is often the most productive one in the layer. When the good outcome lands
 harder than the bad one, the fear was never about failing.
 
+**The reverse-constraint card, optional.** After the inversion, ask for one thing she
+will not put in the work regardless of the commission or the trend, four options from
+her medium, beat two on what the refusal protects. See `references/style-workbook.md`.
+It shares an instrument with layer 9's refusal card; run only one of the two per
+passage.
+
 **Card 7, if time: what does not making it buy you?** Options: you stay someone with
 potential · you never find out where the ceiling is · the day job stays justified ·
 nobody can take it from you. This is the Kegan and Lahey hidden commitment, asked
@@ -405,6 +411,11 @@ its power: from here on, options are her own work, quoted.
   closest?" Four badly-phrased, specific, non-curatorial formulations built from her
   list. All four should be slightly wrong. She will pick one and correct it in
   "Other", and the correction is the line that goes into the Compass verbatim.
+- **The opposition scale and the director card**, both from
+  `references/style-workbook.md`. The scale asks her to place the work on three axes
+  of poles and defend the placement; the director card asks which film director her
+  body of work is. Use either when the recurrences are named but their character is
+  still vague.
 
 **Two more cards, added because everything above finds what recurs and stops —
 it never asks what the recurrence is for. Read `references/voice.md` first.**
@@ -777,6 +788,11 @@ as things that would exist, plus one that is deliberately larger than she has cl
 - The trade card: "What are you willing to be worse at in order to be better at this?"
   Four costs, all real: money, output, a technique she is proud of, a relationship
   to a scene.
+
+**The three-sentence manifesto.** From `references/style-workbook.md`. Three open-text
+completions asked one card at a time: "I make work for people who…", "My work is
+always about…", "My work will never be about…". Run it here or hold it for Compass
+time. All three go into the Compass verbatim.
 
 **Real answer:** a short list that contradicts how her time is currently spent. Name
 that contradiction plainly and do not resolve it for her.

@@ -180,6 +180,8 @@ Read `references/outputs.md` for templates.
   your own register. Never invent an insight they did not reach.
 - **Journal** → append a dated entry to `~/.claude/soulstice/journal.md`, and once every
   five entries offer a drift review: what has moved, what keeps recurring untouched.
+  Journal is also where the between-session exercises in `references/style-workbook.md`
+  are handed out, one at a time, and where what she brings back from them is recorded.
 - **Lens** → a verdict paragraph plus the two or three questions the work has not
   answered yet.
 - **Ground** → a short written result: the verdict quoted, what the evidence showed,
@@ -215,6 +217,10 @@ into a scoped project.
   standing, and the routing table from what she says to the position that answers it
 - `references/statement.md`: the artist statement mode: five sections, entry paths,
   the nothing-is-invented rule, the draft-and-edit loop, and the three output lengths
+- `references/style-workbook.md`: material from Sinaida's own style-and-voice
+  worksheet: three card shapes for layers 5, 1 and 11, six between-session exercises
+  for Journal mode and post-Compass, the reverse-constraint move, and the taste plus
+  technique plus voice synthesis line for the Compass
 - `references/design-system.md`: how to detect or elicit her visual design system,
   record it, and use it for the statement's Form section and for typesetting its PDF
 - `references/outputs.md`: Compass, Journal, Lens, Ground, Return and Statement

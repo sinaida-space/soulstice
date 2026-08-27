@@ -74,6 +74,24 @@ Do not argue with resistance; ask the person to argue with themselves.
 
 ---
 
+## Should versus want
+
+From coaching practice, and from Sinaida's own style workbook, where it is the tell
+for a "point of resistance". When she describes a choice about what to make using
+*had to*, *supposed to*, *you're meant to*, *everyone does*, that is a borrowed want
+wearing the grammar of obligation. Work made from "do it the way they do it" comes
+out with the voice turned down.
+
+**Move:** reflect the modal verb back on its own. "You said you *had to* make it that
+way. Had to, according to whom?" Then a card whose options are candidate sources of
+the obligation, built from Arc I material. Do not accept "it's just how it's done" as
+a stopping point; that phrasing is the thing under examination.
+
+**Use when:** layer 3 (Role) and layer 4 (Voices), any time an account of a decision
+leans on necessity rather than choice.
+
+---
+
 ## Values work (ACT)
 
 Values are directions, not goals. A goal can be completed; a direction can only be

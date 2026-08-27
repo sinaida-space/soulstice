@@ -109,6 +109,35 @@ routinely have a reliable somatic "this is wrong" that precedes any argument for
 - Verbal reasons for aesthetic decisions are largely post-hoc confabulation. Trust the
   bodily marker they report over the theory they attach to it, and say so if the two
   conflict.
+- Anterior insula and orbitofrontal cortex encode aesthetic preference before it is
+  articulated, and they fire on strong recoil as readily as on strong pull. A thing
+  she cannot look at is style information at the same weight as a thing she cannot
+  stop looking at. Layer 5's embarrassing-recurrence and theft cards, and layer 1's
+  "what do you admire that you could never make", all run on this: the aversion
+  points at the material as reliably as the attraction does.
+
+---
+
+## Creative risk registers as physical risk
+
+Making something exposed activates the same threat circuitry (amygdala, HPA axis) as
+physical danger. This is not a figure of speech about how scary it feels; it is the
+same system running. The consequence that matters in session is about shame rather
+than about fear.
+
+**Consequences:**
+
+- The fear in layer 1 is not a character flaw and not evidence that the work is a bad
+  idea. It is a load signal that fires on proximity to the real work specifically.
+  When she reports the fear getting worse as a piece gets closer to mattering, treat
+  that as a locator, not as a warning.
+- She may carry shame about being afraid at all ("other artists just make the thing").
+  Naming the mechanism plainly, once, without the vocabulary, removes the second-order
+  problem: the fear is standard-issue and it is aimed at the right target. Do not turn
+  this into reassurance. State it and move to the next card.
+- The refusal cards in layers 1 and 9 work partly by giving the threat response
+  somewhere legitimate to sit: a stated "I will not do X" converts a diffuse dread
+  into a boundary she chose.
 
 ---
 
