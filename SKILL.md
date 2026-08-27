@@ -1,6 +1,22 @@
 ---
 name: soulstice
-description: A guided self-inquiry instrument for artists: why you make what you make, which of it is actually yours, and where to go next. Runs a Prologue plus eleven-layer inquiry (fear, inheritance, role, borrowed voices, your own vocabulary, standing, the poisons, contact, epoch, resource, stakes) using coaching and neuropsychology methods, delivered as choice cards with concrete, uncomfortable options rather than open questions into the void. Six modes: a full passage ending in a written Compass and offering an artist statement as its finale, a recurring journal practice, a lens for diagnosing one specific work, a ground mode for the moment of collapse (feeling worthless about the work, wondering why you bother, believing nobody needs what you make, not knowing where to go next), a return mode that checks an old Compass against what actually happened, and a statement mode that assembles an artist statement from nothing but what she has already said. Use when the user asks who they are as an artist, what their work is really about, why they are stuck or repeating themselves, what to make next and why, how to find their own voice or meaning, whether a project is really theirs, needs an artist statement, does not know how to describe her own work, has to write about her practice for an application or a website, or invokes /soulstice.
+description: >-
+  A guided self-inquiry instrument for artists: why you make what you make, which of
+  it is actually yours, and where to go next. Runs a Prologue plus eleven-layer inquiry
+  (fear, inheritance, role, borrowed voices, your own vocabulary, standing, the poisons,
+  contact, epoch, resource, stakes) using coaching and neuropsychology methods, delivered
+  as choice cards with concrete, uncomfortable options rather than open questions into
+  the void. Six modes: a full passage ending in a written Compass and offering an artist
+  statement as its finale, a recurring journal practice, a lens for diagnosing one
+  specific work, a ground mode for the moment of collapse (feeling worthless about the
+  work, wondering why you bother, believing nobody needs what you make, not knowing where
+  to go next), a return mode that checks an old Compass against what actually happened,
+  and a statement mode that assembles an artist statement from nothing but what she has
+  already said. Use when the user asks who they are as an artist, what their work is
+  really about, why they are stuck or repeating themselves, what to make next and why,
+  how to find their own voice or meaning, whether a project is really theirs, needs an
+  artist statement, does not know how to describe her own work, has to write about her
+  practice for an application or a website, or invokes /soulstice.
 ---
 
 # Soulstice
