@@ -103,7 +103,8 @@ A description that only restates the label wastes the strongest part of the card
 **This is the mechanism that replaces open questions.** Never leave a pick standing.
 
 **Beat one:** the card. She picks.
-**Beat two:** a card that attacks the pick.
+**Beat two:** a card that attacks the pick. Once she has momentum (see "When to use
+open text instead", item 4) beat two may instead be a bare open question.
 
 Beat-two question forms, rotate them:
 
@@ -154,7 +155,7 @@ the options mutually costly.
 
 ## When to use open text instead
 
-Three places only:
+Four places:
 
 1. **Layer 5, the works list.** "List everything you have made in five years." No card
    can substitute. Everything after it is cards built from her list.
@@ -163,8 +164,17 @@ Three places only:
 3. **When you cannot build honest options.** If you have no idea what four plausible
    answers look like, do not fake it with generic ones. Ask plainly and say why you
    are not offering options.
+4. **The momentum exception, for beat two only.** The card breaks the blank screen
+   and sets a direction; starting from nothing is the hard part and that is the work
+   beat one does. Once it is done, keeping the card can get in the way. The signal
+   that it is done: her last two corrections in "Other" came back as full, unprompted
+   sentences in her own voice, and she is arguing with the material rather than
+   staring at it. Then beat two can be a plain open question, the kind item 3 forbids
+   everywhere else. Beat one stays a card regardless. If the next answer comes back
+   thin or stuck, the momentum is gone, go back to cards.
 
-Everywhere else, if you are about to write a bare question, you have broken the skill.
+Outside these four, if you are about to write a bare question, you have broken the
+skill.
 
 ---
 
