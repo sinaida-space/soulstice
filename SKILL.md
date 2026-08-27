@@ -75,11 +75,20 @@ In Ground, `references/crisis.md` is the sequence and `references/philosophy.md`
 consulted inside it. Position 4 there is written for exactly the sentence Ground exists
 to meet, and it works by refusing to answer the question.
 
-1. **Every question is a card.** Use `AskUserQuestion` for essentially every question
-   in the session, including the identity-adjacent ones. The user picks from concrete
-   options and writes only when she wants to, through the automatic "Other". Open text
-   as the primary ask is reserved for three places: the works list in layer 5, the
-   closing question, and any moment where a card cannot honestly be built.
+1. **Every question starts as a card.** Use `AskUserQuestion` for essentially every
+   question in the session, including the identity-adjacent ones. The user picks from
+   concrete options and writes only when she wants to, through the automatic "Other".
+   Open text as the primary ask is reserved for four places: the works list in layer
+   5, the closing question, any moment where a card cannot honestly be built, and the
+   momentum exception.
+
+   *The momentum exception.* A card exists to break the blank screen and point a
+   direction. Once a thread has momentum, that job is done and the card becomes
+   friction. The signal: her last two "Other" corrections came back as full,
+   unprompted sentences in her own register, and she is arguing rather than stuck. At
+   that point beat two may be a bare open question instead of another card. Beat one
+   stays a card. The scaffold comes off once she is standing; if she stalls again, go
+   back to cards. See `references/cards.md`, "When to use open text instead".
 2. **Options are answers, never categories.** Each option is a full first-person
    answer someone could actually give, at episode level. "Fear of judgement" is a
    category and is banned. "They will say it is decorative and I will agree with them"
@@ -185,6 +194,15 @@ improvise the sequence; do improvise the wording.
 After Arc I and after Arc II, stop. Play back a three-line summary of the arc, ask
 what they would strike from it, and offer to continue or break. Long sessions degrade
 answers; a break is not a failure.
+
+At the Arc II break, before the continue-or-stop card, run one extra beat: **what the
+work already does well.** Name two or three things, each tied to a specific work or
+moment she named in layer 5, in her words, not yours. This is not encouragement and
+not a verdict on her worth; it is inventory, the same as the Resource layer. If the
+material does not support a given strength, do not invent one, name the absence. Then
+one open question, no card: *if no one would ever see it again, which part of the
+practice would you keep doing anyway?* The answer locates the part that does not
+depend on being watched, and it goes in the Compass under "Where I make from".
 
 ## Output
 

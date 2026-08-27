@@ -601,7 +601,20 @@ card. This layer is extraction, not penance.
 
 ### Arc II break
 
-One card: which of these findings do you now think is false? Options are the findings.
+First, the **what-already-works beat** (see `SKILL.md`, "Between arcs"). Two or three
+things the body of work already does well, each pinned to a specific piece or moment
+from her layer-5 list, in her words. Inventory, not encouragement, and no verdict on
+her worth. If a strength is not in the material, name its absence instead of
+inventing it. Then one open question, no card:
+
+> If no one would ever see it again, which part of the practice would you keep doing
+> anyway?
+
+Keep the answer verbatim; it goes in the Compass under "Where I make from" as the
+audience-independent core.
+
+Then one card: which of these findings do you now think is false? Options are the
+findings.
 
 ---
 
