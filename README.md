@@ -225,6 +225,17 @@ This is an inquiry tool. Diagnosis, spiritual instruction and care belong elsewh
 with people. If something surfaces that is past what an instrument can hold, the skill
 is instructed to stop and say so.
 
+## Made by
+
+Sinaida Krivchenko, a new media artist based in Prague, working globally with
+interactive projection, TouchDesigner, GLSL and generative systems. Background in
+biomedical engineering and, before the art practice, creative direction in the
+cultural sector. She built Soulstice to run on her own work first: a body of pieces
+with no visible through-line and an artist statement that had to get written.
+
+- Work: [sinaida.eu](https://sinaida.eu)
+- Instagram: [@sin.ai.da](https://instagram.com/sin.ai.da)
+
 ## License
 
 Apache 2.0.
