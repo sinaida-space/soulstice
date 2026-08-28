@@ -131,15 +131,22 @@ export const Store = {
     return out;
   },
 
-  // Namespace reserved for M4. It writes soulstice:v1:compass:<date> docs;
-  // M0 only enumerates them.
+  // M4 writes soulstice:v1:compass:<date> as JSON { date, markdown }.
+  // Return them newest-first, carrying the stored markdown for Return mode.
   listCompasses() {
     const prefix = NS + "compass:";
     const out = [];
     for (const k of lsKeys()) {
-      if (typeof k === "string" && k.indexOf(prefix) === 0) {
-        out.push({ date: k.slice(prefix.length), key: k });
+      if (typeof k !== "string" || k.indexOf(prefix) !== 0) continue;
+      const date = k.slice(prefix.length);
+      let markdown = "";
+      try {
+        const doc = JSON.parse(lsGet(k));
+        if (doc && typeof doc.markdown === "string") markdown = doc.markdown;
+      } catch (e) {
+        // an unreadable slot still lists, just without its markdown
       }
+      out.push({ date, key: k, markdown });
     }
     out.sort((a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : 0));
     return out;

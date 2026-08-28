@@ -239,3 +239,72 @@ body {
   color: var(--ink);
   font-family: var(--font-body);
 }
+
+/* ---- M4: output screen (Compass and the other assembled documents) ---- */
+
+.output { display: block; }
+
+.output-doc {
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-weight: 300;
+  margin-bottom: calc(var(--step) * 2);
+}
+
+.output-doc h1,
+.output-doc h2,
+.output-doc h3 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.25;
+}
+.output-doc h1 { font-size: var(--fs-q); margin: 0 0 var(--step); }
+.output-doc h2 {
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+  margin: calc(var(--step) * 1.6) 0 0.4rem;
+  color: var(--red-text);
+}
+.output-doc h3 { font-size: 1rem; margin: var(--step) 0 0.3rem; }
+
+.output-doc p { margin: 0 0 var(--step); }
+
+.output-doc ul,
+.output-doc ol { margin: 0 0 var(--step); padding-left: 1.2rem; }
+.output-doc li { margin: 0.2rem 0; }
+
+.output-doc hr {
+  border: 0;
+  border-top: var(--rule-w) solid var(--rule);
+  margin: calc(var(--step) * 1.5) 0;
+}
+
+.output-doc blockquote {
+  margin: 0 0 var(--step);
+  padding-left: 0.9rem;
+  border-left: 2px solid var(--rule);
+  color: var(--ink-soft);
+}
+
+.output__actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin: var(--step) 0;
+}
+
+.btn--download {
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+}
+
+.output__fortee {
+  font-size: var(--fs-small);
+  color: var(--ink-soft);
+  border-top: var(--rule-w) solid var(--field-border);
+  padding-top: var(--step);
+  margin-top: var(--step);
+}
+.output__fortee a { color: var(--red-text); }
