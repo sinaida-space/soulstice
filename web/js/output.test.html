@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Soulstice — output assembler harness</title>
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/app.css">
+  <link rel="stylesheet" href="../css/print.css">
+  <style>
+    body { margin: 0; }
+    .harness { max-width: 46rem; margin: 0 auto; padding: 2rem 1.5rem 6rem; }
+    .harness h1 { font-family: var(--font-display); color: var(--ink); }
+    .harness h2 { font-family: var(--font-display); color: var(--red-text); margin-top: 3rem; }
+    .harness pre {
+      white-space: pre-wrap; word-wrap: break-word;
+      font-family: var(--font-body); font-size: 0.95rem; line-height: 1.5;
+      background: var(--field-bg); border: 1px solid var(--field-border);
+      padding: 1rem; color: var(--ink);
+    }
+    .status { font-family: var(--font-display); font-size: 0.85rem; }
+    .ok { color: #1a7f37; } .bad { color: var(--red-text); }
+  </style>
+</head>
+<body data-ground="chalk">
+  <div class="harness">
+    <h1>Output assembler harness</h1>
+    <p class="status" data-role="summary">running…</p>
+
+    <h2>renderOutputScreen — Compass (live screen)</h2>
+    <div id="screen" class="screen"></div>
+
+    <div data-role="dumps"></div>
+  </div>
+
+  <script type="module">
+    import {
+      buildCompass, buildLensVerdict, buildStatement, buildGround,
+      buildJournalEntry, buildDriftReview, buildReturn, renderOutputScreen
+    } from "./output.js";
+
+    // A canned fixture: some sections have the user's own words (other/text),
+    // some are pick-only (so their sections must carry the caveat line), and a
+    // few answers contradict each other (Still unresolved must list the pairs).
+    const state = {
+      mode: "passage", version: 1, arcBreaks: {}, completed: [], cursor: { done: true },
+      answers: {
+        "stakes-close": { text: "I did not say that part of me has already decided to stop." },
+        "field-question": { picks: ["_other"], other: "whether paying attention to a thing is the same as looking after it" },
+        "field-repeats": { picks: ["material", "time", "absence"], other: "" },
+        "field-defend": { text: "Long Wave, Room Tone, and the one I still have not titled." },
+        "field-fright": { text: "Room Tone. Nobody asked for it and it is too quiet to defend in a statement." },
+        "field-embarrass": { picks: ["borrowed"], other: "" },
+        "field-theft": { picks: ["withheld"], other: "" },
+        "contact-c3": { picks: ["b"], other: "the part of me that checks what people will think just goes quiet" },
+        "contact-c2": { picks: ["a"], other: "" },
+        "contact-c1b": { picks: ["a"], other: "" },
+        "contact-c4": { picks: ["a"], other: "" },
+        "epoch-c1": { picks: ["_other"], other: "the sense that whatever I make is already made, by someone or by no one" },
+        "epoch-c6": { picks: ["a"], other: "" },
+        "epoch-c6b": { picks: ["d"], other: "" },
+        "inheritance-c5": { picks: ["a", "c", "e"], other: "" },
+        "inheritance-c6": { picks: ["c"], other: "" },
+        "voices-c1": { picks: ["b"], other: "" },
+        "voices-c2x": { picks: ["a"], other: "" },
+        "voices-c3": { picks: ["a"], other: "" },
+        "voices-c3a": { picks: ["d"], other: "" },
+        "role-c2": { picks: ["d"], other: "" },
+        "role-c3": { picks: ["b"], other: "" },
+        "prologue-c4": { picks: ["a"], other: "" },
+        "fear-c5": { picks: ["d"], other: "" },
+        "fear-c3": { picks: ["d"], other: "" },
+        "fear-c3d": { picks: ["d"], other: "" },
+        "poisons-convert": { picks: ["plain"], other: "" },
+        "poisons-sentence": { picks: ["behind"], other: "" },
+        "poisons-sentence-true": { picks: ["unchecked"], other: "" },
+        "standing-vain": { picks: ["see"], other: "" },
+        "standing-secured": { picks: ["less"], other: "" },
+        "standing-ignored": { picks: ["reread"], other: "" },
+        "standing-2am": { picks: ["mechanical"], other: "" },
+        "standing-2am-better": { picks: ["argument"], other: "" },
+        "resource-c1": { picks: ["d"], other: "" },
+        "field-first": { picks: ["never"], other: "" },
+        "stakes-c3": { picks: ["a"], other: "" },
+        "stakes-m1": { text: "I make work for people who did not choose to be in the room." },
+        "stakes-m2": { text: "My work is always about the moment just before something is understood." },
+        "stakes-m3": { text: "My work will never be about proving I was right." }
+      }
+    };
+
+    const dumps = document.querySelector('[data-role="dumps"]');
+    const results = [];
+
+    function dump(name, run) {
+      const h = document.createElement("h2");
+      const pre = document.createElement("pre");
+      try {
+        const out = run();
+        h.textContent = name + "  —  " + out.filename;
+        pre.textContent = out.markdown;
+        results.push([name, true]);
+      } catch (e) {
+        h.textContent = name + "  —  ERROR";
+        pre.textContent = String(e && e.stack || e);
+        results.push([name, false]);
+      }
+      dumps.appendChild(h);
+      dumps.appendChild(pre);
+    }
+
+    let compass;
+    try {
+      compass = buildCompass(state);
+      renderOutputScreen(compass, document.getElementById("screen"));
+      results.push(["renderOutputScreen", true]);
+    } catch (e) {
+      results.push(["renderOutputScreen", false]);
+      document.getElementById("screen").textContent = String(e && e.stack || e);
+    }
+
+    dump("buildCompass", () => compass || buildCompass(state));
+    dump("buildLensVerdict", () => buildLensVerdict(state));
+    dump("buildStatement", () => buildStatement(state));
+    dump("buildGround", () => buildGround(state));
+    dump("buildJournalEntry", () => buildJournalEntry(state));
+    dump("buildDriftReview", () => buildDriftReview([{ date: "2025-01-04" }, { date: "2025-02-11" }, { date: "2025-04-02" }]));
+    dump("buildReturn", () => buildReturn({ date: "2025-01-04", markdown: "# Compass: 2025-01-04" }, state));
+    dump("buildCompass (empty state)", () => buildCompass({}));
+
+    const bad = results.filter((r) => !r[1]);
+    const summary = document.querySelector('[data-role="summary"]');
+    summary.textContent = bad.length
+      ? "FAIL: " + bad.map((r) => r[0]).join(", ")
+      : "OK — all " + results.length + " renders passed";
+    summary.className = "status " + (bad.length ? "bad" : "ok");
+  </script>
+</body>
+</html>
