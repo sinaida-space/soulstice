@@ -5,6 +5,11 @@
 
 export const RETURN_DIRECTION_PROMPT = "What happened to this direction?";
 export const RETURN_TEST_PROMPT = "The one test from this Compass. Did you run it, and what did it show?";
+// Asked once, after every direction and the test have been accounted for.
+export const RETURN_DRIFT_PROMPT =
+  "Across all three directions and the test: what has drifted from what the Compass set out? What is no longer true?";
+export const RETURN_REVISED_PROMPT =
+  "Rewrite the directions as they stand now. For each: keep it, drop it, or replace it, and say the new one.";
 
 // Pull the numbered directions and the first line of the one-test section out of
 // a Compass document (the shape buildCompass writes in js/output.js).
@@ -49,5 +54,7 @@ export function parseCompass(markdown) {
 export default {
   RETURN_DIRECTION_PROMPT: RETURN_DIRECTION_PROMPT,
   RETURN_TEST_PROMPT: RETURN_TEST_PROMPT,
+  RETURN_DRIFT_PROMPT: RETURN_DRIFT_PROMPT,
+  RETURN_REVISED_PROMPT: RETURN_REVISED_PROMPT,
   parseCompass: parseCompass
 };
