@@ -11,11 +11,17 @@ body {
   background: var(--ground);
   color: var(--ink);
   font-family: var(--font-body);
-  font-weight: 300;
   font-size: var(--fs-body);
   line-height: var(--unit);
+  letter-spacing: var(--tracking);
   -webkit-font-smoothing: antialiased;
 }
+
+/* Full view: let the fixed #backdrop canvas show through the page body and the
+   frame. Every readable block sits on an opaque .screen-panel card; header and
+   footer are their own opaque bands. The galaxy shows in the margins around
+   each panel, never behind readable text. */
+:root[data-view="full"] body { background: transparent; }
 
 /* ---- Frame: two full-height red vertical rules around the column ---- */
 
@@ -23,7 +29,7 @@ body {
   max-width: var(--column);
   margin: 0 auto;
   min-height: 100vh;
-  padding: 0 var(--gutter);
+  padding: 0 0.5rem;
   border-left: var(--rule-w) solid var(--rule);
   border-right: var(--rule-w) solid var(--rule);
 }
@@ -60,6 +66,32 @@ body {
 
 .screen {
   padding: calc(var(--step) * 2) 0 calc(var(--step) * 3);
+}
+
+/* ---- The panel: every screen's readable content sits on this opaque card,
+   with the backdrop showing in the margin on all four sides. One rule for
+   welcome, mode-select, all six modes, the arc-break, the card renderer's
+   output, the generated-document screen, privacy, imprint and 404. ---- */
+
+#screen > * {
+  background: var(--surface);
+  border: var(--rule-w) solid #565656;
+  padding: calc(var(--step) * 1.5) calc(var(--step) * 1.4);
+  margin: 0 clamp(0.5rem, 3vw, 2rem) calc(var(--step) * 1.25);
+  box-shadow: 0 10px 34px rgba(0, 0, 0, 0.55);
+}
+#screen > *:last-child { margin-bottom: 0; }
+
+:root[data-view="light"] #screen > * {
+  border-color: var(--haze);
+  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.12);
+}
+
+@media (max-width: 560px) {
+  #screen > * {
+    margin-inline: 0.5rem;
+    padding: calc(var(--step) * 1.2) 1.1rem;
+  }
 }
 
 /* ---- Shared display bits ---- */

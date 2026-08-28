@@ -33,10 +33,11 @@ relative.
 ```
 web/
   index.html          shell, red-rule frame, #screen mount node, <noscript>
-  css/tokens.css      custom properties, @font-face, chalk/void grounds
+  css/tokens.css      custom properties, @font-face, Full / Light view roles
   css/app.css         frame, cards, options, buttons, mode select, panels
+  css/backdrop.css    places the fixed galaxy + CRT canvas
   css/print.css       @media print — hides chrome, prints the output doc only
-  fonts/              GeistPixel.woff2, LibreFranklin-Light.woff2
+  fonts/              GeistPixel.woff2 (the one typeface)
   js/store.js         localStorage state store (frozen contract)
   js/card.js          card renderer + arc-break renderer (frozen contract)
   js/app.js           hash router, Passage flow, ground toggle
