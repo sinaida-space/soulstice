@@ -202,7 +202,7 @@ export default {
       note: "",
       options: [
         { id: "a", label: "A slow response makes me doubt work I was proud of.", desc: "The tally overrides the memory of making it." },
-        { id: "b", label: "I make more of whatever the count rewards, and I can feel it narrowing me.", desc: "Feedback loop closing in." },
+        { id: "b", label: "I make more of whatever the count rewards, and I can feel it narrowing me.", desc: "A feedback cycle closing in." },
         { id: "c", label: "I feel briefly good and then emptier than before I posted.", desc: "A short lift, a longer drop." },
         { id: "d", label: "I have started making things for the count and calling it reach.", desc: "A motive with a nicer name." }
       ],

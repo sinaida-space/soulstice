@@ -30,6 +30,9 @@
 
   .chrome,
   .chrome__ground,
+  .siteheader,
+  .sitefooter,
+  .skip-link,
   .noscript,
   .modes,
   .resume-list,
@@ -70,10 +73,12 @@
 
   #output .card__label,
   #output .output__actions,
+  #output .output__hint,
+  #output .output__copied,
   #output .output__fortee,
   #output .btn,
-  #output .btn--download,
-  #output .btn--print {
+  #output .btn--pdf,
+  #output .btn--copy {
     display: none !important;
   }
 
@@ -116,4 +121,13 @@
   #output .output-doc ol { margin: 4pt 0 8pt; padding-left: 16pt; }
   #output .output-doc li { break-inside: avoid; margin: 2pt 0; }
   #output .output-doc p { margin: 4pt 0 8pt; break-inside: avoid; }
+
+  /* The Soulstice footnote: the final block of the document, small and grey.
+     Printed once where the text ends, not as a running footer. */
+  #output .output-doc__footnote {
+    margin-top: 14pt;
+    font-size: 8.5pt;
+    color: #444444;
+    break-inside: avoid;
+  }
 }

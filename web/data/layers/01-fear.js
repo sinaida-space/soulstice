@@ -102,7 +102,7 @@ export default {
       options: [
         { id: "a", label: "Someone I have actually worked with, who has said something like it before.", desc: "A real person, a real past occasion." },
         { id: "b", label: "Someone whose work I admire and who I have never dared show anything to.", desc: "A judge I keep at a safe distance." },
-        { id: "c", label: "A teacher from years ago, saying it about something else, still on a loop.", desc: "An old sentence fitted onto a new situation." },
+        { id: "c", label: "A teacher from years ago, saying it about something else, and it still repeats.", desc: "An old sentence fitted onto a new situation." },
         { id: "d", label: "Mine. A week before it opens, already rehearsing the verdict.", desc: "You say it first, so nobody else gets to." }
       ],
       multiSelectHint: false,
