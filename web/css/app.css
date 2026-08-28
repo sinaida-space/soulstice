@@ -1,0 +1,241 @@
+/* Soulstice — layout and components.
+   Grid law: full-height red rules frame the reading column;
+   blocks hold to the vertical rhythm; negative space sits between blocks. */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { background: var(--ground); }
+
+body {
+  margin: 0;
+  background: var(--ground);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: var(--fs-body);
+  line-height: var(--unit);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---- Frame: two full-height red vertical rules around the column ---- */
+
+.frame {
+  max-width: var(--column);
+  margin: 0 auto;
+  min-height: 100vh;
+  padding: 0 var(--gutter);
+  border-left: var(--rule-w) solid var(--rule);
+  border-right: var(--rule-w) solid var(--rule);
+}
+
+.chrome {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: var(--step) 0;
+  border-bottom: var(--rule-w) solid var(--rule);
+}
+
+.chrome__home {
+  font-family: var(--font-display);
+  font-size: var(--fs-small);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--red-text);
+  text-decoration: none;
+}
+
+.chrome__ground {
+  font-family: var(--font-display);
+  font-size: var(--fs-small);
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+  background: transparent;
+  border: var(--rule-w) solid var(--field-border);
+  padding: 0.35rem 0.7rem;
+  cursor: pointer;
+}
+.chrome__ground:hover { color: var(--ink); border-color: var(--ink-soft); }
+
+.screen {
+  padding: calc(var(--step) * 2) 0 calc(var(--step) * 3);
+}
+
+/* ---- Shared display bits ---- */
+
+.card__label,
+.modeselect__title,
+.card__q,
+.mode__name {
+  font-family: var(--font-display);
+  font-weight: 400;
+}
+
+.card__label {
+  display: block;
+  font-size: var(--fs-small);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--red-text);
+  margin-bottom: var(--step);
+}
+
+.card__q {
+  font-size: var(--fs-q);
+  line-height: 1.35;
+  margin: 0 0 var(--step);
+  color: var(--ink);
+}
+
+.card__note {
+  font-size: var(--fs-small);
+  color: var(--ink-soft);
+  margin: calc(var(--step) * -0.4) 0 var(--step);
+}
+
+/* ---- Card / form ---- */
+
+.card { display: block; }
+
+.card__form { margin-top: calc(var(--step) * 1.5); }
+
+.opts { list-style: none; margin: 0 0 var(--step); padding: 0; }
+
+.opt {
+  display: grid;
+  grid-template-columns: 1.4rem 1fr;
+  gap: 0.2rem 0.9rem;
+  padding: var(--step) 0;
+  border-top: var(--rule-w) solid var(--field-border);
+}
+.opt:last-child { border-bottom: var(--rule-w) solid var(--field-border); }
+
+.opt__input { margin-top: 0.35rem; accent-color: var(--red); width: 1rem; height: 1rem; }
+
+.opt__label { display: block; cursor: pointer; }
+
+.opt__text { display: block; color: var(--ink); }
+
+.opt__desc {
+  display: block;
+  font-size: var(--fs-small);
+  color: var(--ink-soft);
+  margin-top: 0.35rem;
+}
+
+.opt--other .opt__label { margin-bottom: 0.5rem; }
+
+.field {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: var(--fs-body);
+  color: var(--ink);
+  background: var(--field-bg);
+  border: var(--rule-w) solid var(--field-border);
+  padding: 0.6rem 0.7rem;
+  width: 100%;
+}
+.field:focus { outline: 2px solid var(--red); outline-offset: 1px; }
+
+.field--other { grid-column: 2; }
+
+.field--open { display: block; min-height: 8rem; resize: vertical; }
+
+/* ---- Buttons ---- */
+
+.btn {
+  font-family: var(--font-display);
+  font-size: var(--fs-small);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--btn-ink);
+  background: var(--btn-bg);
+  border: none;
+  padding: 0.7rem 1.4rem;
+  cursor: pointer;
+}
+.btn:hover { filter: brightness(1.08); }
+.btn:disabled { background: var(--btn-disabled-bg); color: var(--btn-disabled-ink); cursor: not-allowed; filter: none; }
+.btn:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+
+.btn--block { display: block; width: 100%; margin-top: var(--step); text-align: center; }
+
+.btn--ghost {
+  background: transparent;
+  color: var(--ink-soft);
+  border: var(--rule-w) solid var(--field-border);
+}
+.btn--ghost:hover { color: var(--ink); border-color: var(--ink-soft); }
+
+.btn--continue { margin-top: var(--step); }
+
+/* ---- Mode select ---- */
+
+.modeselect__title {
+  font-size: var(--fs-title);
+  color: var(--ink);
+  margin: 0 0 0.4rem;
+  letter-spacing: 0.02em;
+}
+
+.modeselect__sub {
+  color: var(--ink-soft);
+  margin: 0 0 calc(var(--step) * 2);
+}
+
+.modes { list-style: none; margin: 0; padding: 0; }
+
+.mode { border-top: var(--rule-w) solid var(--field-border); }
+.mode:last-child { border-bottom: var(--rule-w) solid var(--field-border); }
+
+.mode__btn {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: none;
+  padding: var(--step) 0;
+  cursor: pointer;
+  color: inherit;
+}
+.mode__btn:hover .mode__name { color: var(--red-text); }
+.mode__btn:focus-visible { outline: 2px solid var(--red); outline-offset: 2px; }
+
+.mode__name {
+  display: block;
+  font-size: 1.1rem;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+}
+
+.mode__blurb {
+  display: block;
+  font-size: var(--fs-small);
+  color: var(--ink-soft);
+  margin-top: 0.35rem;
+}
+
+/* ---- Resume list on the landing screen ---- */
+
+.resume-list { list-style: none; margin: 0 0 calc(var(--step) * 2); padding: 0; }
+.resume-list__item { margin-bottom: 0.6rem; }
+.resume-list .btn { width: 100%; text-align: left; }
+
+/* ---- Panels: resume / done / stub / arc break ---- */
+
+.screen-panel, .arcbreak { display: block; }
+
+/* ---- Accessibility niceties ---- */
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
+
+.noscript {
+  max-width: var(--column);
+  margin: 4rem auto;
+  padding: 0 var(--gutter);
+  color: var(--ink);
+  font-family: var(--font-body);
+}
