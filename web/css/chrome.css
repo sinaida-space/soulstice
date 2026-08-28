@@ -24,6 +24,7 @@
 /* ---- header ---------------------------------------------------------------- */
 
 .siteheader {
+  background: var(--surface);
   border-bottom: var(--rule-w) solid var(--rule);
 }
 
@@ -66,7 +67,8 @@
 }
 
 .siteheader__ground,
-.ctl-stub {
+.ctl-stub,
+.ctl {
   font-family: var(--font-display);
   font-size: var(--fs-small);
   letter-spacing: 0.04em;
@@ -84,6 +86,20 @@
 .ctl-stub {
   cursor: not-allowed;
   opacity: 0.55;
+}
+
+/* M9 footer controls — View: Full / Light, Reduce effects */
+.ctl:hover {
+  color: var(--ink);
+  border-color: var(--ink-soft);
+}
+.ctl[aria-pressed="true"] {
+  color: var(--ink);
+  border-color: var(--red);
+}
+.ctl:focus-visible {
+  outline: 2px solid var(--red);
+  outline-offset: 2px;
 }
 
 /* ---- disclosure menu ---------------------------------------------------- */
@@ -113,7 +129,7 @@
   gap: 0.1rem;
   margin-top: 0.4rem;
   border: var(--rule-w) solid var(--field-border);
-  background: var(--ground);
+  background: var(--surface);
 }
 
 @media (min-width: 601px) {
@@ -146,6 +162,7 @@
 /* ---- footer ------------------------------------------------------------- */
 
 .sitefooter {
+  background: var(--surface);
   border-top: var(--rule-w) solid var(--rule);
   margin-top: calc(var(--step) * 2);
 }

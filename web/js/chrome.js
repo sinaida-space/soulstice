@@ -8,36 +8,116 @@
 // data-* attributes captured at render time, never off text nodes. Re-rendering
 // replaces the whole subtree.
 
-import { el, setText } from "./dom.js";
+import { el } from "./dom.js";
 
-// ---- ground (chalk / void) display toggle --------------------------------
-// Superseded by M9's Full / Light control; kept working here under its own key.
+// ---- view (Full / Light) + reduce-effects state ------------------------------
+// Full  = void ground + galaxy + CRT behind opaque cards (default).
+// Light = plain chalk ground, no backdrop, no CRT.
+// Reduce effects is independent of Full / Light and is also forced on whenever
+// the browser asks for reduced motion. State is applied as data-view /
+// data-motion on <html>; CSS and backdrop.js react. Nothing here reads text.
 
-const GROUND_KEY = "soulstice:v1:ui:ground";
+const VIEW_KEY = "soulstice:v1:ui:view"; // "full" | "light"
+const MOTION_KEY = "soulstice:v1:ui:motion"; // "full" | "reduced"
+const OLD_GROUND_KEY = "soulstice:v1:ui:ground"; // migrated then removed
 
-function loadGround() {
+const reduceMQ =
+  typeof window !== "undefined" && window.matchMedia
+    ? window.matchMedia("(prefers-reduced-motion: reduce)")
+    : { matches: false, addEventListener: function () {}, addListener: function () {} };
+
+function lsGet(key) {
   try {
-    return window.localStorage.getItem(GROUND_KEY) === "void" ? "void" : "chalk";
+    return window.localStorage.getItem(key);
   } catch (e) {
-    return "chalk";
+    return null;
   }
 }
 
-function saveGround(value) {
+function lsSet(key, value) {
   try {
-    window.localStorage.setItem(GROUND_KEY, value);
+    window.localStorage.setItem(key, value);
   } catch (e) {
-    // preference simply will not persist
+    /* preference will not persist */
   }
 }
 
-function applyGround(value) {
-  document.documentElement.setAttribute("data-ground", value);
-  document.body.setAttribute("data-ground", value);
+function lsRemove(key) {
+  try {
+    window.localStorage.removeItem(key);
+  } catch (e) {
+    /* nothing to do */
+  }
 }
 
-export function initGround() {
-  applyGround(loadGround());
+// Stored view, migrating the old chalk/void ground key on first load.
+function readView() {
+  const v = lsGet(VIEW_KEY);
+  if (v === "full" || v === "light") return v;
+
+  const old = lsGet(OLD_GROUND_KEY);
+  if (old === "void" || old === "chalk") {
+    const migrated = old === "void" ? "full" : "light";
+    lsSet(VIEW_KEY, migrated);
+    lsRemove(OLD_GROUND_KEY);
+    return migrated;
+  }
+  return "full";
+}
+
+function prefersReduced() {
+  return !!reduceMQ.matches;
+}
+
+// Effective motion: the OS request always wins toward "reduced".
+function effectiveMotion() {
+  if (prefersReduced()) return "reduced";
+  return lsGet(MOTION_KEY) === "reduced" ? "reduced" : "full";
+}
+
+function applyView(value) {
+  document.documentElement.setAttribute("data-view", value);
+}
+
+function applyMotion(value) {
+  document.documentElement.setAttribute("data-motion", value);
+}
+
+function currentView() {
+  return document.documentElement.getAttribute("data-view") === "light"
+    ? "light"
+    : "full";
+}
+
+function setView(value) {
+  const v = value === "light" ? "light" : "full";
+  lsSet(VIEW_KEY, v);
+  applyView(v);
+  refreshFooter();
+}
+
+function setMotion(value) {
+  // Only meaningful when the OS is not already forcing reduced motion.
+  lsSet(MOTION_KEY, value === "reduced" ? "reduced" : "full");
+  applyMotion(effectiveMotion());
+  refreshFooter();
+}
+
+function refreshFooter() {
+  const footer = document.getElementById("site-footer");
+  if (footer) footer.replaceChildren(renderFooter());
+}
+
+export function initView() {
+  applyView(readView());
+  applyMotion(effectiveMotion());
+  // Follow the OS reduced-motion setting live; keep the stored preference as is.
+  const onMQ = function () {
+    applyMotion(effectiveMotion());
+    refreshFooter();
+  };
+  if (reduceMQ.addEventListener) reduceMQ.addEventListener("change", onMQ);
+  else if (reduceMQ.addListener) reduceMQ.addListener(onMQ);
 }
 
 // ---- erase everything ----------------------------------------------------
@@ -89,28 +169,7 @@ export function renderHeader(modeLabel) {
 
   const tail = el("div", { class: "siteheader__tail" });
 
-  // ground toggle (M9 replaces this with Full / Light)
-  const gbtn = el("button", {
-    class: "siteheader__ground",
-    type: "button",
-    "data-role": "ground-toggle"
-  });
-  function paintGround() {
-    const current =
-      document.documentElement.getAttribute("data-ground") === "void" ? "void" : "chalk";
-    const target = current === "void" ? "chalk" : "void";
-    gbtn.setAttribute("data-ground-target", target);
-    setText(gbtn, target === "void" ? "Dark ground" : "Light ground");
-  }
-  paintGround();
-  gbtn.addEventListener("click", function () {
-    const target =
-      gbtn.getAttribute("data-ground-target") === "void" ? "void" : "chalk";
-    applyGround(target);
-    saveGround(target);
-    paintGround();
-  });
-  tail.appendChild(gbtn);
+  // The Full / Light and Reduce-effects controls live in the footer (M9).
 
   // disclosure menu
   const menu = el("details", { class: "menu" });
@@ -175,21 +234,47 @@ export function renderFooter() {
 
   const controls = el("div", { class: "sitefooter__controls" });
 
-  // M9 wires these two. Rendered here as labelled, disabled stubs.
-  controls.appendChild(
-    el(
-      "button",
-      { class: "ctl-stub", type: "button", disabled: true, "data-ctl": "view" },
-      "View: Full / Light"
-    )
+  // View: Full / Light. aria-label names the state the click produces
+  // (sinaida.eu pattern). Visible text is fixed per CONTENT.md section 3.
+  const view = currentView();
+  const viewTarget = view === "light" ? "full" : "light";
+  const viewBtn = el(
+    "button",
+    {
+      class: "ctl",
+      type: "button",
+      "data-ctl": "view",
+      "aria-pressed": view === "light" ? "true" : "false",
+      "aria-label":
+        "Switch to " + viewTarget + " view (currently " + view + ")"
+    },
+    "View: Full / Light"
   );
-  controls.appendChild(
-    el(
-      "button",
-      { class: "ctl-stub", type: "button", disabled: true, "data-ctl": "motion" },
-      "Reduce effects"
-    )
+  viewBtn.addEventListener("click", function () {
+    setView(currentView() === "light" ? "full" : "light");
+  });
+  controls.appendChild(viewBtn);
+
+  // Reduce effects. Reflects the effective state; when the OS forces reduced
+  // motion the button stays pressed and toggling has no visible effect.
+  const reduced = effectiveMotion() === "reduced";
+  const motionBtn = el(
+    "button",
+    {
+      class: "ctl",
+      type: "button",
+      "data-ctl": "motion",
+      "aria-pressed": reduced ? "true" : "false",
+      "aria-label": reduced
+        ? "Restore effects (effects currently reduced)"
+        : "Reduce effects (effects currently on)"
+    },
+    "Reduce effects"
   );
+  motionBtn.addEventListener("click", function () {
+    setMotion(effectiveMotion() === "reduced" ? "full" : "reduced");
+  });
+  controls.appendChild(motionBtn);
 
   // Erase everything, with an inline confirm step (never window.confirm).
   const erase = el("div", { class: "erase", "data-role": "erase" });
