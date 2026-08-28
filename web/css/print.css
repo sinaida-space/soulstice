@@ -1,0 +1,47 @@
+/* Soulstice — print. M4's Compass / statement output relies on this file.
+   Print hides the app chrome and prints the output document only,
+   black on white, with the frame rules removed. */
+
+@media print {
+  html, body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+
+  .frame {
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    border: 0 !important;
+  }
+
+  .chrome,
+  .chrome__ground,
+  .noscript,
+  .modes,
+  .resume-list,
+  .btn,
+  .btn--block,
+  .card__form,
+  [data-role="ground-toggle"] {
+    display: none !important;
+  }
+
+  /* The output document region (written by M4) is the only thing that prints. */
+  .output-doc {
+    display: block;
+    color: #000000;
+    font-family: var(--font-body);
+  }
+
+  .output-doc h1,
+  .output-doc h2,
+  .card__label {
+    font-family: var(--font-display);
+    color: #000000;
+  }
+
+  a[href]::after { content: ""; }
+
+  .screen { padding: 0; }
+}
