@@ -9,7 +9,8 @@
 //     acknowledgement gate, with a crisis-contact panel pinned above every card.
 //
 // Phases (headers only, never a number spoken to the user):
-//   1  separate the event from the verdict      g1-event  -> g1-relation
+//   1  put the verdict outside her, then        g0-verdict -> g1-event -> g1-relation
+//      separate the event from the verdict
 //   2  evidence: for BEFORE against             g2-for -> g2-against -> g2-date -> g2-version
 //   2b the question that has no answer          g2b-morning        (skipped when the
 //                                                                   phase-2 rewrite is
@@ -25,19 +26,32 @@
 //   - The one permitted factual sentence about measurement conditions appears
 //     once, on g1-event. Phase 2 suspends the "one uncomfortable option" rule;
 //     phase 4 restores it.
-//   - Options are built in the language of an artist working with projection,
-//     light and moving bodies, because that is the person the references use.
+//   - Options carry no medium nouns. Every situation has to fit a painter, a
+//     poet, a composer or a sculptor the same way, so nothing in an option
+//     lets the person read it as being about someone else's practice.
 
 export default {
   key: "ground",
   title: "Ground",
   arc: null,
   intro: "",
-  entry: "g1-event",
+  entry: "g0-verdict",
   cards: {
     // ================================================================
-    // Phase 1 — separate the event from the verdict
+    // Phase 1 — put the verdict outside her, then separate it from the event
     // ================================================================
+
+    // The one thing the document has to be able to quote back. No options:
+    // it is her sentence, in her words, and nothing here should shape it.
+    "g0-verdict": {
+      id: "g0-verdict",
+      kind: "open",
+      question: "In one sentence, as flatly as you can: the thing you have been telling yourself tonight.",
+      header: "The sentence",
+      note: "",
+      multiSelectHint: false,
+      next: { _default: "g1-event" }
+    },
 
     "g1-event": {
       id: "g1-event",
@@ -98,9 +112,9 @@ export default {
       header: "Against",
       note: "Mark every one that is true. Vague does not count here; each of these is a specific kind of event you could check.",
       options: [
-        { id: "a", label: "A dancer kept working in the light after the session had ended.", desc: "Someone stayed in it while nobody was watching." },
+        { id: "a", label: "Someone stayed with the work after they had any reason to.", desc: "They kept at it while nobody was watching." },
         { id: "b", label: "Someone who saw it once wrote to me first, later.", desc: "An approach costs the approacher something." },
-        { id: "c", label: "A stranger stood in front of it longer than one full loop.", desc: "The clearest vote available, and it is unpaid." },
+        { id: "c", label: "A stranger gave it more time than it asked for.", desc: "The clearest vote available, and it is unpaid." },
         { id: "d", label: "Someone described the piece to a third person, wrongly but with heat.", desc: "It travelled without me in the room." }
       ],
       multiSelectHint: true,
@@ -153,7 +167,7 @@ export default {
       header: "Next morning",
       note: "This one has no resolution on offer. The options are only what you do next.",
       options: [
-        { id: "a", label: "Open the same file and keep working, with the question left open.", desc: "Continuing without a reason to." },
+        { id: "a", label: "Go back to the same work and keep going, with the question left open.", desc: "Continuing without a reason to." },
         { id: "b", label: "Stop for a month and find out whether I come back.", desc: "A real experiment, with a real result." },
         { id: "c", label: "Find a reason that holds, even a borrowed one.", desc: "Relief bought with a story." },
         { id: "d", label: "Keep working, and stay angry about it.", desc: "Anger as fuel, which lasts about two years." }
@@ -173,10 +187,10 @@ export default {
       header: "Today",
       note: "",
       options: [
-        { id: "a", label: "Re-cut the 2024 studio footage into ninety seconds, no titles.", desc: "Material already on the drive." },
-        { id: "b", label: "Rebuild the light study that broke, at half resolution.", desc: "The version that has to run, rather than the finished one." },
-        { id: "c", label: "Write the three sentences that describe the piece I keep failing to describe.", desc: "Words, on the piece that resists them." },
-        { id: "d", label: "Set the projector up at home and put something on the wall for an hour.", desc: "The work, on a surface, tonight." }
+        { id: "a", label: "Cut one finished piece down to its shortest honest version.", desc: "Something you have already made, made tighter." },
+        { id: "b", label: "Remake the small piece that failed, roughly and at low stakes.", desc: "The same attempt again, without the pressure that broke it." },
+        { id: "c", label: "Write the three sentences that describe the work you keep failing to describe.", desc: "Words, on the piece that resists them." },
+        { id: "d", label: "Put one unfinished thing where you have to look at it for an hour.", desc: "The work in front of you, with nowhere else to look." }
       ],
       multiSelectHint: false,
       next: { a: "g3-trigger", b: "g3-trigger", c: "g3-trigger", d: "g3-trigger", _other: "g3-trigger", _default: "g3-trigger" }
@@ -213,7 +227,7 @@ export default {
       header: "Material",
       note: "Pick roughly three. The next screens ask you to write the projects themselves.",
       options: [
-        { id: "a", label: "The footage and studies already on the drive.", desc: "Made, unfinished, in reach." },
+        { id: "a", label: "The unfinished things already within reach.", desc: "Made, set aside, close at hand." },
         { id: "b", label: "The one piece that landed with a person in the evidence column.", desc: "Something that already worked once." },
         { id: "c", label: "The recurring thing in my work I could not name tonight.", desc: "The obsession under the separate projects." },
         { id: "d", label: "The action I just chose for tomorrow, scaled up past its two hours.", desc: "The small thing as the seed of a large one." },
