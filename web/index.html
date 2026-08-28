@@ -8,16 +8,17 @@
 
   <link rel="stylesheet" href="./css/tokens.css">
   <link rel="stylesheet" href="./css/app.css">
+  <link rel="stylesheet" href="./css/chrome.css">
   <link rel="stylesheet" href="./css/print.css">
 </head>
 <body data-ground="chalk">
+  <header id="site-header" class="siteheader"></header>
+
   <div class="frame">
-    <header class="chrome">
-      <a class="chrome__home" href="#/" data-role="home">Soulstice</a>
-      <button class="chrome__ground" type="button" data-role="ground-toggle" data-ground-target="void">Dark ground</button>
-    </header>
-    <main id="screen" class="screen" aria-live="polite"></main>
+    <main id="screen" class="screen" tabindex="-1" aria-live="polite"></main>
   </div>
+
+  <footer id="site-footer" class="sitefooter"></footer>
 
   <noscript>
     <div class="noscript">
