@@ -224,7 +224,7 @@ export const statementSections = [
         id: "st-stakes-1",
         kind: "single",
         question: "If you stopped making this kind of work, what would be lost, and to whom?",
-        header: "If you stopped",
+        header: "The loss",
         note: "",
         options: [
           { id: "a", label: "Something only I am looking at would go unlooked at.", desc: "" },
