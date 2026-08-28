@@ -1,8 +1,18 @@
 # Soulstice Web
 
-A static browser build of the Soulstice self-inquiry instrument. No build step,
-no framework, no bundler, no npm, no CDN, no external requests. Plain ES modules
-loaded with `<script type="module">`.
+Live: <https://sinaida-space.github.io/soulstice/> (the repository root redirects
+to `web/`, so the app itself is served from `/soulstice/web/`).
+
+## What this is
+
+A static, self-guided version of the Soulstice skill: the same Prologue, eleven
+layers and six modes, run as branching choice cards straight in the browser
+instead of through Claude. It is English only and carries no translation of its
+own, but every branch keys off `data-*` attributes rather than visible text, so
+it works through Google Translate. There is no build step, no framework, no
+bundler, no npm, no CDN and no external request; it is plain ES modules loaded
+with `<script type="module">`, and every answer stays in `localStorage` on the
+one device.
 
 ## Run it locally
 
@@ -31,9 +41,18 @@ web/
   js/card.js          card renderer + arc-break renderer (frozen contract)
   js/app.js           hash router, Passage flow, ground toggle
   js/dom.js           small internal DOM builder (not a contract)
-  data/manifest.js    thin, merge-friendly list of layer/section modules
-  data/_placeholder.js  M0 placeholder Prologue layer (2 cards)
+  js/output.js        Markdown assemblers for every mode + the output screen
+  js/modes/           ground.js, secondary.js (journal/lens/statement/return)
+  js/output.test.html standalone harness for the output assemblers
+  data/manifest.js    thin, merge-friendly list of Passage layer modules
+  data/layers/        Prologue + eleven layers, one file each, arc index files
+  data/ground.js data/lens.js data/statement.js data/journal.js data/return.js data/workbook.js
+  tools/validate.mjs  node, no deps: checks ids, entries, next targets, headers
 ```
+
+Run `node tools/validate.mjs` from `web/` after any data edit; it exits non-zero
+on a broken `next` target, a duplicate card id, a missing `entry`, or a `header`
+over twelve characters.
 
 ## Data contract (frozen — later milestones depend on it verbatim)
 
