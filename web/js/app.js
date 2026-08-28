@@ -17,6 +17,13 @@ import { renderCard, renderArcBreak } from "./card.js";
 import { el, setText } from "./dom.js";
 import { passageLayers } from "../data/manifest.js";
 import { buildCompass, renderOutputScreen } from "./output.js";
+import { groundRoutes } from "./modes/ground.reg.js";
+import { secondaryRoutes } from "./modes/secondary.reg.js";
+
+// Mode handlers beyond Passage. Each is { id, enter }, where enter() renders
+// the mode into #screen. Registered from disjoint files so parallel
+// milestones never touch this one.
+const EXTRA_MODES = [].concat(groundRoutes, secondaryRoutes);
 
 const MODE_LAYERS = {
   passage: passageLayers
@@ -117,6 +124,10 @@ function router() {
 
   if (!mode) return renderModeSelect();
   if (mode === "passage") return enterMode("passage");
+
+  const handler = EXTRA_MODES.find(function (m) { return m.id === mode; });
+  if (handler) return handler.enter();
+
   if (KNOWN_MODES.indexOf(mode) !== -1) return renderStub(mode);
 
   window.location.hash = "#/";
