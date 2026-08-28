@@ -43,7 +43,9 @@ import {
 import {
   parseCompass,
   RETURN_DIRECTION_PROMPT,
-  RETURN_TEST_PROMPT
+  RETURN_TEST_PROMPT,
+  RETURN_DRIFT_PROMPT,
+  RETURN_REVISED_PROMPT
 } from "../../data/return.js";
 
 // ---- net-new CSS, injected once -------------------------------------------
@@ -569,7 +571,8 @@ export const returnMode = {
   }
 };
 
-// One open card per direction, then one for the test.
+// One open card per direction, then the test, then two reflection cards that
+// feed "What has drifted" and "Revised directions" in the assembled document.
 function returnSection(parsed) {
   const dirs = (parsed && parsed.directions) || [];
   const cards = {};
@@ -598,6 +601,28 @@ function returnSection(parsed) {
     note: (parsed && parsed.test) || "",
     options: [],
     multiSelectHint: false,
+    next: { _default: "ret-drift" }
+  };
+
+  cards["ret-drift"] = {
+    id: "ret-drift",
+    kind: "open",
+    question: RETURN_DRIFT_PROMPT,
+    header: "Drifted",
+    note: "",
+    options: [],
+    multiSelectHint: false,
+    next: { _default: "ret-revised" }
+  };
+
+  cards["ret-revised"] = {
+    id: "ret-revised",
+    kind: "open",
+    question: RETURN_REVISED_PROMPT,
+    header: "Revised",
+    note: "",
+    options: [],
+    multiSelectHint: false,
     next: { _end: true }
   };
 
@@ -620,11 +645,12 @@ function runReturn(mode, state) {
 function finishReturn(mode, state) {
   const r = state.return;
 
-  // Directions feed buildReturn; the test answer is placed by hand so it does
-  // not also land in the directions list.
+  // Only the per-direction answers feed buildReturn's directions list. The
+  // test, drift and revised answers are placed by hand into their own sections.
+  const HANDLED = { "ret-test": 1, "ret-drift": 1, "ret-revised": 1 };
   const dirAnswers = {};
   for (const id in state.answers) {
-    if (id !== "ret-test") dirAnswers[id] = state.answers[id];
+    if (!HANDLED[id]) dirAnswers[id] = state.answers[id];
   }
 
   const doc = buildReturn(
@@ -632,13 +658,31 @@ function finishReturn(mode, state) {
     Object.assign({}, state, { answers: dirAnswers })
   );
 
+  function answerText(id) {
+    const a = state.answers[id];
+    return a && typeof a.text === "string" ? a.text.trim() : "";
+  }
+
   let section = doc.markdown;
-  const testAns = state.answers["ret-test"];
-  const testText = testAns && typeof testAns.text === "string" ? testAns.text.trim() : "";
+  const testText = answerText("ret-test");
   if (testText) {
     section = section.replace(
       "### What happened to the one test\n\n> (not recorded)",
       "### What happened to the one test\n\n" + testText
+    );
+  }
+  const driftText = answerText("ret-drift");
+  if (driftText) {
+    section = section.replace(
+      "### What has drifted\n\n> (not recorded)",
+      "### What has drifted\n\n" + driftText
+    );
+  }
+  const revisedText = answerText("ret-revised");
+  if (revisedText) {
+    section = section.replace(
+      "### Revised directions\n\n> (not recorded)",
+      "### Revised directions\n\n" + revisedText
     );
   }
 

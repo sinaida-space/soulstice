@@ -49,7 +49,7 @@ export default {
       id: "lens-fear-b",
       kind: "open",
       question: "Name the unsafe version in one line. What would it do that this one does not?",
-      header: "Unsafe version",
+      header: "Unsafe",
       note: "",
       options: [],
       multiSelectHint: false,
