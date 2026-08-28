@@ -16,6 +16,7 @@ import { Store } from "./store.js";
 import { renderCard, renderArcBreak } from "./card.js";
 import { el, setText } from "./dom.js";
 import { passageLayers } from "../data/manifest.js";
+import { buildCompass, renderOutputScreen } from "./output.js";
 
 const MODE_LAYERS = {
   passage: passageLayers
@@ -311,14 +312,48 @@ function completeLayerAndAdvance(mode, state, layer) {
   renderDone(mode, state);
 }
 
+// Three short findings drawn from the answers already given in this arc.
+// Prefer the user's own words (open text, then Other), else the picked option
+// label, each trimmed to a phrase. renderArcBreak (card.js) is left untouched.
+function arcFindings(state, arc) {
+  const layers = passageLayers.filter(function (l) { return l.arc === arc; });
+  const phrases = [];
+  for (const layer of layers) {
+    for (const cid in layer.cards) {
+      const a = state.answers[cid];
+      if (!a) continue;
+      let t = "";
+      if (typeof a.text === "string" && a.text.trim()) {
+        t = a.text.trim();
+      } else if (typeof a.other === "string" && a.other.trim()) {
+        t = a.other.trim();
+      } else if (Array.isArray(a.picks)) {
+        const first = a.picks.find(function (p) { return p !== "_other"; });
+        const opts = layer.cards[cid].options || [];
+        const opt = opts.find(function (o) { return o.id === first; });
+        if (opt) t = opt.label;
+      }
+      if (t) phrases.push(toPhrase(t));
+    }
+  }
+  if (!phrases.length) return [{ id: "f1", label: "Nothing recorded in this arc yet." }];
+  const chosen = phrases.length <= 3
+    ? phrases
+    : [phrases[0], phrases[Math.floor((phrases.length - 1) / 2)], phrases[phrases.length - 1]];
+  return chosen.map(function (p, i) { return { id: "f" + (i + 1), label: p }; });
+}
+
+function toPhrase(s) {
+  let out = String(s).replace(/\s+/g, " ").trim();
+  const stop = out.search(/[.!?]\s/);
+  if (stop > 20) out = out.slice(0, stop + 1);
+  if (out.length > 90) out = out.slice(0, 88).replace(/\s+\S*$/, "") + "…";
+  return out;
+}
+
 function enterArcBreak(mode, state, layer) {
   const arc = layer.arc || 1;
-  // M0 placeholders. M1-M3 pass the arc's real findings.
-  const findings = [
-    { id: "f1", label: "Placeholder finding one for arc " + arc + "." },
-    { id: "f2", label: "Placeholder finding two for arc " + arc + "." },
-    { id: "f3", label: "Placeholder finding three for arc " + arc + "." }
-  ];
+  const findings = arcFindings(state, arc);
 
   const node = renderArcBreak(findings, function (result) {
     state.arcBreaks[String(arc)] = { struck: result.struck, choice: result.choice };
@@ -336,10 +371,27 @@ function enterArcBreak(mode, state, layer) {
 }
 
 function renderDone(mode, state) {
+  // Passage complete: assemble the Compass and show the output screen.
+  if (mode === "passage") {
+    try {
+      const doc = buildCompass(state);
+      const root = renderOutputScreen(doc, screenNode());
+      const again = el("button", { class: "btn btn--block btn--ghost", type: "button", "data-action": "startover" }, "Start over");
+      again.addEventListener("click", function () { startFresh(mode); });
+      const home = el("button", { class: "btn btn--block", type: "button", "data-action": "home" }, "Back to start");
+      home.addEventListener("click", goHome);
+      root.appendChild(again);
+      root.appendChild(home);
+      return;
+    } catch (e) {
+      // Fall through to the plain stub if the assembler throws.
+    }
+  }
+
   const root = el("section", { class: "screen-panel done", "data-role": "done" });
   root.appendChild(el("span", { class: "card__label" }, "Session complete"));
-  root.appendChild(el("h1", { class: "card__q" }, "Session complete — output goes here."));
-  root.appendChild(el("p", { class: "card__note" }, "A later milestone assembles the Compass and offers the artist statement in this panel."));
+  root.appendChild(el("h1", { class: "card__q" }, "Session complete."));
+  root.appendChild(el("p", { class: "card__note" }, "A later milestone assembles the output for this mode in this panel."));
 
   const again = el("button", { class: "btn btn--block btn--ghost", type: "button", "data-action": "startover" }, "Start over");
   again.addEventListener("click", function () {

@@ -44,4 +44,63 @@
   a[href]::after { content: ""; }
 
   .screen { padding: 0; }
+
+  /* ---- M4: the #output document, printed as a single grid-style column ---- */
+
+  @page { margin: 20mm; }
+
+  #output {
+    display: block;
+    color: #000000;
+    background: #ffffff;
+  }
+
+  #output .card__label,
+  #output .output__actions,
+  #output .output__fortee,
+  #output .btn,
+  #output .btn--download,
+  #output .btn--print {
+    display: none !important;
+  }
+
+  #output .output-doc {
+    display: block;
+    max-width: none;
+    color: #000000;
+    background: #ffffff;
+    font-family: var(--font-body);
+    font-weight: 300;
+    font-size: 10.5pt;
+    line-height: 1.5;
+  }
+
+  #output .output-doc h1,
+  #output .output-doc h2,
+  #output .output-doc h3 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    color: #000000;
+    break-after: avoid;
+  }
+  #output .output-doc h1 { font-size: 16pt; margin: 0 0 12pt; }
+  #output .output-doc h2 { font-size: 12pt; margin: 18pt 0 6pt; }
+  #output .output-doc h3 { font-size: 10.5pt; margin: 12pt 0 4pt; }
+
+  /* Red rules kept, but only as hairlines. */
+  #output .output-doc hr {
+    border: 0;
+    border-top: 0.5pt solid #000000;
+    margin: 14pt 0;
+  }
+  #output .output-doc blockquote {
+    margin: 6pt 0;
+    padding-left: 8pt;
+    border-left: 0.75pt solid var(--red);
+    color: #000000;
+  }
+  #output .output-doc ul,
+  #output .output-doc ol { margin: 4pt 0 8pt; padding-left: 16pt; }
+  #output .output-doc li { break-inside: avoid; margin: 2pt 0; }
+  #output .output-doc p { margin: 4pt 0 8pt; break-inside: avoid; }
 }
