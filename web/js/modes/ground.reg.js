@@ -2,8 +2,8 @@
 // ONE entry: { id: "ground", enter: function () { /* render into #screen */ } }.
 // Only M5 edits this file.
 
-// import { groundMode } from "./ground.js";
+import { groundMode } from "./ground.js";
 
 export const groundRoutes = [
-  // groundMode
+  groundMode
 ];
