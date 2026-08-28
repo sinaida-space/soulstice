@@ -19,6 +19,15 @@
     border: 0 !important;
   }
 
+  /* Panels print as plain white, no border or card inset. */
+  #screen > * {
+    background: #ffffff !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
   .chrome,
   .chrome__ground,
   .noscript,
