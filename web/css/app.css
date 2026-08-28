@@ -319,6 +319,13 @@ body {
   color: var(--ink-soft);
 }
 
+/* The Soulstice footnote: the final block of every generated document. */
+.output-doc__footnote {
+  margin-top: var(--step);
+  font-size: var(--fs-small);
+  color: var(--ink-soft);
+}
+
 .output__actions {
   display: flex;
   gap: 0.75rem;

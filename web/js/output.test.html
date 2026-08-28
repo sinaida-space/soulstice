@@ -48,8 +48,8 @@
         "stakes-close": { text: "I did not say that part of me has already decided to stop." },
         "field-question": { picks: ["_other"], other: "whether paying attention to a thing is the same as looking after it" },
         "field-repeats": { picks: ["material", "time", "absence"], other: "" },
-        "field-defend": { text: "Long Wave, Room Tone, and the one I still have not titled." },
-        "field-fright": { text: "Room Tone. Nobody asked for it and it is too quiet to defend in a statement." },
+        "field-defend": { text: "The two from last winter, and the one I still have not titled." },
+        "field-fright": { text: "The second one. Nobody asked for it and it is too slight to defend in a statement." },
         "field-embarrass": { picks: ["borrowed"], other: "" },
         "field-theft": { picks: ["withheld"], other: "" },
         "contact-c3": { picks: ["b"], other: "the part of me that checks what people will think just goes quiet" },
@@ -95,7 +95,7 @@
         "g3-action": { picks: ["c"], other: "" },
         "g3-trigger": { picks: ["a"], other: "" },
         "g4-material": { picks: ["b", "c", "e"], other: "" },
-        "g4-p1": { text: "What it is: a short sequence built only from the piece that already landed. Why this one: it is the one thing tonight that proved someone stayed. Smallest version: three minutes, shown to nobody. If it works: it becomes the spine of the next long piece." },
+        "g4-p1": { text: "What it is: a small piece built only from the part that already landed. Why this one: it is the one thing tonight that proved someone stayed. Smallest version: an afternoon's work, shown to nobody. If it works: it becomes the spine of the next big one." },
         "g4-p2": { text: "" },
         "g4-p3": { text: "The recurring thing I could not name tonight, made once on purpose and given a title." }
       }
@@ -111,7 +111,7 @@
         "st-who-open": { text: "The work is for someone who walked in by accident and now cannot leave the room without carrying something." },
         "st-about-open": { text: "It keeps asking whether looking hard at a small thing is a way of taking care of it or just a way of staring." },
         "st-form-open": { text: "It is built slow, in one material, and I refuse to cut it down to fit a feed. The slowness is the argument." },
-        "st-epoch-open": { text: "It comes after the people who filmed empty rooms, and it refuses to explain itself down to a caption." },
+        "st-epoch-open": { text: "It comes after the people who made whole careers out of empty rooms, and it refuses to explain itself down to a caption." },
         "st-stakes-open": { text: "" }
       }
     };
@@ -203,6 +203,46 @@
       retMd.includes("### Revised directions\n\n> (not recorded)"));
     check("buildReturn: 'one test' placeholder is exact",
       retMd.includes("### What happened to the one test\n\n> (not recorded)"));
+
+    // ---- M10: PDF flow + footnote on every build* -------------------------
+    const flat = (s) => String(s).replace(/ /g, " ");
+    const FOOT_RE = /\n---\n\nMade with Soulstice, an instrument by Sinaida Krivchenko · sinaida\.eu\s*$/;
+
+    const m10builds = {
+      "buildCompass": () => buildCompass(state),
+      "buildLensVerdict": () => buildLensVerdict(state),
+      "buildStatement": () => buildStatement(state),
+      "buildGround": () => buildGround(state),
+      "buildJournalEntry": () => buildJournalEntry(state),
+      "buildDriftReview": () => buildDriftReview([{ date: "2025-01-04" }, { date: "2025-02-11" }]),
+      "buildReturn": () => buildReturn({ date: "2025-01-04", markdown: "# Compass: 2025-01-04" }, state),
+      "buildCompass (empty state)": () => buildCompass({}),
+      "buildStatement (standalone)": () => buildStatement(statementStandalone)
+    };
+    for (const name in m10builds) {
+      const md = m10builds[name]().markdown;
+      check(name + ": ends with the Soulstice footnote block", FOOT_RE.test(flat(md)));
+      check(name + ": no .md / data: download affordance in the markdown",
+        !md.includes("](data:") && !/\bDownload \.md\b/.test(md));
+    }
+
+    // The live output screen (Compass rendered above into #screen).
+    const scr = document.getElementById("screen");
+    check("renderOutputScreen: Save as PDF button replaces the .md download",
+      !!scr.querySelector('[data-role="save-pdf"]') &&
+      /save as pdf/i.test(scr.querySelector('[data-role="save-pdf"]').textContent) &&
+      !scr.querySelector('[data-role="download"]'));
+    check("renderOutputScreen: quiet Copy text button present",
+      !!scr.querySelector('[data-role="copy-text"]'));
+    check("renderOutputScreen: print-dialog hint present",
+      /choose .save as pdf. as the destination/i.test(
+        flat((scr.querySelector('[data-role="pdf-hint"]') || {}).textContent || "")));
+    check("renderOutputScreen: no .md download / data: affordance in the DOM",
+      !scr.querySelector('a[download]') && !/\bdata:/.test(scr.innerHTML) &&
+      !/Download \.md/.test(scr.textContent));
+    check("renderOutputScreen: footnote is its own greyed final block",
+      !!scr.querySelector('.output-doc__footnote') &&
+      /sinaida\.eu/.test(scr.querySelector('.output-doc__footnote').textContent));
 
     const bad = results.filter((r) => !r[1]);
     const summary = document.querySelector('[data-role="summary"]');

@@ -56,7 +56,7 @@ export default {
         { id: "evidence", label: "The evidence I was building that this is going somewhere.", desc: "One more data point that says it is not." },
         { id: "story", label: "The story I tell myself about why the last few years were worth it.", desc: "Silence as a verdict on the whole stretch." },
         { id: "reread", label: "Nothing I will admit to, but I will reread the silence for weeks.", desc: "You will treat the absence of response as a message." },
-        { id: "reason", label: "A reason to make the next one, which I am ashamed to need.", desc: "The drive was partly the expected reaction, and it did not come." }
+        { id: "reason", label: "A reason to make the next one, which I am ashamed to need.", desc: "The push to keep going was partly the expected reaction, and it did not come." }
       ],
       multiSelectHint: false,
       next: { _default: "standing-rank" }
@@ -87,7 +87,7 @@ export default {
         { id: "same", label: "The same thing. Reputation was never the constraint.", desc: "The work does not change, so this was never about being seen." },
         { id: "slow", label: "The slow, unshowable work I keep postponing until I can afford to.", desc: "The thing that only happens once the pressure to be legible is off." },
         { id: "ugly", label: "Something deliberately ugly or difficult, to see what is left when charm is off the table.", desc: "A test of the work without its surface." },
-        { id: "less", label: "Less. I would find out how much of the drive was about being seen.", desc: "The honest answer that the output would shrink." }
+        { id: "less", label: "Less. I would find out how much of it was about being seen.", desc: "The honest answer that the output would shrink." }
       ],
       multiSelectHint: false,
       next: { _default: "standing-2am" }
@@ -97,7 +97,7 @@ export default {
     "standing-2am": {
       id: "standing-2am",
       kind: "single",
-      question: "Your artist statement describes one person. Who shows up in the studio at two in the morning that the statement does not mention?",
+      question: "Your artist statement describes one person. Who shows up at two in the morning, when the work is actually being made, that the statement does not mention?",
       header: "2am self",
       note: "",
       options: [
