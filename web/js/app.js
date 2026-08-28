@@ -14,11 +14,14 @@
 
 import { Store } from "./store.js";
 import { renderCard, renderArcBreak } from "./card.js";
-import { el, setText } from "./dom.js";
+import { el } from "./dom.js";
 import { passageLayers } from "../data/manifest.js";
 import { buildCompass, renderOutputScreen } from "./output.js";
 import { groundRoutes } from "./modes/ground.reg.js";
 import { secondaryRoutes } from "./modes/secondary.reg.js";
+import { renderWelcome, readConsent } from "./welcome.js";
+import { renderPrivacy, renderImprint, renderNotFound } from "./pages.js";
+import { renderHeader, renderFooter, initGround } from "./chrome.js";
 
 // Mode handlers beyond Passage. Each is { id, enter }, where enter() renders
 // the mode into #screen. Registered from disjoint files so parallel
@@ -45,53 +48,19 @@ function labelFor(id) {
   return m ? m.label : id;
 }
 
-// ---- ground (chalk/void) toggle -------------------------------------------
-// The design toggle needs its own key. soulstice:v1:ground is the Ground
-// *mode* session namespace, so the display preference lives under
-// soulstice:v1:ui:ground to avoid a collision.
+// ---- persistent header / footer ----------------------------------------
+// Re-rendered on every route change so the mode label and ground toggle
+// stay current. Mounted outside #screen, so a mode render never clobbers them.
 
-const GROUND_KEY = "soulstice:v1:ui:ground";
-
-function loadGround() {
-  try {
-    return window.localStorage.getItem(GROUND_KEY) === "void" ? "void" : "chalk";
-  } catch (e) {
-    return "chalk";
-  }
+function chromeLabelFor(mode) {
+  return KNOWN_MODES.indexOf(mode) !== -1 ? labelFor(mode) : "";
 }
 
-function saveGround(value) {
-  try {
-    window.localStorage.setItem(GROUND_KEY, value);
-  } catch (e) {
-    // preference simply will not persist; not worth a notice
-  }
-}
-
-function applyGround(value) {
-  document.documentElement.setAttribute("data-ground", value);
-  document.body.setAttribute("data-ground", value);
-}
-
-function initChrome() {
-  applyGround(loadGround());
-  const btn = document.querySelector('[data-role="ground-toggle"]');
-  if (!btn) return;
-
-  function paint() {
-    const current = document.documentElement.getAttribute("data-ground") === "void" ? "void" : "chalk";
-    const target = current === "void" ? "chalk" : "void";
-    btn.setAttribute("data-ground-target", target);
-    setText(btn, target === "void" ? "Dark ground" : "Light ground");
-  }
-
-  paint();
-  btn.addEventListener("click", function () {
-    const target = btn.getAttribute("data-ground-target") === "void" ? "void" : "chalk";
-    applyGround(target);
-    saveGround(target);
-    paint();
-  });
+function paintChrome(modeLabel) {
+  const header = document.getElementById("site-header");
+  const footer = document.getElementById("site-footer");
+  if (header) header.replaceChildren(renderHeader(modeLabel));
+  if (footer) footer.replaceChildren(renderFooter());
 }
 
 // ---- mount --------------------------------------------------------------
@@ -122,6 +91,22 @@ function router() {
   const parts = raw.split("/").filter(Boolean);
   const mode = parts[0] || "";
 
+  // Header and footer render on every screen, including 404.
+  paintChrome(chromeLabelFor(mode));
+
+  // Always reachable, no consent needed.
+  if (mode === "welcome") return mount(renderWelcome());
+  if (mode === "privacy") return mount(renderPrivacy());
+  if (mode === "imprint") return mount(renderImprint());
+  if (mode === "404") return mount(renderNotFound());
+
+  // Consent guard: the mode-select (#/) and every mode route need a valid
+  // consent record. Without one, send the visitor to the welcome screen.
+  if (!readConsent()) {
+    window.location.hash = "#/welcome";
+    return;
+  }
+
   if (!mode) return renderModeSelect();
   if (mode === "passage") return enterMode("passage");
 
@@ -130,7 +115,8 @@ function router() {
 
   if (KNOWN_MODES.indexOf(mode) !== -1) return renderStub(mode);
 
-  window.location.hash = "#/";
+  // Unknown route: render the styled 404 view in place, no silent redirect.
+  return mount(renderNotFound());
 }
 
 // ---- mode select ----------------------------------------------------------
@@ -423,6 +409,6 @@ function goHome() {
 // ---- boot -------------------------------------------------------------------
 // Module scripts are deferred, so the DOM is already parsed here.
 
-initChrome();
+initGround();
 window.addEventListener("hashchange", router);
 router();
