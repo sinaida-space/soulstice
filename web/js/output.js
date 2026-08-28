@@ -17,6 +17,7 @@
 //     verbatim answer.
 
 import { passageLayers } from "../data/manifest.js";
+import groundSection from "../data/ground.js";
 import { typo, typoTitle } from "./typo.js";
 import { el } from "./dom.js";
 
@@ -26,6 +27,7 @@ const CARD_INDEX = {};
 for (const layer of passageLayers) {
   for (const cid in layer.cards) CARD_INDEX[cid] = layer.cards[cid];
 }
+for (const cid in groundSection.cards) CARD_INDEX[cid] = groundSection.cards[cid];
 
 function optionLabel(cardId, optId) {
   const card = CARD_INDEX[cardId];
@@ -543,29 +545,62 @@ export function buildStatement(state) {
 export function buildGround(state) {
   const date = localDate();
   const s = state || {};
-  const said = collectVerbatim(s);
-
   const lines = ["# Ground: " + date, ""];
+
+  // The verdict, in her words (the g0-verdict open card).
+  const verdict = verbatim(ans(s, "g0-verdict"));
   lines.push("## The verdict she arrived with", "");
-  lines.push(said[0] ? said[0].value : "> (not recorded)");
+  lines.push(verdict || "> (not recorded)");
   lines.push("");
+
+  // The evidence the session actually surfaced: the dated against-items and
+  // the exact words she recalled.
   lines.push("## What the evidence actually showed", "");
-  if (said.length > 1) {
-    for (const item of said.slice(1)) lines.push("- " + item.value);
+  const evid = [];
+  const againstA = ans(s, "g2-against");
+  for (const p of picks(againstA)) evid.push(optionLabel("g2-against", p));
+  const againstOther = other(againstA);
+  if (againstOther) evid.push(againstOther);
+  const dateSaid = valueFor(s, "g2-date");
+  if (!dateSaid.empty) evid.push(dateSaid.value);
+  if (evid.length) {
+    for (const item of evid) lines.push("- " + item);
   } else {
     lines.push("> (not recorded)");
   }
   lines.push("");
-  lines.push("## One action, today", "");
-  lines.push("> " + typo("On <trigger>, I <action>. (The Ground card flow, milestone 5, sets this with you.)"));
+
+  // The rewrite she could sign.
+  const version = valueFor(s, "g2-version");
+  lines.push("## The version she could sign", "");
+  if (version.empty) {
+    lines.push("> (not recorded)");
+  } else if (version.verbatim) {
+    lines.push(version.value);
+  } else {
+    lines.push(version.value, "", CAVEAT);
+  }
   lines.push("");
+
+  // One action, with its trigger.
+  lines.push("## One action, today", "");
+  const action = valueFor(s, "g3-action");
+  const trigger = valueFor(s, "g3-trigger");
+  if (action.empty && trigger.empty) {
+    lines.push("> (not recorded)");
+  } else {
+    if (!action.empty) lines.push("- **The action:** " + action.value);
+    if (!trigger.empty) lines.push("- **The trigger:** " + trigger.value);
+  }
+  lines.push("");
+
+  // Three projects, in her words (the g4-p1..p3 open cards).
   lines.push("## Three projects", "");
-  for (const n of [1, 2, 3]) {
-    lines.push("### " + n + ". <name>");
-    lines.push("- What it is:");
-    lines.push("- Why this one, given what she said:");
-    lines.push("- Smallest version that counts as finished:");
-    lines.push("- How it scales up if it works:");
+  const pids = ["g4-p1", "g4-p2", "g4-p3"];
+  for (let i = 0; i < pids.length; i++) {
+    const t = text(ans(s, pids[i]));
+    lines.push("### " + (i + 1) + ".");
+    lines.push(t || "> (left blank)");
     lines.push("");
   }
 
