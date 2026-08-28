@@ -206,6 +206,12 @@ move rather than a comfort, and guided discovery.
 The skill files are English. The session runs in whatever language you open in, and
 follows you if you switch.
 
+## Web version
+
+A static, self-guided build of the instrument lives in [`web/`](web/) and is served
+at <https://sinaida-space.github.io/soulstice/>. No build step, no framework, English
+only, and it works through Google Translate. See [`web/README.md`](web/README.md).
+
 ## Install
 
 ```bash

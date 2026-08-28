@@ -135,7 +135,7 @@ export default {
       note: "",
       options: [],
       multiSelectHint: false,
-      next: { _default: { _end: true } }
+      next: { _end: true }
     }
   }
 };

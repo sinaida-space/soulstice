@@ -18,6 +18,7 @@
 
 import { passageLayers } from "../data/manifest.js";
 import groundSection from "../data/ground.js";
+import { statementSections } from "../data/statement.js";
 import { typo, typoTitle } from "./typo.js";
 import { el } from "./dom.js";
 
@@ -476,9 +477,12 @@ function collectVerbatim(s) {
 // Statement (three lengths + Provenance + Gaps)
 // =====================================================================
 
-const STATEMENT_SECTIONS = [
-  "Subject", "Motivation", "Form", "Epoch context", "Effect on the viewer"
-];
+// The five authored Statement sections, each with the id of its one mandatory
+// open card. A section counts as "covered" when that open card has the user's
+// own words in it; an unanswered one lands in Gaps.
+const STATEMENT_SECTION_OPENS = statementSections.map(function (sec) {
+  return { title: sec.title, openId: sec.openId };
+});
 
 export function buildStatement(state) {
   const date = localDate();
@@ -513,13 +517,22 @@ export function buildStatement(state) {
   lines.push(short.length ? short.join("\n\n") : "> (not enough material)");
   lines.push("");
 
-  lines.push("## Sections with insufficient material", "");
-  if (log.length >= 6) {
-    lines.push("> (assess per section once the milestone 6 card flow tags each answer)");
-  } else {
-    for (const name of STATEMENT_SECTIONS) {
-      lines.push("- " + name + ": not enough of your own sentences yet.");
+  // Gaps: one line per section whose mandatory open card was left empty. A
+  // section with an answered open card is real material and never listed here,
+  // however few sentences it holds.
+  lines.push("## Gaps", "");
+  const gaps = [];
+  for (const sec of STATEMENT_SECTION_OPENS) {
+    if (!verbatim(ans(s, sec.openId))) {
+      gaps.push("- " + typo(sec.title) + ": left unwritten.");
     }
+  }
+  if (gaps.length) {
+    lines.push.apply(lines, gaps);
+  } else if (STATEMENT_SECTION_OPENS.length) {
+    lines.push("> (every section has your own words in it)");
+  } else {
+    lines.push("> (no sections defined)");
   }
   lines.push("");
 
@@ -697,7 +710,7 @@ export function buildReturn(compassDoc, state) {
   lines.push("> (not recorded)");
   lines.push("");
   lines.push("### Revised directions", "");
-  lines.push("> (rebuilt from the answers above by the Return card flow, milestone 6)");
+  lines.push("> (not recorded)");
   lines.push("");
 
   const markdown = lines.join("\n").trim() + "\n";
