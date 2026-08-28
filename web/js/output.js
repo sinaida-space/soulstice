@@ -88,6 +88,18 @@ function hasAnyPick(state, id, optId) {
 
 const CAVEAT = "> (picked, not stated in your words)";
 
+// ---- footnote (CONTENT.md §7) ----------------------------------------------
+// Assembler-written, so it runs through typo(). Appended as the final block of
+// every generated document: a horizontal rule, then this one line.
+const FOOTNOTE = typo(
+  "Made with Soulstice, an instrument by Sinaida Krivchenko · sinaida.eu"
+);
+
+function withFootnote(markdown) {
+  const body = String(markdown == null ? "" : markdown).replace(/\s+$/, "");
+  return body + "\n\n---\n\n" + FOOTNOTE + "\n";
+}
+
 // ---- small text helpers -----------------------------------------------------
 
 // First sentence, capped, for a compact finding phrase. Only ever run on
@@ -310,7 +322,7 @@ export function buildCompass(state) {
     lines.push.apply(lines, block("Open questions", body.length ? body : ["> (none recorded)"]));
   }
 
-  const markdown = lines.join("\n").replace(/\n{3,}/g, "\n\n").trim() + "\n";
+  const markdown = withFootnote(lines.join("\n").replace(/\n{3,}/g, "\n\n").trim());
   persistCompass(date, markdown);
   return { markdown: markdown, title: "Compass: " + date, filename: "compass-" + date + ".md" };
 }
@@ -459,7 +471,7 @@ export function buildLensVerdict(state) {
   lines.push("> (the Lens card flow, milestone 6, fills these from the skipped stems)");
   lines.push("");
 
-  const markdown = lines.join("\n").trim() + "\n";
+  const markdown = withFootnote(lines.join("\n").trim());
   return { markdown: markdown, title: "Lens verdict: " + date, filename: "lens-" + date + ".md" };
 }
 
@@ -547,7 +559,7 @@ export function buildStatement(state) {
   }
   lines.push("");
 
-  const markdown = lines.join("\n").trim() + "\n";
+  const markdown = withFootnote(lines.join("\n").trim());
   return { markdown: markdown, title: "Statement: " + date, filename: "statement-" + date + ".md" };
 }
 
@@ -617,7 +629,7 @@ export function buildGround(state) {
     lines.push("");
   }
 
-  const markdown = lines.join("\n").trim() + "\n";
+  const markdown = withFootnote(lines.join("\n").trim());
   return { markdown: markdown, title: "Ground: " + date, filename: "ground-" + date + ".md" };
 }
 
@@ -649,7 +661,7 @@ export function buildJournalEntry(state) {
   lines.push("**Carried forward:** " + "—");
   lines.push("");
 
-  const markdown = lines.join("\n").trim() + "\n";
+  const markdown = withFootnote(lines.join("\n").trim());
   return { markdown: markdown, title: "Journal entry: " + date, filename: "journal-" + date + ".md" };
 }
 
@@ -680,7 +692,7 @@ export function buildDriftReview(entries) {
   lines.push("> " + typo("This review needs your reading. The instrument holds the entries; it does not decide what they mean."));
   lines.push("");
 
-  const markdown = lines.join("\n").trim() + "\n";
+  const markdown = withFootnote(lines.join("\n").trim());
   return { markdown: markdown, title: "Drift review: " + date, filename: "drift-review-" + date + ".md" };
 }
 
@@ -713,7 +725,7 @@ export function buildReturn(compassDoc, state) {
   lines.push("> (not recorded)");
   lines.push("");
 
-  const markdown = lines.join("\n").trim() + "\n";
+  const markdown = withFootnote(lines.join("\n").trim());
   const filename = origDate ? "compass-" + origDate + ".md" : "return-" + date + ".md";
   return { markdown: markdown, title: "Return: " + date, filename: filename };
 }
@@ -738,32 +750,50 @@ export function renderOutputScreen(doc, mountNode) {
 
   const article = el("div", { class: "output-doc", "data-role": "output-doc" });
   article.appendChild(mdToDom(d.markdown || ""));
+  // The footnote is the last block of the document markdown (rule + one line).
+  // Tag that trailing paragraph so the screen and print.css render it small and
+  // greyed, as the final block rather than a running footer.
+  const kids = article.children;
+  const tail = kids.length ? kids[kids.length - 1] : null;
+  if (tail && tail.tagName && tail.tagName.toLowerCase() === "p") {
+    tail.className = "output-doc__footnote";
+    tail.setAttribute("data-role", "footnote");
+  }
   root.appendChild(article);
 
   const actions = el("div", { class: "output__actions", "data-role": "output-actions" });
 
-  const filename = d.filename || "soulstice.md";
-  let url = "";
-  try {
-    url = URL.createObjectURL(new Blob([d.markdown || ""], { type: "text/markdown" }));
-  } catch (e) {
-    url = "";
-  }
-  const download = el("a", {
-    class: "btn btn--download",
-    href: url || "#",
-    download: filename,
-    "data-role": "download"
-  }, "Download .md");
-  actions.appendChild(download);
+  // Save as PDF: prepare nothing extra (the document is already in #output,
+  // styled by print.css) and hand off to the browser's print-to-PDF.
+  const pdfBtn = el("button", {
+    class: "btn btn--pdf", type: "button", "data-role": "save-pdf"
+  }, "Save as PDF");
+  pdfBtn.addEventListener("click", function () { window.print(); });
+  actions.appendChild(pdfBtn);
 
-  const printBtn = el("button", {
-    class: "btn btn--ghost btn--print", type: "button", "data-role": "print"
-  }, "Print");
-  printBtn.addEventListener("click", function () { window.print(); });
-  actions.appendChild(printBtn);
+  // Quiet secondary: copy the plain document text to the clipboard.
+  const copied = el("span", {
+    class: "output__copied", "data-role": "copied", hidden: true,
+    style: "align-self:center;font-size:var(--fs-small);color:var(--red-text)"
+  }, "copied");
+  const copyBtn = el("button", {
+    class: "btn btn--ghost btn--copy", type: "button", "data-role": "copy-text"
+  }, "Copy text");
+  copyBtn.addEventListener("click", function () {
+    copyPlainText(d.markdown || "", function () {
+      copied.hidden = false;
+      window.setTimeout(function () { copied.hidden = true; }, 2000);
+    });
+  });
+  actions.appendChild(copyBtn);
+  actions.appendChild(copied);
 
   root.appendChild(actions);
+
+  root.appendChild(el("p", {
+    class: "output__hint", "data-role": "pdf-hint",
+    style: "font-size:var(--fs-small);color:var(--ink-soft);margin:0 0 var(--step)"
+  }, typo("In the print dialog, choose \"Save as PDF\" as the destination.")));
 
   // for-tee-too, offered exactly once across reloads.
   let offered = false;
@@ -780,6 +810,42 @@ export function renderOutputScreen(doc, mountNode) {
 
   if (mountNode) mountNode.replaceChildren(root);
   return root;
+}
+
+// ---- clipboard (event-driven; async API, then a hidden-textarea fallback) ---
+
+function copyPlainText(input, onOk) {
+  const txt = String(input == null ? "" : input);
+  try {
+    if (navigator.clipboard && typeof navigator.clipboard.writeText === "function") {
+      navigator.clipboard.writeText(txt).then(
+        function () { onOk(); },
+        function () { legacyCopy(txt, onOk); }
+      );
+      return;
+    }
+  } catch (e) {
+    // fall through to the legacy path
+  }
+  legacyCopy(txt, onOk);
+}
+
+function legacyCopy(txt, onOk) {
+  try {
+    const ta = document.createElement("textarea");
+    ta.value = txt;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    ta.style.opacity = "0";
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand("copy");
+    document.body.removeChild(ta);
+    onOk();
+  } catch (e) {
+    // Copy is unavailable; the document stays on screen to select by hand.
+  }
 }
 
 // ---- minimal Markdown -> DOM (headings, rules, quotes, lists, paragraphs) ---
