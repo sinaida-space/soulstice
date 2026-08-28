@@ -11,11 +11,15 @@ body {
   background: var(--ground);
   color: var(--ink);
   font-family: var(--font-body);
-  font-weight: 300;
   font-size: var(--fs-body);
   line-height: var(--unit);
+  letter-spacing: var(--tracking);
   -webkit-font-smoothing: antialiased;
 }
+
+/* Full view: let the fixed #backdrop canvas show through the page body.
+   Every readable block sits on an opaque surface (frame / header / footer). */
+:root[data-view="full"] body { background: transparent; }
 
 /* ---- Frame: two full-height red vertical rules around the column ---- */
 
@@ -24,6 +28,7 @@ body {
   margin: 0 auto;
   min-height: 100vh;
   padding: 0 var(--gutter);
+  background: var(--surface);
   border-left: var(--rule-w) solid var(--rule);
   border-right: var(--rule-w) solid var(--rule);
 }

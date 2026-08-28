@@ -8,10 +8,14 @@
     color: #000000 !important;
   }
 
+  /* The galaxy + CRT canvas never prints. */
+  #backdrop { display: none !important; }
+
   .frame {
     max-width: none;
     margin: 0;
     padding: 0;
+    background: #ffffff !important;
     border: 0 !important;
   }
 

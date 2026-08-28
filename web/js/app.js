@@ -21,7 +21,8 @@ import { groundRoutes } from "./modes/ground.reg.js";
 import { secondaryRoutes } from "./modes/secondary.reg.js";
 import { renderWelcome, readConsent } from "./welcome.js";
 import { renderPrivacy, renderImprint, renderNotFound } from "./pages.js";
-import { renderHeader, renderFooter, initGround } from "./chrome.js";
+import { renderHeader, renderFooter, initView } from "./chrome.js";
+import { initBackdrop } from "./backdrop.js";
 
 // Mode handlers beyond Passage. Each is { id, enter }, where enter() renders
 // the mode into #screen. Registered from disjoint files so parallel
@@ -49,7 +50,7 @@ function labelFor(id) {
 }
 
 // ---- persistent header / footer ----------------------------------------
-// Re-rendered on every route change so the mode label and ground toggle
+// Re-rendered on every route change so the mode label and the footer controls
 // stay current. Mounted outside #screen, so a mode render never clobbers them.
 
 function chromeLabelFor(mode) {
@@ -409,6 +410,7 @@ function goHome() {
 // ---- boot -------------------------------------------------------------------
 // Module scripts are deferred, so the DOM is already parsed here.
 
-initGround();
+initView();
+initBackdrop();
 window.addEventListener("hashchange", router);
 router();
