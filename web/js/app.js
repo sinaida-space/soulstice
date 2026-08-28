@@ -75,6 +75,21 @@ function mount(node) {
   if (!host) return;
   host.replaceChildren(node);
   if (Store.isDegraded()) host.appendChild(degradedNotice());
+  focusPanel(node);
+}
+
+// Move focus to the freshly mounted panel so keyboard and screen-reader users
+// land on the new screen (a new card, an arc break, a page) instead of being
+// dropped at the top of the document. The panel is not a natural tab stop, so
+// it takes a programmatic tabindex of -1.
+function focusPanel(node) {
+  if (!node || node.nodeType !== 1 || typeof node.focus !== "function") return;
+  if (!node.hasAttribute("tabindex")) node.setAttribute("tabindex", "-1");
+  try {
+    node.focus({ preventScroll: false });
+  } catch (e) {
+    node.focus();
+  }
 }
 
 function degradedNotice() {
@@ -380,6 +395,7 @@ function renderDone(mode, state) {
       home.addEventListener("click", goHome);
       root.appendChild(again);
       root.appendChild(home);
+      focusPanel(root);
       return;
     } catch (e) {
       // Fall through to the plain stub if the assembler throws.
