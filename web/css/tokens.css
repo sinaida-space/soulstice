@@ -10,14 +10,6 @@
   font-display: swap;
 }
 
-@font-face {
-  font-family: "Libre Franklin Light";
-  src: url("../fonts/LibreFranklin-Light.woff2") format("woff2");
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-
 :root {
   /* Palette — the whole allowed set, no others. */
   --void: #050505;
@@ -30,56 +22,66 @@
   --fog: #999999;
   --haze: #cccccc;
 
-  /* Faces. Geist Pixel for display; Libre Franklin Light for everything read at length. */
-  --font-display: "Geist Pixel", ui-monospace, "SFMono-Regular", Menlo, monospace;
-  --font-body: "Libre Franklin Light", "Helvetica Neue", Arial, sans-serif;
+  /* One face everywhere. Geist Pixel is a pixel design, so it is read at a
+     comfortable size, generous leading and a hair of tracking (see below). */
+  --font-display: "Geist Pixel", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --font-body: var(--font-display);
 
-  /* Vertical grid. unit = round(size * 1.3) expressed relative to font size. */
+  /* Type scale — one system. Ratios from the 17px reading size:
+     small 0.82x · body 1x · question 1.29x · title 2.12x. */
   --fs-body: 1.0625rem;   /* ~17px reading size */
-  --fs-small: 0.8125rem;  /* pixel labels / meta */
+  --fs-small: 0.875rem;   /* ~14px — pixel labels / meta, kept legible */
   --fs-q: 1.375rem;       /* card question */
   --fs-title: 2.25rem;    /* mode-select title */
-  --unit: 1.3em;
+
+  --unit: 1.6em;          /* leading for running text on a pixel face */
+  --tracking: 0.01em;     /* barely-there body tracking, helps the pixel face */
   --step: 1.375rem;       /* one grid row at body size */
-  --gutter: 2.75rem;      /* 2 * unit, roughly */
+  --gutter: 2.75rem;
   --rule-w: 1px;
 
-  /* Reading column width. ~34rem keeps the measure near 60-70 chars. */
-  --column: 34rem;
+  /* Reading column. ~40rem holds the measure near 60-66 characters at the
+     Geist Pixel advance width. */
+  --column: 40rem;
 
-  /* Ground-dependent roles. Default = chalk (long reading). */
-  --ground: var(--chalk);
-  --ink: #1a1a1a;
-  --ink-soft: var(--slate);
+  /* ---- View: Full (default) — void ground, galaxy + CRT behind opaque cards.
+     Ground-dependent roles below match what the old data-ground="void" set. */
+  --ground: var(--void);
+  --surface: #0c0c0c;              /* opaque card ground; every text block sits on this */
+  --ink: var(--chalk);
+  --ink-soft: var(--fog);
   --rule: var(--red);
-  --field-border: var(--haze);
-  --field-bg: #ffffff;
-  --red-text: var(--red);          /* raw red clears AA on chalk */
+  --field-border: var(--graphite);
+  --field-bg: #0d0d0d;
+  --red-text: var(--red-legible);  /* small red text needs the legible variant on the dark card */
   --btn-ink: var(--chalk);
   --btn-bg: var(--red);
-  --btn-disabled-bg: var(--haze);
-  --btn-disabled-ink: var(--gunmetal);
+  --btn-disabled-bg: var(--graphite);
+  --btn-disabled-ink: var(--slate);
 }
 
-/* Explicit chalk selector for parity with the void block. */
-:root[data-ground="chalk"] {
-  --ground: var(--chalk);
-  --ink: #1a1a1a;
-  --ink-soft: var(--slate);
-  --field-border: var(--haze);
-  --field-bg: #ffffff;
-  --red-text: var(--red);
-  --btn-disabled-bg: var(--haze);
-  --btn-disabled-ink: var(--gunmetal);
-}
-
-:root[data-ground="void"] {
+/* Explicit Full selector, for parity with the Light block. */
+:root[data-view="full"] {
   --ground: var(--void);
+  --surface: #0c0c0c;
   --ink: var(--chalk);
   --ink-soft: var(--fog);
   --field-border: var(--graphite);
   --field-bg: #0d0d0d;
-  --red-text: var(--red-legible);  /* small red text needs the legible variant on void */
+  --red-text: var(--red-legible);
   --btn-disabled-bg: var(--graphite);
   --btn-disabled-ink: var(--slate);
+}
+
+/* ---- View: Light — plain chalk ground, no backdrop, no CRT. */
+:root[data-view="light"] {
+  --ground: var(--chalk);
+  --surface: #ffffff;
+  --ink: #1a1a1a;
+  --ink-soft: var(--slate);
+  --field-border: var(--haze);
+  --field-bg: #ffffff;
+  --red-text: var(--red);          /* raw red clears AA on chalk */
+  --btn-disabled-bg: var(--haze);
+  --btn-disabled-ink: var(--gunmetal);
 }
