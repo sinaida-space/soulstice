@@ -101,8 +101,44 @@
       }
     };
 
+    // A standalone Statement run: four of the five section open cards answered
+    // in the user's own words, one (st-stakes-open) left empty. The four must
+    // produce prose in every length and must NOT appear under Gaps; the empty
+    // one MUST appear under Gaps.
+    const statementStandalone = {
+      mode: "statement", version: 1, arcBreaks: {}, completed: [], cursor: { done: true },
+      answers: {
+        "st-who-open": { text: "The work is for someone who walked in by accident and now cannot leave the room without carrying something." },
+        "st-about-open": { text: "It keeps asking whether looking hard at a small thing is a way of taking care of it or just a way of staring." },
+        "st-form-open": { text: "It is built slow, in one material, and I refuse to cut it down to fit a feed. The slowness is the argument." },
+        "st-epoch-open": { text: "It comes after the people who filmed empty rooms, and it refuses to explain itself down to a caption." },
+        "st-stakes-open": { text: "" }
+      }
+    };
+
+    // A Return run with the test, drift and revised reflection cards answered.
+    // finishReturn (secondary.js) does the section fills; buildReturn on its own
+    // must still leave the three placeholder blocks intact and exact so those
+    // string replacements keep matching.
+    const returnState = {
+      mode: "return", version: 1, arcBreaks: {}, completed: [], cursor: { done: true },
+      answers: {
+        "ret-d1": { text: "The first direction happened, roughly, but smaller than written." },
+        "ret-d2": { text: "The second one never started; the year went elsewhere." },
+        "ret-d3": { text: "The third turned into something I did not predict and prefer." }
+      }
+    };
+
     const dumps = document.querySelector('[data-role="dumps"]');
     const results = [];
+
+    function check(name, cond) {
+      results.push([name, !!cond]);
+      const p = document.createElement("p");
+      p.className = "status " + (cond ? "ok" : "bad");
+      p.textContent = (cond ? "PASS  " : "FAIL  ") + name;
+      dumps.appendChild(p);
+    }
 
     function dump(name, run) {
       const h = document.createElement("h2");
@@ -139,6 +175,34 @@
     dump("buildDriftReview", () => buildDriftReview([{ date: "2025-01-04" }, { date: "2025-02-11" }, { date: "2025-04-02" }]));
     dump("buildReturn", () => buildReturn({ date: "2025-01-04", markdown: "# Compass: 2025-01-04" }, state));
     dump("buildCompass (empty state)", () => buildCompass({}));
+    dump("buildStatement (standalone, 4 of 5 sections)", () => buildStatement(statementStandalone));
+    dump("buildReturn (directions only, placeholders intact)", () =>
+      buildReturn({ date: "2025-01-04", markdown: "# Compass: 2025-01-04" }, returnState));
+
+    // ---- regression checks for the milestone-7 output fixes ----------------
+    // typo() puts nbsp after short words in the section titles it writes, so
+    // compare on a space-normalised copy.
+    const stmtMd = buildStatement(statementStandalone).markdown;
+    const stmtFlat = stmtMd.replace(/ /g, " ");
+    check("Statement: answered sections are not listed under Gaps",
+      !stmtFlat.includes("Who it is for: left unwritten") &&
+      !stmtFlat.includes("What it is about: left unwritten") &&
+      !stmtFlat.includes("Form: left unwritten") &&
+      !stmtFlat.includes("Where it sits: left unwritten"));
+    check("Statement: the one empty section lands under Gaps",
+      stmtFlat.includes("## Gaps") && stmtFlat.includes("What is at stake: left unwritten."));
+    check("Statement: every length carries the answered prose",
+      stmtMd.split("## 400 words")[1].includes("way of taking care of it") &&
+      stmtMd.split("## 150 words")[1].includes("way of taking care of it") &&
+      stmtMd.split("## 50 words")[1].includes("carrying something"));
+
+    const retMd = buildReturn({ date: "2025-01-04", markdown: "# Compass: 2025-01-04" }, returnState).markdown;
+    check("buildReturn: 'What has drifted' placeholder is exact",
+      retMd.includes("### What has drifted\n\n> (not recorded)"));
+    check("buildReturn: 'Revised directions' placeholder is exact",
+      retMd.includes("### Revised directions\n\n> (not recorded)"));
+    check("buildReturn: 'one test' placeholder is exact",
+      retMd.includes("### What happened to the one test\n\n> (not recorded)"));
 
     const bad = results.filter((r) => !r[1]);
     const summary = document.querySelector('[data-role="summary"]');
