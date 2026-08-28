@@ -1,0 +1,85 @@
+/* Soulstice — design tokens.
+   Sources: ~/dev/design-system-docs/tokens/tokens.json,
+            ~/.claude/skills/sinaida-grid-style/reference/grid-law.md */
+
+@font-face {
+  font-family: "Geist Pixel";
+  src: url("../fonts/GeistPixel.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Libre Franklin Light";
+  src: url("../fonts/LibreFranklin-Light.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* Palette — the whole allowed set, no others. */
+  --void: #050505;
+  --chalk: #f6f6f6;
+  --red: #cd0000;
+  --red-legible: #ff1a1a;
+  --graphite: #262626;
+  --gunmetal: #4d4d4d;
+  --slate: #737373;
+  --fog: #999999;
+  --haze: #cccccc;
+
+  /* Faces. Geist Pixel for display; Libre Franklin Light for everything read at length. */
+  --font-display: "Geist Pixel", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --font-body: "Libre Franklin Light", "Helvetica Neue", Arial, sans-serif;
+
+  /* Vertical grid. unit = round(size * 1.3) expressed relative to font size. */
+  --fs-body: 1.0625rem;   /* ~17px reading size */
+  --fs-small: 0.8125rem;  /* pixel labels / meta */
+  --fs-q: 1.375rem;       /* card question */
+  --fs-title: 2.25rem;    /* mode-select title */
+  --unit: 1.3em;
+  --step: 1.375rem;       /* one grid row at body size */
+  --gutter: 2.75rem;      /* 2 * unit, roughly */
+  --rule-w: 1px;
+
+  /* Reading column width. ~34rem keeps the measure near 60-70 chars. */
+  --column: 34rem;
+
+  /* Ground-dependent roles. Default = chalk (long reading). */
+  --ground: var(--chalk);
+  --ink: #1a1a1a;
+  --ink-soft: var(--slate);
+  --rule: var(--red);
+  --field-border: var(--haze);
+  --field-bg: #ffffff;
+  --red-text: var(--red);          /* raw red clears AA on chalk */
+  --btn-ink: var(--chalk);
+  --btn-bg: var(--red);
+  --btn-disabled-bg: var(--haze);
+  --btn-disabled-ink: var(--gunmetal);
+}
+
+/* Explicit chalk selector for parity with the void block. */
+:root[data-ground="chalk"] {
+  --ground: var(--chalk);
+  --ink: #1a1a1a;
+  --ink-soft: var(--slate);
+  --field-border: var(--haze);
+  --field-bg: #ffffff;
+  --red-text: var(--red);
+  --btn-disabled-bg: var(--haze);
+  --btn-disabled-ink: var(--gunmetal);
+}
+
+:root[data-ground="void"] {
+  --ground: var(--void);
+  --ink: var(--chalk);
+  --ink-soft: var(--fog);
+  --field-border: var(--graphite);
+  --field-bg: #0d0d0d;
+  --red-text: var(--red-legible);  /* small red text needs the legible variant on void */
+  --btn-disabled-bg: var(--graphite);
+  --btn-disabled-ink: var(--slate);
+}
