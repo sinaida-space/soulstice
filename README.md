@@ -1,5 +1,7 @@
 # Soulstice — web
 
+<img width="3072" height="384" alt="image" src="https://github.com/user-attachments/assets/ccf34d63-4214-4c69-8870-4d68ded4e166" />
+
 A static, self-guided build of the Soulstice self-inquiry instrument for artists.
 Runs entirely in the browser: no build step, no framework, no bundler, no external
 requests. English only, and it works through Google Translate.
