@@ -63,7 +63,7 @@ sinaida.eu ↗ · Instagram @sin.ai.da ↗
 
 Line 1: Soulstice — an instrument by Sinaida Krivchenko
 
-Links: About · Privacy &amp; storage · Imprint · sinaida.eu ↗ · Instagram ↗ · Source on GitHub ↗
+Links: About · Privacy &amp; storage · Imprint · sinaida.eu ↗ · Instagram ↗
 
 Controls:
 - **View: Full / Light** — Full is the galaxy and CRT over a dark ground; Light is a plain ground with no effects. (Wording matches sinaida.eu.)
@@ -122,7 +122,6 @@ Prague, Czech Republic
 closest.dilly7p@icloud.com
 
 Website: sinaida.eu
-Source: github.com/sinaida-space/soulstice
 
 Soulstice sells nothing, carries no advertising, and processes no personal data. See Privacy and storage for the full picture.
 

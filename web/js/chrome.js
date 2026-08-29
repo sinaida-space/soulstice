@@ -215,8 +215,7 @@ export function renderFooter() {
   ];
   const external = [
     { href: "https://sinaida.eu", label: "sinaida.eu ↗" },
-    { href: "https://www.instagram.com/sin.ai.da/", label: "Instagram ↗" },
-    { href: "https://github.com/sinaida-space/soulstice", label: "Source on GitHub ↗" }
+    { href: "https://www.instagram.com/sin.ai.da/", label: "Instagram ↗" }
   ];
   for (const item of internal) {
     links.appendChild(el("a", { class: "sitefooter__link", href: item.href }, item.label));
