@@ -43,46 +43,101 @@
 
 .siteheader__inner {
   display: flex;
-  align-items: baseline;
-  gap: 0.9rem 1rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem 1.4rem;
   flex-wrap: wrap;
 }
 
 .siteheader__mark {
+  position: relative;
   font-family: var(--font-display);
   font-size: 1rem;
   letter-spacing: 0.06em;
   color: var(--red-text);
   text-decoration: none;
+  white-space: nowrap;
 }
 
-.siteheader__mode {
-  font-family: var(--font-display);
-  font-size: var(--fs-small);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--ink-soft);
+/* CRT/VHS glitch on the wordmark — Full view, effects on. Two offset colour
+   ghosts that jump on a long, irregular cycle so it reads as a bad signal,
+   not a strobe. Light view and reduced-motion get the plain mark. */
+:root[data-view="full"]:not([data-motion="reduced"]) .siteheader__mark {
+  text-shadow: 0 0 6px rgba(205, 0, 0, 0.45);
+  animation: mark-flicker 9s linear infinite;
+}
+:root[data-view="full"]:not([data-motion="reduced"]) .siteheader__mark::before,
+:root[data-view="full"]:not([data-motion="reduced"]) .siteheader__mark::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  pointer-events: none;
+}
+:root[data-view="full"]:not([data-motion="reduced"]) .siteheader__mark::before {
+  color: var(--red-legible);
+  mix-blend-mode: screen;
+  animation: mark-glitch-a 6.7s steps(1) infinite;
+}
+:root[data-view="full"]:not([data-motion="reduced"]) .siteheader__mark::after {
+  color: #00e5e5;
+  mix-blend-mode: screen;
+  animation: mark-glitch-b 5.3s steps(1) infinite;
 }
 
-.siteheader__paths {
+@keyframes mark-flicker {
+  0%, 96%, 100% { opacity: 1; }
+  97% { opacity: 0.78; }
+  98% { opacity: 1; }
+}
+@keyframes mark-glitch-a {
+  0%, 100% { transform: translate(0, 0); clip-path: inset(0 0 100% 0); }
+  70%      { transform: translate(0, 0); clip-path: inset(0 0 100% 0); }
+  71%      { transform: translate(-1.5px, 0.5px); clip-path: inset(20% 0 55% 0); }
+  73%      { transform: translate(1.5px, -0.5px); clip-path: inset(62% 0 12% 0); }
+  75%      { transform: translate(0, 0); clip-path: inset(0 0 100% 0); }
+}
+@keyframes mark-glitch-b {
+  0%, 100% { transform: translate(0, 0); clip-path: inset(0 0 100% 0); }
+  42%      { transform: translate(0, 0); clip-path: inset(0 0 100% 0); }
+  43%      { transform: translate(1.5px, 0.5px); clip-path: inset(45% 0 25% 0); }
+  45%      { transform: translate(-1.5px, -0.5px); clip-path: inset(12% 0 66% 0); }
+  47%      { transform: translate(0, 0); clip-path: inset(0 0 100% 0); }
+}
+@media print {
+  .siteheader__mark { color: #000 !important; text-shadow: none !important; }
+  .siteheader__mark::before, .siteheader__mark::after { display: none !important; }
+}
+
+/* ---- desktop: the section words, inline ------------------------------------ */
+
+.siteheader__nav {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.3rem 1.05rem;
+  justify-content: flex-end;
+}
+
+.siteheader__navlink {
   font-family: var(--font-display);
   font-size: var(--fs-small);
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--ink-soft);
   text-decoration: none;
+  background: transparent;
+  border: 0;
+  padding: 0.2rem 0;
+  cursor: pointer;
 }
-.siteheader__paths:hover { color: var(--ink); }
+.siteheader__navlink:hover { color: var(--ink); }
+.siteheader__navlink[aria-current="page"] { color: var(--red-text); }
+.siteheader__navlink:focus-visible { outline: 2px solid var(--red); outline-offset: 2px; }
+.siteheader__navlink--action { color: var(--red-text); }
+.siteheader__navlink--action:hover { color: var(--red-legible); }
 
-.siteheader__tail {
-  margin-left: auto;
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  flex-wrap: wrap;
-}
-
-.siteheader__ground,
 .ctl-stub,
 .ctl {
   font-family: var(--font-display);
@@ -179,7 +234,8 @@
   .storagenote { display: none !important; }
 }
 
-/* ---- disclosure menu ---------------------------------------------------- */
+/* ---- hamburger disclosure (mobile only) -------------------------------- */
+/* Desktop shows .siteheader__nav instead; the two carry the same links. */
 
 .menu {
   font-family: var(--font-display);
@@ -190,15 +246,44 @@
 .menu__summary {
   list-style: none;
   cursor: pointer;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.4rem;
+  height: 2rem;
   color: var(--ink-soft);
   border: var(--rule-w) solid var(--field-border);
-  padding: 0.35rem 0.7rem;
 }
 .menu__summary::-webkit-details-marker { display: none; }
 .menu__summary:hover { color: var(--ink); border-color: var(--ink-soft); }
 .menu[open] .menu__summary { color: var(--ink); border-color: var(--ink-soft); }
+.menu__summary:focus-visible { outline: 2px solid var(--red); outline-offset: 2px; }
+
+/* three bars, middle drawn on the span, top/bottom as pseudo-elements */
+.menu__bars,
+.menu__bars::before,
+.menu__bars::after {
+  content: "";
+  display: block;
+  width: 1.05rem;
+  height: 2px;
+  background: currentColor;
+}
+.menu__bars { position: relative; }
+.menu__bars::before { position: absolute; left: 0; top: -6px; }
+.menu__bars::after { position: absolute; left: 0; top: 6px; }
+.menu[open] .menu__bars { background: transparent; }
+.menu[open] .menu__bars::before { top: 0; transform: rotate(45deg); }
+.menu[open] .menu__bars::after { top: 0; transform: rotate(-45deg); }
+
+.menu__summary-text {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
 
 .menu__nav {
   display: flex;
@@ -207,15 +292,18 @@
   margin-top: 0.4rem;
   border: var(--rule-w) solid var(--field-border);
   background: var(--surface);
+  position: absolute;
+  right: 0;
+  min-width: 11rem;
+  z-index: 9;
 }
 
+/* Desktop: inline words, no hamburger. Mobile: hamburger, no inline words. */
 @media (min-width: 601px) {
-  .menu__nav {
-    position: absolute;
-    right: 0;
-    min-width: 11rem;
-    z-index: 9;
-  }
+  .menu { display: none; }
+}
+@media (max-width: 600px) {
+  .siteheader__nav { display: none; }
 }
 
 .menu__link {
@@ -237,6 +325,7 @@
   color: var(--ink);
   background: var(--field-bg);
 }
+.menu__link[aria-current="page"] { color: var(--red-text); }
 .menu__link:focus-visible {
   outline: 2px solid var(--red);
   outline-offset: -2px;
@@ -362,10 +451,8 @@
   .siteheader__inner,
   .sitefooter__inner { padding-left: 1.1rem; padding-right: 1.1rem; }
 
-  .siteheader__tail { width: 100%; margin-left: 0; }
-  .menu { width: 100%; }
-  .menu__summary { display: block; text-align: left; }
-  .menu__nav { width: 100%; }
+  /* Mark on the left, hamburger on the right, one row. */
+  .siteheader__inner { flex-wrap: nowrap; }
 }
 
 /* ---- footer ------------------------------------------------------------- */
@@ -615,6 +702,88 @@
   margin-top: var(--step);
 }
 .welcome__authorlinks a { color: var(--red-text); }
+
+/* ---- MS-DOS boot sequence (js/boot.js) --------------------------------- */
+/* Overlay carries no plate: the fixed galaxy backdrop shows straight through,
+   with the boot log printed over it. */
+
+.welcome--booting { visibility: hidden; }
+
+.boot {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: var(--column);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.boot__log {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--fs-body);
+  line-height: 2;
+  white-space: pre-wrap;
+  color: var(--red-legible);
+  text-shadow: 0 0 8px rgba(205, 0, 0, 0.55), 0 0 20px rgba(205, 0, 0, 0.3);
+}
+:root[data-view="light"] .boot__log {
+  color: var(--red);
+  text-shadow: none;
+}
+
+.boot__cursor {
+  display: inline-block;
+  margin-left: 0.15em;
+  animation: boot-blink 1s steps(1) infinite;
+}
+@keyframes boot-blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+/* CRT/VHS wipe: colour split, a couple of torn bands, gone. */
+.boot--out { animation: boot-glitch 0.46s steps(2, jump-none) both; }
+.boot--out .boot__log {
+  text-shadow: -2px 0 var(--red-legible), 2px 0 #00e5e5;
+}
+@keyframes boot-glitch {
+  0%   { opacity: 1; transform: translate(0, 0); clip-path: inset(0 0 0 0); }
+  20%  { transform: translate(-3px, 1px); clip-path: inset(0 0 0 0); }
+  40%  { transform: translate(3px, -2px); clip-path: inset(18% 0 42% 0); }
+  60%  { transform: translate(-2px, 0); clip-path: inset(58% 0 8% 0); }
+  80%  { opacity: 0.55; transform: translate(2px, 1px); clip-path: inset(0 0 0 0); }
+  100% { opacity: 0; transform: translate(0, 0); }
+}
+
+@media (max-width: 600px) {
+  .boot { padding: 0 1.1rem; }
+  .boot__log { font-size: var(--fs-small); line-height: 1.9; }
+}
+
+body.is-booting .storagenote { display: none; }
+/* The chrome mounts with the page, once the boot clears. */
+body.is-booting .siteheader,
+body.is-booting .sitefooter { visibility: hidden; }
+
+/* Block-by-block reveal once the boot clears. Instant under reduced-motion
+   (the global rule zeroes animation) and when the boot was skipped. */
+.welcome--revealing > *,
+.welcome--revealing .welcomehero > * {
+  animation: boot-reveal 0.5s ease both;
+  animation-delay: calc(var(--reveal-i, 0) * 60ms);
+}
+@keyframes boot-reveal {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media print {
+  .boot { display: none !important; }
+}
 
 /* ---- standalone pages ----------------------------------------------------- */
 
