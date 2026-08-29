@@ -9,21 +9,29 @@ Draft 1 · 2026-08-29 · all prose run through the typography rules
 
 **Standfirst:** A slow, private instrument for looking at your own practice as an artist.
 
-**What it is**
+**The idea**
 
-Soulstice asks you a long run of questions about the work you make: what you avoid, what you inherited, what is genuinely yours, and what you are working toward. You answer by choosing from concrete options or writing your own. At the end it arranges what you said into a document you keep.
+Sinaida made this because the work you give your life to should make you happy, and that kind of happiness comes from doing work that matters to you. Getting there starts with being able to name your own practice in plain words, and Soulstice is built to help you do that.
+
+**Who it is for**
+
+It is for artists who have been working long enough to feel a distance between the work they make and the work they set out to make: people repeating themselves, people caught between two bodies of work, people who cannot describe their own practice without borrowing someone else's language. For them it slows the questions down, keeps the answers in their own words, and leaves a document they can return to and check against what happens next.
+
+**The instrument**
+
+Soulstice asks you a long run of questions about the work you make: the things you avoid, the things you inherited, the parts that are genuinely yours, and the direction you are working toward. You answer by choosing from concrete options or writing your own. At the end it arranges your answers into a document you keep.
 
 It runs entirely in your browser. Nothing you write is sent anywhere. Nothing is stored except on your own device, so you can stop and come back.
 
 A full pass is two to four hours of real thinking. You do not have to do it in one sitting.
 
-**How it works**
+**Moving through it**
 
 - You move through the questions one card at a time. No scores, no right answers.
 - Most cards offer written options. You can always write your own instead.
 - Your progress is saved in this browser only. Close the tab and return whenever.
 - At the end you get a written document in your own words, organised. Save it as a PDF.
-- There is a separate short mode, Ground, for low moments. It carries its own note on what it is and is not, and a list of ways to reach a person.
+- There is a separate short mode, Ground, for low moments. It carries its own note on its limits, and a list of ways to reach a person.
 
 **Disclaimer** *(framed block, directly above the consent control)*
 
@@ -55,7 +63,8 @@ sinaida.eu ↗ · Instagram @sin.ai.da ↗
 
 - Skip-to-content link (visually hidden until focused).
 - Left: `soulstice` wordmark, Geist Pixel lowercase, links to the welcome screen.
-- Right: the current mode name when inside one (Passage / Journal / Lens / Ground / Statement / Return). A menu disclosure: Start over · About · Privacy. Collapses on narrow screens.
+- Right: a Menu disclosure. Contents: every path (Passage / Journal / Lens / Ground / Statement / Return), a rule, then **Start over** for the current path. About and Privacy are not repeated here; they live in the footer. The header stays pinned to the top on scroll. Collapses to full width on narrow screens.
+- The current path name is shown inside the card box, above a progress line, not in the header.
 
 ---
 
@@ -69,6 +78,16 @@ Controls:
 - **View: Full / Light** — Full is the galaxy and CRT over a dark ground; Light is a plain ground with no effects. (Wording matches sinaida.eu.)
 - **Reduce effects** — stops the animation and the CRT even in Full. On by default when the browser asks for reduced motion.
 - **Erase everything on this device** — asks to confirm, then clears all Soulstice data from this browser and returns to the welcome screen.
+
+---
+
+## 3b. STORAGE NOTICE *(first visit only, dismissible strip pinned to the bottom)*
+
+This page saves your progress on this device only. Nothing is sent anywhere.
+
+Links: Privacy · OK
+
+Not a cookie-consent banner. Soulstice sets no cookies, loads nothing third-party and runs no analytics; its localStorage is strictly necessary for a stop-and-return tool, so no consent is required. The strip is informational. It clears when the visitor presses OK or completes the welcome consent, and never returns once dismissed.
 
 ---
 
@@ -116,7 +135,22 @@ Last updated: 29 August 2026.
 
 The page you asked for does not exist here.
 
+While you are here, [a playlist to unwind to ↗](https://open.spotify.com/playlist/1lnhhzpja7u0aP2uiccYW2).
+
 Link: Back to the start ↗
+
+---
+
+## 6b. GROUND — softer landing *(foot of the Ground document screen)*
+
+Below the Passage offer, above the buttons:
+
+**If you would rather step away from words**
+
+- [A playlist to sit with ↗](https://open.spotify.com/playlist/1lnhhzpja7u0aP2uiccYW2)
+- [Ethereal Path, a slower breathing space ↗](https://sinaida-space.github.io/ethereal-path/)
+
+Plain outbound links, never embeds. Both sit apart from the crisis-contact panel, which is unchanged.
 
 ---
 

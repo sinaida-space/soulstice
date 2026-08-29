@@ -21,6 +21,7 @@ import groundSection from "../data/ground.js";
 import { statementSections } from "../data/statement.js";
 import { typo, typoTitle } from "./typo.js";
 import { el } from "./dom.js";
+import { llmKit } from "./llm.js";
 
 // ---- card index (for resolving picked option ids to their labels) ----------
 
@@ -324,7 +325,7 @@ export function buildCompass(state) {
 
   const markdown = withFootnote(lines.join("\n").replace(/\n{3,}/g, "\n\n").trim());
   persistCompass(date, markdown);
-  return { markdown: markdown, title: "Compass: " + date, filename: "compass-" + date + ".md" };
+  return { markdown: markdown, title: "Compass: " + date, filename: "compass-" + date + ".md", mode: "passage" };
 }
 
 function firstAnswered(state, ids) {
@@ -472,7 +473,7 @@ export function buildLensVerdict(state) {
   lines.push("");
 
   const markdown = withFootnote(lines.join("\n").trim());
-  return { markdown: markdown, title: "Lens verdict: " + date, filename: "lens-" + date + ".md" };
+  return { markdown: markdown, title: "Lens verdict: " + date, filename: "lens-" + date + ".md", mode: "lens" };
 }
 
 function collectVerbatim(s) {
@@ -560,7 +561,7 @@ export function buildStatement(state) {
   lines.push("");
 
   const markdown = withFootnote(lines.join("\n").trim());
-  return { markdown: markdown, title: "Statement: " + date, filename: "statement-" + date + ".md" };
+  return { markdown: markdown, title: "Statement: " + date, filename: "statement-" + date + ".md", mode: "statement" };
 }
 
 // =====================================================================
@@ -630,7 +631,7 @@ export function buildGround(state) {
   }
 
   const markdown = withFootnote(lines.join("\n").trim());
-  return { markdown: markdown, title: "Ground: " + date, filename: "ground-" + date + ".md" };
+  return { markdown: markdown, title: "Ground: " + date, filename: "ground-" + date + ".md", mode: "ground" };
 }
 
 // =====================================================================
@@ -662,7 +663,7 @@ export function buildJournalEntry(state) {
   lines.push("");
 
   const markdown = withFootnote(lines.join("\n").trim());
-  return { markdown: markdown, title: "Journal entry: " + date, filename: "journal-" + date + ".md" };
+  return { markdown: markdown, title: "Journal entry: " + date, filename: "journal-" + date + ".md", mode: "journal" };
 }
 
 // =====================================================================
@@ -693,7 +694,7 @@ export function buildDriftReview(entries) {
   lines.push("");
 
   const markdown = withFootnote(lines.join("\n").trim());
-  return { markdown: markdown, title: "Drift review: " + date, filename: "drift-review-" + date + ".md" };
+  return { markdown: markdown, title: "Drift review: " + date, filename: "drift-review-" + date + ".md", mode: "journal" };
 }
 
 // =====================================================================
@@ -727,7 +728,7 @@ export function buildReturn(compassDoc, state) {
 
   const markdown = withFootnote(lines.join("\n").trim());
   const filename = origDate ? "compass-" + origDate + ".md" : "return-" + date + ".md";
-  return { markdown: markdown, title: "Return: " + date, filename: filename };
+  return { markdown: markdown, title: "Return: " + date, filename: filename, mode: "return" };
 }
 
 function matchCompassDate(md) {
@@ -792,7 +793,50 @@ export function renderOutputScreen(doc, mountNode) {
     style: "font-size:var(--fs-small);color:var(--ink-soft);margin:0 0 var(--step)"
   }, typo("In the print dialog, choose \"Save as PDF\" as the destination.")));
 
+  if (d.mode) root.appendChild(renderLlmKit(d.mode, d.markdown || ""));
+
   if (mountNode) mountNode.replaceChildren(root);
+  return root;
+}
+
+// ---- the prompt kit: carry the finished document into a language model ------
+// Its own framed block, set apart from the red-ruled document. One copy button
+// per prompt; each copy joins the prompt to the document so one paste is enough.
+
+function renderLlmKit(mode, markdown) {
+  const kit = llmKit(mode);
+  const root = el("section", { class: "llm-kit", "data-role": "llm-kit", "data-mode": mode });
+
+  root.appendChild(el("span", { class: "card__label llm-kit__label" }, "Take it further"));
+  root.appendChild(el("p", { class: "llm-kit__note", "data-role": "llm-note" }, typo(kit.note)));
+  root.appendChild(el("p", { class: "llm-kit__intro" }, typo(kit.intro)));
+
+  const list = el("ol", { class: "llm-kit__list" });
+  for (const p of kit.prompts) {
+    const item = el("li", { class: "llm-kit__item" });
+    item.appendChild(el("span", { class: "llm-kit__name" }, typo(p.label)));
+
+    const box = el("p", { class: "llm-kit__text", "data-role": "llm-prompt" }, typo(p.text));
+    item.appendChild(box);
+
+    const done = el("span", {
+      class: "llm-kit__copied", "data-role": "llm-copied", hidden: true
+    }, "copied");
+    const btn = el("button", {
+      class: "btn btn--ghost llm-kit__copy", type: "button", "data-role": "llm-copy"
+    }, "Copy prompt with document");
+    btn.addEventListener("click", function () {
+      const joined = typo(p.text) + "\n\n---\n\n" + markdown;
+      copyPlainText(joined, function () {
+        done.hidden = false;
+        window.setTimeout(function () { done.hidden = true; }, 2000);
+      });
+    });
+    item.appendChild(btn);
+    item.appendChild(done);
+    list.appendChild(item);
+  }
+  root.appendChild(list);
   return root;
 }
 

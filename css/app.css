@@ -6,6 +6,11 @@
 
 html { background: var(--ground); }
 
+/* Line-breaking hygiene: keep last lines from ending on a single word, and
+   balance short headings. A browser hint, not a guarantee. */
+p, li, blockquote, .card__q, figcaption { text-wrap: pretty; }
+h1, h2, h3, .welcome__h, .page__h1, .page__h2, .modeselect__title { text-wrap: balance; }
+
 body {
   margin: 0;
   min-height: 100vh;
@@ -35,6 +40,9 @@ body {
   padding: 0 0.5rem;
   border-left: var(--rule-w) solid var(--rule);
   border-right: var(--rule-w) solid var(--rule);
+  /* Grow to fill the viewport so the red rules run full height and the footer
+     is always pushed to the bottom, however short the page. */
+  flex: 1 0 auto;
 }
 
 .chrome {
@@ -80,7 +88,7 @@ body {
   background: var(--surface);
   border: var(--rule-w) solid #565656;
   padding: calc(var(--step) * 1.5) calc(var(--step) * 1.4);
-  margin: 0 clamp(0.5rem, 3vw, 2rem) calc(var(--step) * 1.25);
+  margin: 0 clamp(0.5rem, 1.6vw, 1.1rem) calc(var(--step) * 1.25);
   box-shadow: 0 10px 34px rgba(0, 0, 0, 0.55);
 }
 #screen > *:last-child { margin-bottom: 0; }
@@ -294,14 +302,14 @@ body {
   color: var(--ink);
   line-height: 1.25;
 }
-.output-doc h1 { font-size: var(--fs-q); margin: 0 0 var(--step); }
+.output-doc h1 { font-size: var(--fs-h1); margin: 0 0 var(--step); }
 .output-doc h2 {
-  font-size: 1.05rem;
+  font-size: var(--fs-h2);
   letter-spacing: 0.02em;
   margin: calc(var(--step) * 1.6) 0 0.4rem;
   color: var(--red-text);
 }
-.output-doc h3 { font-size: 1rem; margin: var(--step) 0 0.3rem; }
+.output-doc h3 { font-size: var(--fs-h3); margin: var(--step) 0 0.3rem; }
 
 .output-doc p { margin: 0 0 var(--step); }
 
@@ -350,3 +358,70 @@ body {
   margin-top: var(--step);
 }
 .output__fortee a { color: var(--red-text); }
+
+/* ---- The prompt kit: set apart from the red-ruled document ---- */
+
+.llm-kit {
+  margin-top: calc(var(--step) * 2);
+  border: 2px solid var(--gunmetal);
+  background: var(--field-bg);
+  padding: calc(var(--step) * 1.2) calc(var(--step) * 1.2);
+}
+:root[data-view="light"] .llm-kit { border-color: var(--slate); }
+
+.llm-kit__label { color: var(--ink-soft); margin-bottom: var(--step); }
+
+.llm-kit__note {
+  color: var(--ink);
+  margin: 0 0 var(--step);
+}
+
+.llm-kit__intro {
+  font-size: var(--fs-small);
+  color: var(--ink-soft);
+  margin: 0 0 var(--step);
+}
+
+.llm-kit__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  counter-reset: llm;
+}
+
+.llm-kit__item {
+  border-top: var(--rule-w) solid var(--field-border);
+  padding: var(--step) 0;
+}
+.llm-kit__item:last-child { padding-bottom: 0; }
+
+.llm-kit__name {
+  counter-increment: llm;
+  display: block;
+  font-family: var(--font-display);
+  font-size: var(--fs-small);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: 0.6rem;
+}
+.llm-kit__name::before { content: counter(llm) " · "; color: var(--ink-soft); }
+
+.llm-kit__text {
+  font-size: var(--fs-small);
+  line-height: 1.5;
+  color: var(--ink-soft);
+  background: var(--surface);
+  border: var(--rule-w) solid var(--field-border);
+  padding: 0.8rem 0.9rem;
+  margin: 0 0 0.7rem;
+  white-space: pre-wrap;
+}
+
+.llm-kit__copy { margin-right: 0.6rem; }
+
+.llm-kit__copied {
+  font-size: var(--fs-small);
+  color: var(--red-text);
+}
+.llm-kit__copied[hidden] { display: none; }

@@ -76,6 +76,7 @@
   #output .output__hint,
   #output .output__copied,
   #output .output__fortee,
+  #output .llm-kit,
   #output .btn,
   #output .btn--pdf,
   #output .btn--copy {
@@ -101,9 +102,9 @@
     color: #000000;
     break-after: avoid;
   }
-  #output .output-doc h1 { font-size: 16pt; margin: 0 0 12pt; }
-  #output .output-doc h2 { font-size: 12pt; margin: 18pt 0 6pt; }
-  #output .output-doc h3 { font-size: 10.5pt; margin: 12pt 0 4pt; }
+  #output .output-doc h1 { font-size: 18pt; margin: 0 0 12pt; }
+  #output .output-doc h2 { font-size: 13.5pt; margin: 18pt 0 6pt; }
+  #output .output-doc h3 { font-size: 11.5pt; margin: 12pt 0 4pt; }
 
   /* Red rules kept, but only as hairlines. */
   #output .output-doc hr {

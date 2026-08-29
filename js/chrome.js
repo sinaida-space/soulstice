@@ -9,6 +9,7 @@
 // replaces the whole subtree.
 
 import { el } from "./dom.js";
+import { readConsent } from "./welcome.js";
 
 // ---- view (Full / Light) + reduce-effects state ------------------------------
 // Full  = void ground + galaxy + CRT behind opaque cards (default).
@@ -120,6 +121,89 @@ export function initView() {
   else if (reduceMQ.addListener) reduceMQ.addListener(onMQ);
 }
 
+// ---- storage notice -------------------------------------------------------
+// Informational only. Soulstice sets no cookies, loads nothing third-party and
+// runs no analytics; the localStorage it uses is strictly necessary for a
+// stop-and-return tool, so no consent banner is required. This strip just makes
+// the on-device storage visible on the first visit. It disappears once the
+// visitor dismisses it or completes the welcome consent, which says the same.
+
+const STORAGE_NOTICE_KEY = "soulstice:v1:ui:storage-notice";
+
+export function initStorageNotice() {
+  let node = null;
+  let bound = false;
+
+  function shouldShow() {
+    return !readConsent() && lsGet(STORAGE_NOTICE_KEY) !== "dismissed";
+  }
+  function dismiss() {
+    lsSet(STORAGE_NOTICE_KEY, "dismissed");
+    remove();
+  }
+  function remove() {
+    if (node && node.parentNode) node.parentNode.removeChild(node);
+    node = null;
+    unbind();
+  }
+  // Any real interaction dismisses the strip: the OK button, a click / tap
+  // anywhere, a wheel or touch scroll, or a key. Bound after a short grace so
+  // the load-time focus scroll and the reader's first glance do not count.
+  // `scroll` is avoided on purpose: it also fires for programmatic and
+  // layout scrolls.
+  const INTERACT = ["pointerdown", "wheel", "touchmove", "keydown"];
+  function bind() {
+    if (bound) return;
+    bound = true;
+    window.setTimeout(function () {
+      if (!node) return;
+      for (const ev of INTERACT) {
+        document.addEventListener(ev, dismiss, { once: true, capture: true, passive: true });
+      }
+    }, 700);
+  }
+  function unbind() {
+    bound = false;
+    for (const ev of INTERACT) {
+      document.removeEventListener(ev, dismiss, { capture: true });
+    }
+  }
+  function build() {
+    const box = el("aside", { class: "storagenote", "data-role": "storage-notice" });
+    box.appendChild(
+      el(
+        "p",
+        { class: "storagenote__text" },
+        "This page saves your progress on this device only. Nothing is sent anywhere."
+      )
+    );
+    box.appendChild(el("a", { class: "storagenote__link", href: "#/privacy" }, "Privacy"));
+    const ok = el(
+      "button",
+      { class: "storagenote__ok", type: "button", "data-action": "storage-ok" },
+      "OK"
+    );
+    ok.addEventListener("click", dismiss);
+    box.appendChild(ok);
+    return box;
+  }
+  function sync() {
+    if (shouldShow()) {
+      if (!node) {
+        node = build();
+        document.body.appendChild(node);
+        bind();
+      }
+    } else {
+      remove();
+    }
+  }
+
+  sync();
+  // Completing the welcome consent navigates to "#/"; drop the strip then.
+  window.addEventListener("hashchange", sync);
+}
+
 // ---- erase everything ----------------------------------------------------
 
 function eraseSoulsticeKeys() {
@@ -161,36 +245,99 @@ export function renderHeader(modeLabel) {
     el("a", { class: "siteheader__mark", href: "#/welcome" }, "soulstice")
   );
 
-  if (modeLabel) {
-    root.appendChild(
-      el("span", { class: "siteheader__mode", "data-role": "mode-label" }, modeLabel)
-    );
-  }
+  // A direct way back to the path list from anywhere.
+  root.appendChild(
+    el("a", { class: "siteheader__paths", href: "#/", "data-role": "paths-link" }, "Paths")
+  );
+
+  // The current path name is shown inside the card box, not here.
 
   const tail = el("div", { class: "siteheader__tail" });
 
   // The Full / Light and Reduce-effects controls live in the footer (M9).
 
-  // disclosure menu
+  // disclosure menu — the shape of the whole instrument. About and Privacy are
+  // in the footer, so they are not repeated here.
   const menu = el("details", { class: "menu" });
   const summary = el("summary", { class: "menu__summary" }, "Menu");
   menu.appendChild(summary);
   const nav = el("nav", { class: "menu__nav" });
-  for (const item of [
-    { href: "#/", label: "Start over" },
-    { href: "#/welcome", label: "About" },
-    { href: "#/privacy", label: "Privacy" }
-  ]) {
-    const a = el("a", { class: "menu__link", href: item.href }, item.label);
-    a.addEventListener("click", function () {
-      menu.open = false;
-    });
+
+  function addLink(href, label, extraClass) {
+    const a = el(
+      "a",
+      { class: "menu__link" + (extraClass ? " " + extraClass : ""), href: href },
+      label
+    );
+    a.addEventListener("click", function () { menu.open = false; });
     nav.appendChild(a);
   }
+  function addSep() {
+    nav.appendChild(el("div", { class: "menu__sep" }));
+  }
+
+  // Every path, so the whole instrument is visible at a glance.
+  for (const p of [
+    ["#/passage", "Passage"],
+    ["#/journal", "Journal"],
+    ["#/lens", "Lens"],
+    ["#/ground", "Ground"],
+    ["#/statement", "Statement"],
+    ["#/return", "Return"]
+  ]) {
+    addLink(p[0], p[1]);
+  }
+  addSep();
+
+  // Start over the current path. app.js owns the confirm and the reset.
+  const over = el(
+    "button",
+    { class: "menu__link", type: "button", "data-action": "menu-startover" },
+    "Start over"
+  );
+  over.addEventListener("click", function () {
+    menu.open = false;
+    window.dispatchEvent(new CustomEvent("soulstice:startover"));
+  });
+  nav.appendChild(over);
+
   menu.appendChild(nav);
   tail.appendChild(menu);
 
   root.appendChild(tail);
+  return root;
+}
+
+// ---- path progress ------------------------------------------------------------
+// Sits at the top of the card box during a Passage run: the path name in red
+// glowing caps, then one solid red line that fills with the run. The layers
+// branch, so the fill counts the current layer as half done. app.js passes the
+// label and { done, total }; nothing here reads text.
+
+export function renderPathProgress(label, progress) {
+  const total = progress.total || 1;
+  const done = Math.max(0, Math.min(progress.done, total));
+  const pct = Math.max(3, Math.min(100, ((done + 0.5) / total) * 100));
+
+  const root = el("div", { class: "pathprogress", "data-role": "progress" });
+  root.appendChild(el("span", { class: "pathprogress__name" }, label || ""));
+
+  const bar = el("div", {
+    class: "progressbar",
+    role: "progressbar",
+    "aria-label": (label || "Passage") + " progress",
+    "aria-valuemin": "0",
+    "aria-valuemax": String(total),
+    "aria-valuenow": String(done)
+  });
+  bar.appendChild(
+    el("span", {
+      class: "progressbar__fill",
+      "aria-hidden": "true",
+      style: "width:" + pct.toFixed(1) + "%"
+    })
+  );
+  root.appendChild(bar);
   return root;
 }
 
@@ -278,7 +425,7 @@ export function renderFooter() {
   const erase = el("div", { class: "erase", "data-role": "erase" });
   const start = el(
     "button",
-    { class: "btn btn--ghost", type: "button", "data-action": "erase-start" },
+    { class: "ctl", type: "button", "data-action": "erase-start" },
     "Erase everything on this device"
   );
   start.addEventListener("click", function () {
@@ -314,7 +461,7 @@ function confirmPanel(host) {
   });
   const no = el(
     "button",
-    { class: "btn btn--ghost", type: "button", "data-action": "erase-cancel" },
+    { class: "ctl", type: "button", "data-action": "erase-cancel" },
     "Cancel"
   );
   no.addEventListener("click", function () {
@@ -328,7 +475,7 @@ function confirmPanel(host) {
 function restartButton(host) {
   const start = el(
     "button",
-    { class: "btn btn--ghost", type: "button", "data-action": "erase-start" },
+    { class: "ctl", type: "button", "data-action": "erase-start" },
     "Erase everything on this device"
   );
   start.addEventListener("click", function () {

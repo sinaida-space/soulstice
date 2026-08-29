@@ -26,9 +26,14 @@ import { el } from "../dom.js";
 import { renderCard } from "../card.js";
 import { mountScreen, goHome } from "../screen.js";
 import { buildGround, renderOutputScreen } from "../output.js";
+import { UNWIND_PLAYLIST } from "../pages.js";
+import { renderPathNav, pushTrail } from "../pathnav.js";
 import groundSection from "../../data/ground.js";
 
 const MODE = "ground";
+
+// A slower breathing space, offered at the end of Ground. Sinaida's own tool.
+const ETHEREAL_PATH = "https://sinaida-space.github.io/ethereal-path/";
 
 // Per session, not persisted: the gate is re-shown after any reload, and the
 // end-of-Ground Passage line is offered at most once per load.
@@ -116,7 +121,12 @@ function injectStyles() {
     ".ground__progress{font-family:var(--font-display);font-weight:400;font-size:var(--fs-small);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 var(--step)}",
     ".ground__passage{font-size:var(--fs-small);color:var(--ink-soft);border-top:var(--rule-w) solid var(--field-border);padding-top:var(--step);margin-top:var(--step)}",
     ".ground__passage a{color:var(--red-text)}",
-    "@media print{.ground__safety,.ground__progress,.ground__passage{display:none !important}}"
+    ".ground__soft{font-size:var(--fs-small);color:var(--ink-soft);border-top:var(--rule-w) solid var(--field-border);padding-top:var(--step);margin-top:var(--step)}",
+    ".ground__soft-head{font-family:var(--font-display);font-weight:400;font-size:var(--fs-small);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 .5rem}",
+    ".ground__soft p{margin:.3rem 0}",
+    ".ground__soft a{color:var(--red-text);text-decoration:none}",
+    ".ground__soft a:hover{text-decoration:underline}",
+    "@media print{.ground__safety,.ground__progress,.ground__passage,.ground__soft{display:none !important}}"
   ].join("\n");
   document.head.appendChild(style);
 }
@@ -252,19 +262,41 @@ function renderStep(state, cardMount) {
     return;
   }
 
+  function advance(answer) {
+    pushTrail(state);
+    const step = resolveNext(card, answer);
+    state.cursor = step.card
+      ? { section: "ground", card: step.card }
+      : { done: true };
+    Store.save(MODE, state);
+    renderStep(state, cardMount);
+  }
+
   const saved = state.answers[card.id] || null;
 
   const node = renderCard(card, saved, {
     onSubmit: function (answer) {
       recordAnswer(state, card, answer);
       Store.save(MODE, state);
+      advance(answer);
+    }
+  });
 
-      const step = resolveNext(card, answer);
-      state.cursor = step.card
-        ? { section: "ground", card: step.card }
-        : { done: true };
+  const nav = renderPathNav({
+    canBack: !!(state.trail && state.trail.length),
+    onBack: function () {
+      state.cursor = state.trail.pop();
       Store.save(MODE, state);
-
+      renderStep(state, cardMount);
+    },
+    onSkip: function () {
+      delete state.answers[card.id];
+      Store.save(MODE, state);
+      advance({ picks: [], other: "" });
+    },
+    onFinish: function () {
+      state.cursor = { done: true };
+      Store.save(MODE, state);
       renderStep(state, cardMount);
     }
   });
@@ -273,6 +305,7 @@ function renderStep(state, cardMount) {
   const wrap = document.createDocumentFragment();
   if (label) wrap.appendChild(el("p", { class: "ground__progress", "data-role": "ground-progress" }, label));
   wrap.appendChild(node);
+  wrap.appendChild(nav);
   cardMount.replaceChildren(wrap);
 }
 
@@ -326,6 +359,16 @@ function finish(state, cardMount) {
     p.appendChild(el("a", { href: "#/passage", "data-role": "ground-passage-link" }, "It is a bad idea today and a reasonable one in a few weeks."));
     cardMount.appendChild(p);
   }
+
+  const soft = el("div", { class: "ground__soft", "data-role": "ground-soft" });
+  soft.appendChild(el("p", { class: "ground__soft-head" }, "If you would rather step away from words"));
+  const s1 = el("p", null);
+  s1.appendChild(el("a", { href: UNWIND_PLAYLIST, target: "_blank", rel: "noopener" }, "A playlist to sit with ↗"));
+  soft.appendChild(s1);
+  const s2 = el("p", null);
+  s2.appendChild(el("a", { href: ETHEREAL_PATH, target: "_blank", rel: "noopener" }, "Ethereal Path, a slower breathing space ↗"));
+  soft.appendChild(s2);
+  cardMount.appendChild(soft);
 
   const over = el("button",
     { class: "btn btn--block btn--ghost", type: "button", "data-action": "startover" },
