@@ -406,6 +406,12 @@ function apply() {
     stop();
     return;
   }
+  // The tab may have loaded while hidden (innerWidth 0), leaving the canvas
+  // unsized. Now that it is visible with real dimensions, size it once.
+  if ((W === 0 || H === 0) && window.innerWidth > 0) {
+    resize();
+    return; // resize() calls apply() again at the end
+  }
   if (motionReduced()) {
     stop();
     renderStatic();
