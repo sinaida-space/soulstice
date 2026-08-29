@@ -60,10 +60,6 @@ function markBooted() {
   }
 }
 
-function delay(ms) {
-  return new Promise(function (r) { window.setTimeout(r, ms); });
-}
-
 function sample(arr, k) {
   const pool = arr.slice();
   const out = [];
@@ -112,9 +108,10 @@ function revealStaggered(root) {
 export function runBoot(root) {
   if (!root || prefersReduced() || alreadyBooted()) return;
 
+  // Warm the hero image in the background so it does not pop in after the
+  // reveal. The boot no longer waits on it — the lines always play once.
   const heroImg = root.querySelector(".welcomehero__img");
-  const src = heroImg ? heroImg.getAttribute("data-src") : null;
-  const imgReady = preloadImage(src);
+  if (heroImg) preloadImage(heroImg.getAttribute("data-src"));
 
   root.classList.add("welcome--booting");
   document.body.classList.add("is-booting");
@@ -142,34 +139,19 @@ export function runBoot(root) {
     window.setTimeout(teardown, 460);
   }
 
-  // Warm cache: don't make anyone watch a fake loader.
-  Promise.race([
-    imgReady.then(function () { return "ready"; }),
-    delay(200).then(function () { return "slow"; })
-  ]).then(function (state) {
-    if (state === "ready") {
-      teardown();
-      return;
+  // Always print the full run, once per session, on every device.
+  const lines = sample(PHRASES, 5);
+  let i = 0;
+  (function step() {
+    if (i < lines.length) {
+      writeLine(lines[i], i === 0);
+      i += 1;
+      window.setTimeout(step, 300 + Math.random() * 200);
+    } else {
+      writeLine(LAST_LINE, false);
+      window.setTimeout(glitchOut, 560);
     }
-
-    const lines = sample(PHRASES, 5);
-    let i = 0;
-    let assetDone = false;
-    imgReady.then(function () { assetDone = true; });
-    // Hard cap: a stuck asset must never trap the visitor behind the loader.
-    window.setTimeout(function () { assetDone = true; }, 4200);
-
-    (function step() {
-      if (i < lines.length && (!assetDone || i < 2)) {
-        writeLine(lines[i], i === 0);
-        i += 1;
-        window.setTimeout(step, 340 + Math.random() * 220);
-      } else {
-        writeLine(LAST_LINE, i === 0);
-        window.setTimeout(glitchOut, 560);
-      }
-    })();
-  });
+  })();
 }
 
 export default { runBoot: runBoot };

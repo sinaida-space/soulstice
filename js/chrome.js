@@ -284,10 +284,29 @@ export function renderHeader() {
     )
   );
 
+  // A nav link that still responds when its target is the screen you are on:
+  // it re-runs the router (fresh render, scrolled to the top) instead of doing
+  // nothing. Start and About both point at the welcome screen, so on that
+  // screen two of the three links would otherwise be dead.
+  function navLink(cls, href, label, onActivate) {
+    const a = el("a", { class: cls, href: href }, label);
+    a.addEventListener("click", function (e) {
+      if (onActivate) onActivate();
+      const cur = window.location.hash || "#/";
+      const sameRoute =
+        cur === href || (href === "#/" && (cur === "#/" || cur === ""));
+      if (sameRoute) {
+        e.preventDefault();
+        window.dispatchEvent(new HashChangeEvent("hashchange"));
+      }
+    });
+    return a;
+  }
+
   // ---- desktop: the three words, inline, all one tone -------------------
   const nav = el("nav", { class: "siteheader__nav", "data-role": "header-nav", "aria-label": "Menu" });
   for (const [href, label] of HEADER_LINKS) {
-    nav.appendChild(el("a", { class: "siteheader__navlink", href: href }, label));
+    nav.appendChild(navLink("siteheader__navlink", href, label));
   }
   root.appendChild(nav);
 
@@ -299,9 +318,9 @@ export function renderHeader() {
 
   const mnav = el("nav", { class: "menu__nav" });
   for (const [href, label] of HEADER_LINKS) {
-    const a = el("a", { class: "menu__link", href: href }, label);
-    a.addEventListener("click", function () { menu.open = false; });
-    mnav.appendChild(a);
+    mnav.appendChild(
+      navLink("menu__link", href, label, function () { menu.open = false; })
+    );
   }
   menu.appendChild(mnav);
   root.appendChild(menu);
