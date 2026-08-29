@@ -31,7 +31,7 @@ Soulstice is a self-reflection instrument. It is not advice.
 
 It gives no career guidance, and it is not medical, psychological, legal, financial, or professional advice of any kind. It does not assess, diagnose, or treat anything. It cannot read what you write and it does not respond to you. It follows a fixed path and arranges your answers at the end.
 
-If you need a professional, this is not a substitute for one. If you are in crisis, the Ground mode lists places to reach someone now.
+If you need a professional, this is not a substitute for one.
 
 **Consent control**
 
@@ -63,7 +63,7 @@ sinaida.eu ↗ · Instagram @sin.ai.da ↗
 
 Line 1: Soulstice — an instrument by Sinaida Krivchenko
 
-Links: About · Privacy &amp; storage · Imprint · sinaida.eu ↗ · Instagram ↗
+Links: About · Privacy &amp; storage · sinaida.eu ↗ · Instagram ↗
 
 Controls:
 - **View: Full / Light** — Full is the galaxy and CRT over a dark ground; Light is a plain ground with no effects. (Wording matches sinaida.eu.)
@@ -110,23 +110,6 @@ Last updated: 29 August 2026.
 
 ---
 
-## 5. IMPRINT *(standalone page, minimal)*
-
-# Imprint
-
-Soulstice is a non-commercial personal project.
-
-Responsible for content:
-Sinaida Krivchenko
-Prague, Czech Republic
-closest.dilly7p@icloud.com
-
-Website: sinaida.eu
-
-Soulstice sells nothing, carries no advertising, and processes no personal data. See Privacy and storage for the full picture.
-
----
-
 ## 6. 404 PAGE *(site-styled)*
 
 **This page is not part of the instrument.**
@@ -147,4 +130,4 @@ Made with Soulstice, an instrument by Sinaida Krivchenko · sinaida.eu
 
 - `robots.txt`: allow all; `Sitemap:` line.
 - `llms.txt`: one short paragraph — what Soulstice is, that it is a static self-guided tool, English only, no data collected.
-- `sitemap.xml`: welcome, privacy, imprint.
+- `sitemap.xml`: welcome, privacy.

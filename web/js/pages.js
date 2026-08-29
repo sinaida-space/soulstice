@@ -1,5 +1,5 @@
-// Soulstice — standalone pages: Privacy & storage, Imprint, and the 404 view.
-// All prose is verbatim from web/CONTENT.md sections 4, 5 and 6.
+// Soulstice — standalone pages: Privacy & storage and the 404 view.
+// All prose is verbatim from web/CONTENT.md sections 4 and 6.
 
 import { el } from "./dom.js";
 
@@ -98,42 +98,6 @@ export function renderPrivacy() {
     )
   );
   root.appendChild(el("p", { class: "page__meta" }, "Last updated: 29 August 2026."));
-
-  return root;
-}
-
-// ---- Imprint (CONTENT.md section 5) -----------------------------------------
-
-export function renderImprint() {
-  const root = el("article", { class: "page screen-panel", "data-role": "imprint" });
-
-  root.appendChild(el("h1", { class: "page__h1" }, "Imprint"));
-  root.appendChild(
-    el("p", null, "Soulstice is a non-commercial personal project.")
-  );
-
-  const who = el("p", { class: "page__address" });
-  who.appendChild(document.createTextNode("Responsible for content:"));
-  who.appendChild(el("br"));
-  who.appendChild(document.createTextNode("Sinaida Krivchenko"));
-  who.appendChild(el("br"));
-  who.appendChild(document.createTextNode("Prague, Czech Republic"));
-  who.appendChild(el("br"));
-  who.appendChild(mailto("closest.dilly7p@icloud.com"));
-  root.appendChild(who);
-
-  const site = el("p", null, "Website: ");
-  site.appendChild(extLink("https://sinaida.eu", "sinaida.eu"));
-  root.appendChild(site);
-
-  const tail = el(
-    "p",
-    null,
-    "Soulstice sells nothing, carries no advertising, and processes no personal data. See "
-  );
-  tail.appendChild(el("a", { href: "#/privacy" }, "Privacy and storage"));
-  tail.appendChild(document.createTextNode(" for the full picture."));
-  root.appendChild(tail);
 
   return root;
 }

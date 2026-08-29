@@ -45,7 +45,7 @@ web/
   js/app.js           hash router, consent gate, Passage flow
   js/chrome.js        persistent header + footer, Full / Light + reduce-effects
   js/welcome.js       welcome screen + consent record
-  js/pages.js         privacy, imprint, 404 views
+  js/pages.js         privacy & 404 views
   js/backdrop.js      galaxy + CRT canvas renderer
   js/dom.js           small internal DOM builder (not a contract)
   js/output.js        Markdown assemblers for every mode + the output screen

@@ -87,7 +87,7 @@ export function renderWelcome() {
   paragraphs(disc, [
     "Soulstice is a self-reflection instrument. It is not advice.",
     "It gives no career guidance, and it is not medical, psychological, legal, financial, or professional advice of any kind. It does not assess, diagnose, or treat anything. It cannot read what you write and it does not respond to you. It follows a fixed path and arranges your answers at the end.",
-    "If you need a professional, this is not a substitute for one. If you are in crisis, the Ground mode lists places to reach someone now."
+    "If you need a professional, this is not a substitute for one."
   ]);
   root.appendChild(disc);
 

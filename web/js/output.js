@@ -739,9 +739,6 @@ function matchCompassDate(md) {
 // Output screen
 // =====================================================================
 
-const FT_KEY = "soulstice:v1:ui:fortee2offered";
-const FT_URL = "https://github.com/sinaida-space/for-tee-too";
-
 export function renderOutputScreen(doc, mountNode) {
   const d = doc || {};
   const root = el("section", { class: "screen-panel output", id: "output", "data-role": "output" });
@@ -794,19 +791,6 @@ export function renderOutputScreen(doc, mountNode) {
     class: "output__hint", "data-role": "pdf-hint",
     style: "font-size:var(--fs-small);color:var(--ink-soft);margin:0 0 var(--step)"
   }, typo("In the print dialog, choose \"Save as PDF\" as the destination.")));
-
-  // for-tee-too, offered exactly once across reloads.
-  let offered = false;
-  try { offered = window.localStorage.getItem(FT_KEY) === "1"; } catch (e) { offered = false; }
-  if (!offered) {
-    const p = el("p", { class: "output__fortee", "data-role": "fortee2" });
-    p.appendChild(document.createTextNode(
-      typo("One direction from this can be handed to for-tee-too for scoping: ")
-    ));
-    p.appendChild(el("a", { href: FT_URL, target: "_blank", rel: "noopener" }, FT_URL.replace(/^https:\/\//, "")));
-    root.appendChild(p);
-    try { window.localStorage.setItem(FT_KEY, "1"); } catch (e) { /* flag will not persist */ }
-  }
 
   if (mountNode) mountNode.replaceChildren(root);
   return root;

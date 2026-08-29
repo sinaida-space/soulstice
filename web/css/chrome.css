@@ -1,5 +1,5 @@
 /* Soulstice — persistent header and footer, the welcome screen, and the
-   standalone pages (privacy, imprint, 404). Uses the existing tokens and the
+   standalone pages (privacy, 404). Uses the existing tokens and the
    grid law: red rules, Geist Pixel for labels, one reading column. */
 
 /* ---- skip link --------------------------------------------------------- */
@@ -164,7 +164,10 @@
 .sitefooter {
   background: var(--surface);
   border-top: var(--rule-w) solid var(--rule);
-  margin-top: calc(var(--step) * 2);
+  /* Sits directly under the content. The .frame no longer forces 100vh, so a
+     short page is simply short — no empty red-ruled space above the footer.
+     The fixed #backdrop still covers the viewport below it. */
+  margin-top: calc(var(--step) * 1.25);
 }
 
 .sitefooter__credit {
