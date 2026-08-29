@@ -6,7 +6,7 @@ A static, self-guided build of the SOULSTICE self-inquiry instrument for artists
 Runs entirely in the browser: no build step, no framework, no bundler, no external
 requests. English only, and it works through Google&nbsp;Translate.
 
-**Live:** <https://sinaida-space.github.io/soulstice/>
+**Live:** <https://soulstice.pages.dev/>
 &nbsp;·&nbsp; **Claude Code skill:** [`sinaida-space/soulstice-skill`](https://github.com/sinaida-space/soulstice-skill)
 
 All six modes are here: Passage (the full inquiry, ending in a written Compass),
