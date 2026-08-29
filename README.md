@@ -209,8 +209,13 @@ follows you if you switch.
 ## Web version
 
 A static, self-guided build of the instrument lives in [`web/`](web/) and is served
-at <https://sinaida-space.github.io/soulstice/>. No build step, no framework, English
-only, and it works through Google Translate. See [`web/README.md`](web/README.md).
+at <https://sinaida-space.github.io/soulstice/>. No build step, no framework, no
+bundler: plain HTML, CSS and ES modules. English only, and it works through Google
+Translate.
+
+All six modes are there: Passage (the full inquiry, ending in a written Compass),
+Journal, Lens, Ground, Statement and Return. Every answer stays in `localStorage`
+on the one device and nothing is ever sent anywhere. See [`web/README.md`](web/README.md).
 
 ## Install
 

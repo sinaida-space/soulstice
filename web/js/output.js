@@ -803,7 +803,7 @@ export function renderOutputScreen(doc, mountNode) {
     p.appendChild(document.createTextNode(
       typo("One direction from this can be handed to for-tee-too for scoping: ")
     ));
-    p.appendChild(el("a", { href: FT_URL }, FT_URL.replace(/^https:\/\//, "")));
+    p.appendChild(el("a", { href: FT_URL, target: "_blank", rel: "noopener" }, FT_URL.replace(/^https:\/\//, "")));
     root.appendChild(p);
     try { window.localStorage.setItem(FT_KEY, "1"); } catch (e) { /* flag will not persist */ }
   }
