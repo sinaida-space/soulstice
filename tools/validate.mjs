@@ -1,4 +1,4 @@
-// Soulstice — data validator. ESM, no dependencies. Run: node web/tools/validate.mjs
+// Soulstice — data validator. ESM, no dependencies. Run: node tools/validate.mjs
 //
 // Loads every authored card section and asserts, across EVERY card in EVERY
 // section:

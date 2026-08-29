@@ -20,8 +20,10 @@ import { buildCompass, renderOutputScreen } from "./output.js";
 import { groundRoutes } from "./modes/ground.reg.js";
 import { secondaryRoutes } from "./modes/secondary.reg.js";
 import { renderWelcome, readConsent } from "./welcome.js";
+import { renderDitherImage } from "./dither-image.js";
+import { renderPathNav, pushTrail } from "./pathnav.js";
 import { renderPrivacy, renderNotFound } from "./pages.js";
-import { renderHeader, renderFooter, initView } from "./chrome.js";
+import { renderHeader, renderFooter, renderPathProgress, initView, initStorageNotice } from "./chrome.js";
 import { initBackdrop } from "./backdrop.js";
 
 // Mode handlers beyond Passage. Each is { id, enter }, where enter() renders
@@ -62,6 +64,26 @@ function paintChrome(modeLabel) {
   const footer = document.getElementById("site-footer");
   if (header) header.replaceChildren(renderHeader(modeLabel));
   if (footer) footer.replaceChildren(renderFooter());
+}
+
+// Layer-level progress through the Passage manifest. Prologue is layer 0, so
+// `done` is 0 until the first layer completes. Within-layer position is not
+// counted: the cards branch, so there is no honest fraction to show.
+function passageProgressFor(state) {
+  const layers = MODE_LAYERS.passage;
+  const total = layers.length;
+  if (!state || !state.cursor || state.cursor.done) return { done: total, total: total };
+  const idx = layers.findIndex(function (l) { return l.key === state.cursor.section; });
+  const done = idx < 0 ? (state.completed ? state.completed.length : 0) : idx;
+  return { done: done, total: total };
+}
+
+// The Passage progress strip lives at the top of the card box, not in the
+// header. Prepend it to a freshly built panel node before it is mounted.
+function prependProgress(node, mode, state) {
+  if (mode !== "passage" || !node || node.nodeType !== 1) return;
+  const strip = renderPathProgress(labelFor(mode), passageProgressFor(state));
+  node.insertBefore(strip, node.firstChild);
 }
 
 // ---- mount --------------------------------------------------------------
@@ -140,6 +162,9 @@ function renderModeSelect() {
   const root = el("section", { class: "modeselect screen-panel", "data-role": "mode-select" });
   root.appendChild(el("h1", { class: "modeselect__title" }, "Soulstice"));
   root.appendChild(el("p", { class: "modeselect__sub" }, "A guided self-inquiry instrument for artists."));
+  root.appendChild(
+    renderDitherImage("./assets/path/", 3, { className: "modeselect__img", role: "mode-image" })
+  );
 
   const saved = Store.listSaved();
   if (saved.length) {
@@ -210,6 +235,7 @@ function startFresh(mode) {
   const state = Store.load(mode);
   const first = MODE_LAYERS[mode][0];
   state.cursor = { section: first.key, card: first.entry };
+  state.trail = [];
   Store.save(mode, state);
   renderCurrent(mode, state);
 }
@@ -258,7 +284,39 @@ function renderCurrent(mode, state) {
       advance(mode, state, layer, card, answer);
     }
   });
+  prependProgress(node, mode, state);
+  appendNav(node, mode, state, layer, card);
   mount(node);
+}
+
+// Quiet Back / Skip / Finish / Paths at the foot of the card. Back pops the
+// breadcrumb; Skip drops any answer for this card and takes the default branch
+// forward; Finish ends the path now and assembles the document from whatever
+// has been answered; Paths returns to the mode selection.
+function appendNav(node, mode, state, layer, card) {
+  if (mode !== "passage" || !node || node.nodeType !== 1) return;
+
+  node.appendChild(
+    renderPathNav({
+      canBack: !!(state.trail && state.trail.length),
+      onBack: function () {
+        state.cursor = state.trail.pop();
+        Store.save(mode, state);
+        renderCurrent(mode, state);
+      },
+      onSkip: function () {
+        delete state.answers[card.id];
+        Store.save(mode, state);
+        advance(mode, state, layer, card, { picks: [], other: "" });
+      },
+      onFinish: function () {
+        pushTrail(state);
+        state.cursor = { done: true };
+        Store.save(mode, state);
+        renderDone(mode, state);
+      }
+    })
+  );
 }
 
 function recordAnswer(state, card, answer) {
@@ -294,6 +352,7 @@ function advance(mode, state, layer, card, answer) {
   const step = resolveNext(card, answer);
 
   if (step.card) {
+    pushTrail(state);
     state.cursor = { section: layer.key, card: step.card };
     Store.save(mode, state);
     return renderCurrent(mode, state);
@@ -314,6 +373,7 @@ function completeLayerAndAdvance(mode, state, layer) {
   const nextLayer = layers[idx + 1];
 
   if (nextLayer) {
+    pushTrail(state);
     state.cursor = { section: nextLayer.key, card: nextLayer.entry };
     Store.save(mode, state);
     return renderCurrent(mode, state);
@@ -379,6 +439,7 @@ function enterArcBreak(mode, state, layer) {
     completeLayerAndAdvance(mode, state, layer);
   });
 
+  prependProgress(node, mode, state);
   mount(node);
 }
 
@@ -422,10 +483,66 @@ function goHome() {
   window.location.hash = "#/";
 }
 
+// ---- Start over, from the header menu --------------------------------------
+
+function hasActiveSession(mode) {
+  const s = Store.load(mode);
+  return !!(s && s.cursor && (s.cursor.card || s.cursor.done));
+}
+
+function confirmStartOver(mode) {
+  const root = el("section", { class: "screen-panel", "data-role": "startover-confirm" });
+  root.appendChild(el("span", { class: "card__label" }, "Start over"));
+  root.appendChild(
+    el("h1", { class: "card__q" }, "Start " + labelFor(mode) + " again from the beginning?")
+  );
+  root.appendChild(
+    el(
+      "p",
+      { class: "card__note" },
+      "Your answers in this path are cleared. Other paths and any saved documents are untouched."
+    )
+  );
+
+  const yes = el("button", { class: "btn btn--block", type: "button", "data-action": "startover-yes" }, "Start over");
+  yes.addEventListener("click", function () { startFresh(mode); });
+  const no = el("button", { class: "btn btn--block btn--ghost", type: "button", "data-action": "startover-no" }, "Cancel");
+  no.addEventListener("click", function () {
+    const s = Store.load(mode);
+    if (s && s.cursor && (s.cursor.card || s.cursor.done)) renderCurrent(mode, s);
+    else router();
+  });
+
+  root.appendChild(yes);
+  root.appendChild(no);
+  mount(root);
+}
+
+function onMenuStartOver() {
+  const raw = (window.location.hash || "#/").replace(/^#/, "");
+  const mode = raw.split("/").filter(Boolean)[0] || "";
+
+  if (mode === "passage" && hasActiveSession("passage")) {
+    return confirmStartOver("passage");
+  }
+  // Other paths run their own resume / start-over screen on entry.
+  if (KNOWN_MODES.indexOf(mode) !== -1) {
+    if (window.location.hash === "#/" + mode) {
+      window.dispatchEvent(new HashChangeEvent("hashchange"));
+    } else {
+      window.location.hash = "#/" + mode;
+    }
+    return;
+  }
+  window.location.hash = "#/";
+}
+
 // ---- boot -------------------------------------------------------------------
 // Module scripts are deferred, so the DOM is already parsed here.
 
 initView();
+initStorageNotice();
 initBackdrop();
 window.addEventListener("hashchange", router);
+window.addEventListener("soulstice:startover", onMenuStartOver);
 router();

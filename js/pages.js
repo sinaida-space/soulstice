@@ -3,6 +3,10 @@
 
 import { el } from "./dom.js";
 
+// A playlist to step away to, offered on the 404 and Ground screens. A plain
+// outbound link, never an embed, so nothing third-party loads here.
+export const UNWIND_PLAYLIST = "https://open.spotify.com/playlist/1lnhhzpja7u0aP2uiccYW2";
+
 function mailto(address) {
   return el("a", { href: "mailto:" + address }, address);
 }
@@ -112,6 +116,12 @@ export function renderNotFound() {
     el("h1", { class: "page__h1" }, "This page is not part of the instrument.")
   );
   root.appendChild(el("p", null, "The page you asked for does not exist here."));
+
+  const unwind = el("p", { class: "notfound__unwind" });
+  unwind.appendChild(document.createTextNode("While you are here, "));
+  unwind.appendChild(extLink(UNWIND_PLAYLIST, "a playlist to unwind to ↗"));
+  unwind.appendChild(document.createTextNode("."));
+  root.appendChild(unwind);
 
   const back = el("p", { class: "notfound__back" });
   back.appendChild(el("a", { href: "#/welcome" }, "Back to the start ↗"));

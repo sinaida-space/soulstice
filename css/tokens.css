@@ -31,8 +31,11 @@
      small 0.82x · body 1x · question 1.29x · title 2.12x. */
   --fs-body: 1.0625rem;   /* ~17px reading size */
   --fs-small: 0.875rem;   /* ~14px — pixel labels / meta, kept legible */
-  --fs-q: 1.375rem;       /* card question */
-  --fs-title: 2.25rem;    /* mode-select title */
+  --fs-h3: 1.1875rem;     /* ~19px — smallest heading, still above body */
+  --fs-q: 1.375rem;       /* ~22px — card question */
+  --fs-h2: 1.375rem;      /* ~22px — document / page section head */
+  --fs-h1: 1.75rem;       /* ~28px — document / page title */
+  --fs-title: 2.25rem;    /* ~36px — mode-select title */
 
   --unit: 1.6em;          /* leading for running text on a pixel face */
   --tracking: 0.01em;     /* barely-there body tracking, helps the pixel face */
@@ -40,9 +43,10 @@
   --gutter: 2.75rem;
   --rule-w: 1px;
 
-  /* Reading column. ~40rem holds the measure near 60-66 characters at the
-     Geist Pixel advance width. */
-  --column: 40rem;
+  /* Reading column. ~46rem holds the measure near 66-72 characters at the
+     Geist Pixel advance width — wide enough that the framed column does not
+     read as a thin ribbon on a large display. */
+  --column: 46rem;
 
   /* ---- View: Full (default) — void ground, galaxy + CRT behind opaque cards.
      Ground-dependent roles below match what the old data-ground="void" set. */

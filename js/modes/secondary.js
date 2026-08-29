@@ -21,6 +21,7 @@ import { renderCard } from "../card.js";
 import { el } from "../dom.js";
 import { screenNode, mountScreen, goHome } from "../screen.js";
 import { typo } from "../typo.js";
+import { renderPathNav, pushTrail } from "../pathnav.js";
 import {
   buildLensVerdict,
   buildStatement,
@@ -106,31 +107,57 @@ function stepFlow(mode, sections, state, onDone) {
   if (!cardId || !section.cards[cardId]) cardId = section.entry;
   const card = section.cards[cardId];
 
+  function advance(answer) {
+    const nextId = resolveNext(card, answer);
+    if (nextId && section.cards[nextId]) {
+      pushTrail(state);
+      state.cursor = { section: section.key, card: nextId };
+      Store.save(mode, state);
+      return stepFlow(mode, sections, state, onDone);
+    }
+    const nextSection = sections[idx + 1];
+    if (nextSection) {
+      pushTrail(state);
+      state.cursor = { section: nextSection.key, card: nextSection.entry };
+      Store.save(mode, state);
+      return stepFlow(mode, sections, state, onDone);
+    }
+    state.cursor = { done: true };
+    Store.save(mode, state);
+    onDone(state);
+  }
+
   const saved = state.answers[card.id] || null;
   const node = renderCard(card, saved, {
     onSubmit: function (answer) {
       recordAnswer(state, card, answer);
       Store.save(mode, state);
-
-      const nextId = resolveNext(card, answer);
-      if (nextId && section.cards[nextId]) {
-        state.cursor = { section: section.key, card: nextId };
-        Store.save(mode, state);
-        return stepFlow(mode, sections, state, onDone);
-      }
-
-      const nextSection = sections[idx + 1];
-      if (nextSection) {
-        state.cursor = { section: nextSection.key, card: nextSection.entry };
-        Store.save(mode, state);
-        return stepFlow(mode, sections, state, onDone);
-      }
-
-      state.cursor = { done: true };
-      Store.save(mode, state);
-      onDone(state);
+      advance(answer);
     }
   });
+
+  node.appendChild(
+    renderPathNav({
+      canBack: !!(state.trail && state.trail.length),
+      onBack: function () {
+        state.cursor = state.trail.pop();
+        Store.save(mode, state);
+        stepFlow(mode, sections, state, onDone);
+      },
+      onSkip: function () {
+        delete state.answers[card.id];
+        Store.save(mode, state);
+        advance({ picks: [], other: "" });
+      },
+      onFinish: function () {
+        pushTrail(state);
+        state.cursor = { done: true };
+        Store.save(mode, state);
+        onDone(state);
+      }
+    })
+  );
+
   mountScreen(node);
 }
 

@@ -1,0 +1,671 @@
+/* Soulstice — persistent header and footer, the welcome screen, and the
+   standalone pages (privacy, 404). Uses the existing tokens and the
+   grid law: red rules, Geist Pixel for labels, one reading column. */
+
+/* ---- skip link --------------------------------------------------------- */
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  padding: 0.5rem 0.9rem;
+  background: var(--red);
+  color: var(--chalk);
+  font-family: var(--font-display);
+  font-size: var(--fs-small);
+  text-decoration: none;
+  z-index: 10;
+}
+.skip-link:focus {
+  left: 0.5rem;
+  top: 0.5rem;
+}
+
+/* ---- header ---------------------------------------------------------------- */
+
+.siteheader {
+  background: var(--surface);
+  border-bottom: var(--rule-w) solid var(--rule);
+  /* Stays in view through a run so the mark never scrolls away. Opaque ground
+     (var(--surface)) keeps the galaxy from bleeding in. */
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  flex-shrink: 0;
+}
+
+.siteheader__inner,
+.sitefooter__inner {
+  max-width: var(--column);
+  margin: 0 auto;
+  padding: var(--step) var(--gutter);
+}
+
+.siteheader__inner {
+  display: flex;
+  align-items: baseline;
+  gap: 0.9rem 1rem;
+  flex-wrap: wrap;
+}
+
+.siteheader__mark {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  letter-spacing: 0.06em;
+  color: var(--red-text);
+  text-decoration: none;
+}
+
+.siteheader__mode {
+  font-family: var(--font-display);
+  font-size: var(--fs-small);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.siteheader__paths {
+  font-family: var(--font-display);
+  font-size: var(--fs-small);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  text-decoration: none;
+}
+.siteheader__paths:hover { color: var(--ink); }
+
+.siteheader__tail {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.siteheader__ground,
+.ctl-stub,
+.ctl {
+  font-family: var(--font-display);
+  font-size: var(--fs-small);
+  line-height: 1.4;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  color: var(--ink-soft);
+  background: transparent;
+  border: var(--rule-w) solid var(--field-border);
+  padding: 0.4rem 0.8rem;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.siteheader__ground:hover {
+  color: var(--ink);
+  border-color: var(--ink-soft);
+}
+
+.ctl-stub {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+/* M9 footer controls — View: Full / Light, Reduce effects */
+.ctl:hover {
+  color: var(--ink);
+  border-color: var(--ink-soft);
+}
+.ctl[aria-pressed="true"] {
+  color: var(--ink);
+  border-color: var(--red);
+}
+.ctl:focus-visible {
+  outline: 2px solid var(--red);
+  outline-offset: 2px;
+}
+
+/* ---- storage notice (first visit, dismissible) ------------------------- */
+
+.storagenote {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 40;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1rem;
+  max-width: var(--column);
+  margin: 0 auto;
+  padding: 0.8rem var(--gutter);
+  background: var(--surface);
+  border-top: var(--rule-w) solid var(--rule);
+}
+
+.storagenote__text {
+  flex: 1 1 16rem;
+  margin: 0;
+  font-size: var(--fs-small);
+  line-height: 1.4;
+  color: var(--ink-soft);
+}
+
+.storagenote__link {
+  font-family: var(--font-display);
+  font-size: var(--fs-small);
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+  text-decoration: none;
+}
+.storagenote__link:hover { color: var(--ink); text-decoration: underline; }
+
+.storagenote__ok {
+  font-family: var(--font-display);
+  font-size: var(--fs-small);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--btn-ink);
+  background: var(--btn-bg);
+  border: none;
+  padding: 0.4rem 1rem;
+  cursor: pointer;
+}
+.storagenote__ok:hover { filter: brightness(1.08); }
+.storagenote__ok:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+
+@media (max-width: 600px) {
+  .storagenote { padding-left: 1.1rem; padding-right: 1.1rem; }
+}
+
+@media print {
+  .storagenote { display: none !important; }
+}
+
+/* ---- disclosure menu ---------------------------------------------------- */
+
+.menu {
+  font-family: var(--font-display);
+  font-size: var(--fs-small);
+  position: relative;
+}
+
+.menu__summary {
+  list-style: none;
+  cursor: pointer;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  border: var(--rule-w) solid var(--field-border);
+  padding: 0.35rem 0.7rem;
+}
+.menu__summary::-webkit-details-marker { display: none; }
+.menu__summary:hover { color: var(--ink); border-color: var(--ink-soft); }
+.menu[open] .menu__summary { color: var(--ink); border-color: var(--ink-soft); }
+
+.menu__nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  margin-top: 0.4rem;
+  border: var(--rule-w) solid var(--field-border);
+  background: var(--surface);
+}
+
+@media (min-width: 601px) {
+  .menu__nav {
+    position: absolute;
+    right: 0;
+    min-width: 11rem;
+    z-index: 9;
+  }
+}
+
+.menu__link {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 0.55rem 0.8rem;
+  font-family: var(--font-display);
+  font-size: var(--fs-small);
+  line-height: 1.35;
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+  text-decoration: none;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+.menu__link:hover {
+  color: var(--ink);
+  background: var(--field-bg);
+}
+.menu__link:focus-visible {
+  outline: 2px solid var(--red);
+  outline-offset: -2px;
+}
+
+.menu__sep {
+  height: var(--rule-w);
+  margin: 0.25rem 0;
+  background: var(--field-border);
+}
+
+/* ---- Passage progress: top of the card box ------------------------------- */
+/* Built by renderPathProgress (js/chrome.js), prepended into the panel by
+   app.js so it sits inside the box, above the card label. */
+
+.pathprogress {
+  margin-bottom: calc(var(--step) * 1.25);
+  padding-bottom: var(--step);
+  border-bottom: var(--rule-w) solid var(--field-border);
+}
+
+.pathprogress__name {
+  display: block;
+  font-family: var(--font-display);
+  font-size: var(--fs-small);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--red-text);
+  text-shadow: 0 0 6px rgba(205, 0, 0, 0.75), 0 0 14px rgba(205, 0, 0, 0.45);
+}
+:root[data-view="light"] .pathprogress__name {
+  text-shadow: 0 0 5px rgba(205, 0, 0, 0.4);
+}
+
+.progressbar {
+  position: relative;
+  width: 100%;
+  height: 3px;
+  margin-top: 0.7rem;
+  background: var(--field-border);
+}
+
+/* One solid red line, filling with the run, with a soft neon glow. It breathes
+   between full and 70% so it reads as live without flashing. */
+.progressbar__fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background: var(--red);
+  box-shadow: 0 0 4px var(--red-legible), 0 0 10px rgba(205, 0, 0, 0.55);
+  animation: progbreath 2.6s ease-in-out infinite;
+}
+
+@keyframes progbreath {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.7; }
+}
+
+:root[data-motion="reduced"] .progressbar__fill { animation: none; opacity: 1; }
+:root[data-view="light"] .progressbar__fill {
+  box-shadow: 0 0 3px rgba(205, 0, 0, 0.5);
+}
+
+@media print {
+  .progressbar { display: none !important; }
+}
+
+/* ---- Back / Skip / Finish at the foot of the card, quiet, not accented --- */
+
+.pathnav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-top: calc(var(--step) * 1.5);
+  padding-top: var(--step);
+  border-top: var(--rule-w) solid var(--field-border);
+}
+/* Back sits left; Skip / Finish / Paths are pushed to the right. */
+.pathnav__btn[data-action="back"] { margin-right: auto; }
+.pathnav__btn {
+  font-family: var(--font-display);
+  font-size: var(--fs-small);
+  line-height: 1.4;
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+  background: transparent;
+  border: var(--rule-w) solid var(--field-border);
+  padding: 0.4rem 0.9rem;
+  cursor: pointer;
+}
+.pathnav__btn:hover { color: var(--ink); border-color: var(--ink-soft); }
+.pathnav__btn:focus-visible { outline: 2px solid var(--ink-soft); outline-offset: 2px; }
+.pathnav__btn[hidden] { display: none; }
+
+@media print {
+  .pathnav { display: none !important; }
+}
+
+/* ---- Arc-break choices: full-width buttons, not the radio/label grid ----- */
+/* card.js reuses .opt (a 1.4rem/1fr grid meant for [input][label]) for the
+   choice list, which crushes a button-only row. Reset it here. */
+
+.arcbreak [data-role="arc-choices"] {
+  list-style: none;
+  margin: calc(var(--step) * 1.5) 0 0;
+  padding: 0;
+}
+.arcbreak [data-role="arc-choices"] .opt {
+  display: block;
+  padding: 0;
+  border: 0;
+  margin-top: 0.6rem;
+}
+.arcbreak [data-role="arc-choices"] .opt:first-child { margin-top: 0; }
+.arcbreak [data-role="arc-choices"] .btn--block { margin-top: 0; }
+
+/* ---- header on narrow screens ------------------------------------------- */
+
+@media (max-width: 600px) {
+  /* Match the panel inset so the mark lines up with the card text below. */
+  .siteheader__inner,
+  .sitefooter__inner { padding-left: 1.1rem; padding-right: 1.1rem; }
+
+  .siteheader__tail { width: 100%; margin-left: 0; }
+  .menu { width: 100%; }
+  .menu__summary { display: block; text-align: left; }
+  .menu__nav { width: 100%; }
+}
+
+/* ---- footer ------------------------------------------------------------- */
+
+.sitefooter {
+  background: var(--surface);
+  border-top: var(--rule-w) solid var(--rule);
+  /* .frame grows to fill the viewport, so the footer is always at the bottom.
+     It butts straight onto the frame with no backdrop gap. */
+  flex-shrink: 0;
+}
+
+.sitefooter__credit {
+  font-family: var(--font-display);
+  font-size: var(--fs-small);
+  letter-spacing: 0.06em;
+  color: var(--ink-soft);
+  margin: 0 0 var(--step);
+}
+
+.sitefooter__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1rem;
+  margin-bottom: var(--step);
+}
+
+.sitefooter__link {
+  font-size: var(--fs-small);
+  color: var(--red-text);
+  text-decoration: none;
+}
+.sitefooter__link:hover { text-decoration: underline; }
+
+.sitefooter__controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  border-top: var(--rule-w) solid var(--field-border);
+  padding-top: var(--step);
+}
+.sitefooter__controls .erase { display: flex; }
+.sitefooter__controls .erase .ctl { width: 100%; }
+
+.erase__confirm {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+}
+.erase__q {
+  flex-basis: 100%;
+  margin: 0;
+  font-size: var(--fs-small);
+  color: var(--ink);
+}
+
+/* ---- welcome screen --------------------------------------------------------- */
+
+/* Hero: big arcade title + standfirst + one dithered image. */
+
+.welcomehero {
+  position: relative;
+  margin-bottom: calc(var(--step) * 2);
+}
+
+.welcomehero__title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2rem, 4vw + 1.2rem, 3.4rem);
+  line-height: 1.04;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin: 0 0 var(--step);
+}
+
+/* Full view with effects on: neon glow + a restrained CRT glitch. Light view
+   and reduced-motion get the plain title. */
+:root[data-view="full"]:not([data-motion="reduced"]) .welcomehero__title {
+  color: var(--red-legible);
+  text-shadow:
+    0 0 4px rgba(255, 26, 26, 0.7),
+    0 0 12px rgba(205, 0, 0, 0.5),
+    0 0 26px rgba(205, 0, 0, 0.3);
+  animation: hero-flicker 7s linear infinite;
+}
+:root[data-view="full"]:not([data-motion="reduced"]) .welcomehero__title::before,
+:root[data-view="full"]:not([data-motion="reduced"]) .welcomehero__title::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  pointer-events: none;
+  text-transform: uppercase;
+}
+:root[data-view="full"]:not([data-motion="reduced"]) .welcomehero__title::before {
+  color: var(--red-legible);
+  mix-blend-mode: screen;
+  animation: hero-glitch-a 5.5s steps(1) infinite;
+}
+:root[data-view="full"]:not([data-motion="reduced"]) .welcomehero__title::after {
+  color: var(--chalk);
+  opacity: 0.55;
+  mix-blend-mode: screen;
+  animation: hero-glitch-b 4.1s steps(1) infinite;
+}
+
+@keyframes hero-flicker {
+  0%, 92%, 100% { opacity: 1; }
+  93% { opacity: 0.82; }
+  95% { opacity: 1; }
+  96% { opacity: 0.9; }
+}
+@keyframes hero-glitch-a {
+  0%, 100%   { transform: translate(0, 0); clip-path: inset(0 0 100% 0); }
+  47%        { transform: translate(0, 0); clip-path: inset(0 0 100% 0); }
+  48%        { transform: translate(-2px, 1px); clip-path: inset(12% 0 62% 0); }
+  49%        { transform: translate(2px, -1px); clip-path: inset(70% 0 8% 0); }
+  50%        { transform: translate(0, 0); clip-path: inset(0 0 100% 0); }
+  82%        { transform: translate(-1px, 0); clip-path: inset(40% 0 45% 0); }
+  83%        { transform: translate(0, 0); clip-path: inset(0 0 100% 0); }
+}
+@keyframes hero-glitch-b {
+  0%, 100%   { transform: translate(0, 0); clip-path: inset(0 0 100% 0); }
+  30%        { transform: translate(0, 0); clip-path: inset(0 0 100% 0); }
+  31%        { transform: translate(2px, -1px); clip-path: inset(55% 0 20% 0); }
+  32%        { transform: translate(-2px, 1px); clip-path: inset(18% 0 66% 0); }
+  33%        { transform: translate(0, 0); clip-path: inset(0 0 100% 0); }
+}
+
+/* Scanline wash over the whole hero, effects only. */
+:root[data-view="full"]:not([data-motion="reduced"]) .welcomehero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg, rgba(0, 0, 0, 0.16) 0 1px, transparent 1px 3px
+  );
+  mix-blend-mode: multiply;
+}
+
+/* Dithered image (js/dither-image.js): a red fill masked by the chosen dither
+   PNG. Hover / tap adds a full-cover mask layer composited XOR, which inverts
+   it: red where the dither was clear, clear where it was red. Used on the
+   welcome hero and the mode-select. mask-image + mask-composite are set inline
+   (document-relative URL); the static geometry lives here. */
+.ditherimg {
+  width: 100%;
+  aspect-ratio: 1152 / 387;
+  background-color: var(--red);
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  cursor: pointer;
+}
+.ditherimg:focus-visible {
+  outline: 2px solid var(--red);
+  outline-offset: 3px;
+}
+:root[data-view="full"] .ditherimg {
+  filter: drop-shadow(0 0 3px rgba(205, 0, 0, 0.55)) drop-shadow(0 0 11px rgba(205, 0, 0, 0.3));
+}
+:root[data-view="full"][data-motion="reduced"] .ditherimg { filter: none; }
+
+.welcomehero__img { margin-top: calc(var(--step) * 1.5); }
+.modeselect__img { margin: calc(var(--step) * 1.5) 0 calc(var(--step) * 2); }
+
+@media print {
+  .ditherimg, .welcomehero::after { display: none !important; }
+  .welcomehero__title { color: #000 !important; text-shadow: none !important; }
+}
+
+.welcome__standfirst {
+  font-family: var(--font-display);
+  font-size: var(--fs-q);
+  line-height: 1.35;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+.welcome__h {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: var(--fs-h2);
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  color: var(--red-text);
+  margin: calc(var(--step) * 1.8) 0 0.4rem;
+}
+
+.welcome__p { margin: 0 0 var(--step); }
+
+.welcome__list {
+  margin: 0 0 var(--step);
+  padding-left: 1.2rem;
+}
+.welcome__list li { margin: 0.35rem 0; }
+
+.welcome__disclaimer {
+  display: block;
+  border: var(--rule-w) solid var(--red);
+  padding: var(--step) var(--gutter);
+  margin: calc(var(--step) * 1.8) 0;
+}
+.welcome__disclaimer .card__label { color: var(--red-text); }
+.welcome__disclaimer p { margin: 0 0 var(--step); }
+.welcome__disclaimer p:last-child { margin-bottom: 0; }
+
+.consent {
+  border-top: var(--rule-w) solid var(--field-border);
+  padding-top: var(--step);
+  margin-top: var(--step);
+}
+
+.consent__row {
+  display: grid;
+  grid-template-columns: 1.4rem 1fr;
+  gap: 0.9rem;
+  align-items: start;
+  margin: 0 0 var(--step);
+}
+
+.consent__box {
+  margin-top: 0.3rem;
+  width: 1rem;
+  height: 1rem;
+  accent-color: var(--red);
+}
+
+.consent__label { cursor: pointer; color: var(--ink); }
+
+.consent__note {
+  font-size: var(--fs-small);
+  color: var(--ink-soft);
+  margin: var(--step) 0 0;
+}
+
+.welcome__authorlinks {
+  font-size: var(--fs-small);
+  margin-top: var(--step);
+}
+.welcome__authorlinks a { color: var(--red-text); }
+
+/* ---- standalone pages ----------------------------------------------------- */
+
+.page { color: var(--ink); }
+
+.page__h1 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: var(--fs-h1);
+  line-height: 1.3;
+  margin: 0 0 var(--step);
+  color: var(--ink);
+}
+
+.page__h2 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: var(--fs-h2);
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  color: var(--red-text);
+  margin: calc(var(--step) * 1.6) 0 0.4rem;
+}
+
+.page p { margin: 0 0 var(--step); }
+.page a { color: var(--red-text); }
+
+.page__address { line-height: var(--unit); }
+
+.page__meta,
+.notfound__back,
+.notfound__unwind {
+  font-size: var(--fs-small);
+  color: var(--ink-soft);
+}
+
+.notfound__back a,
+.notfound__unwind a { color: var(--red-text); }
+
+.notfound__unwind {
+  margin-top: calc(var(--step) * 1.5);
+  padding-top: var(--step);
+  border-top: var(--rule-w) solid var(--field-border);
+}
+
+/* ---- print: the chrome does not print -------------------------------------- */
+
+@media print {
+  .siteheader,
+  .sitefooter,
+  .skip-link {
+    display: none !important;
+  }
+}
