@@ -6,13 +6,15 @@ to `web/`, so the app itself is served from `/soulstice/web/`).
 ## What this is
 
 A static, self-guided version of the Soulstice skill: the same Prologue, eleven
-layers and six modes, run as branching choice cards straight in the browser
-instead of through Claude. It is English only and carries no translation of its
-own, but every branch keys off `data-*` attributes rather than visible text, so
-it works through Google Translate. There is no build step, no framework, no
-bundler, no npm, no CDN and no external request; it is plain ES modules loaded
-with `<script type="module">`, and every answer stays in `localStorage` on the
-one device.
+layers and six modes (Passage, Journal, Lens, Ground, Statement, Return), run as
+branching choice cards straight in the browser instead of through Claude. Passage
+is the full inquiry and ends in a written Compass you save as a PDF. It is English
+only and carries no translation of its own, but every branch keys off `data-*`
+attributes rather than visible text, so it works through Google Translate. There
+is no build step, no framework, no bundler, no npm, no CDN and no external
+request; it is plain ES modules loaded with `<script type="module">`, and every
+answer stays in `localStorage` on the one device. No accounts, no analytics, no
+cookies, nothing sent anywhere.
 
 ## Run it locally
 
@@ -40,7 +42,11 @@ web/
   fonts/              GeistPixel.woff2 (the one typeface)
   js/store.js         localStorage state store (frozen contract)
   js/card.js          card renderer + arc-break renderer (frozen contract)
-  js/app.js           hash router, Passage flow, ground toggle
+  js/app.js           hash router, consent gate, Passage flow
+  js/chrome.js        persistent header + footer, Full / Light + reduce-effects
+  js/welcome.js       welcome screen + consent record
+  js/pages.js         privacy, imprint, 404 views
+  js/backdrop.js      galaxy + CRT canvas renderer
   js/dom.js           small internal DOM builder (not a contract)
   js/output.js        Markdown assemblers for every mode + the output screen
   js/modes/           ground.js, secondary.js (journal/lens/statement/return)
