@@ -110,13 +110,13 @@
   .siteheader__mark::before, .siteheader__mark::after { display: none !important; }
 }
 
-/* ---- desktop: the section words, inline ------------------------------------ */
+/* ---- desktop: the three words, inline, one tone -------------------------- */
 
 .siteheader__nav {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 0.3rem 1.05rem;
+  gap: 0.3rem 1.4rem;
   justify-content: flex-end;
 }
 
@@ -127,16 +127,10 @@
   text-transform: uppercase;
   color: var(--ink-soft);
   text-decoration: none;
-  background: transparent;
-  border: 0;
   padding: 0.2rem 0;
-  cursor: pointer;
 }
 .siteheader__navlink:hover { color: var(--ink); }
-.siteheader__navlink[aria-current="page"] { color: var(--red-text); }
 .siteheader__navlink:focus-visible { outline: 2px solid var(--red); outline-offset: 2px; }
-.siteheader__navlink--action { color: var(--red-text); }
-.siteheader__navlink--action:hover { color: var(--red-legible); }
 
 .ctl-stub,
 .ctl {
@@ -259,31 +253,17 @@
 .menu[open] .menu__summary { color: var(--ink); border-color: var(--ink-soft); }
 .menu__summary:focus-visible { outline: 2px solid var(--red); outline-offset: 2px; }
 
-/* three bars, middle drawn on the span, top/bottom as pseudo-elements */
-.menu__bars,
-.menu__bars::before,
-.menu__bars::after {
-  content: "";
-  display: block;
-  width: 1.05rem;
-  height: 2px;
-  background: currentColor;
+/* Hamburger icon: three bars, folding to an X on open. */
+.menu__icon { display: block; }
+.menu__bar {
+  transition: transform 0.16s ease, opacity 0.12s ease;
+  transform-box: fill-box;
+  transform-origin: center;
 }
-.menu__bars { position: relative; }
-.menu__bars::before { position: absolute; left: 0; top: -6px; }
-.menu__bars::after { position: absolute; left: 0; top: 6px; }
-.menu[open] .menu__bars { background: transparent; }
-.menu[open] .menu__bars::before { top: 0; transform: rotate(45deg); }
-.menu[open] .menu__bars::after { top: 0; transform: rotate(-45deg); }
-
-.menu__summary-text {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  white-space: nowrap;
-}
+.menu[open] .menu__bar--m { opacity: 0; }
+.menu[open] .menu__bar--t { transform: translateY(5px) rotate(45deg); }
+.menu[open] .menu__bar--b { transform: translateY(-5px) rotate(-45deg); }
+:root[data-motion="reduced"] .menu__bar { transition: none; }
 
 .menu__nav {
   display: flex;
@@ -325,7 +305,6 @@
   color: var(--ink);
   background: var(--field-bg);
 }
-.menu__link[aria-current="page"] { color: var(--red-text); }
 .menu__link:focus-visible {
   outline: 2px solid var(--red);
   outline-offset: -2px;

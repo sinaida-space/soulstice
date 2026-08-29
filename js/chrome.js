@@ -227,23 +227,41 @@ function eraseSoulsticeKeys() {
 
 // ---- header ------------------------------------------------------------------
 
-// Header links, in order. "About" is the welcome screen; the rest are the six
-// paths. No "Paths" meta-link: the path names are the navigation.
+// The whole menu: three items, one tone, no active-state colour.
+//   Start  -> the consent screen, the very beginning
+//   Paths  -> the list of every way through
+//   About  -> what the instrument is (same screen as Start; different intent)
 const HEADER_LINKS = [
-  ["#/welcome", "About"],
-  ["#/passage", "Passage"],
-  ["#/journal", "Journal"],
-  ["#/lens", "Lens"],
-  ["#/ground", "Ground"],
-  ["#/statement", "Statement"],
-  ["#/return", "Return"]
+  ["#/welcome", "Start"],
+  ["#/", "Paths"],
+  ["#/welcome", "About"]
 ];
 
-function currentHash() {
-  return window.location.hash || "#/welcome";
+const SVG_NS = "http://www.w3.org/2000/svg";
+
+function svgEl(tag, attrs) {
+  const n = document.createElementNS(SVG_NS, tag);
+  for (const k in attrs) n.setAttribute(k, String(attrs[k]));
+  return n;
 }
 
-export function renderHeader(modeLabel) {
+// A plain hamburger: three bars, tight, that fold to an X when open.
+function burgerIcon() {
+  const svg = svgEl("svg", {
+    class: "menu__icon",
+    viewBox: "0 0 24 24",
+    width: 22,
+    height: 22,
+    fill: "currentColor",
+    "aria-hidden": "true"
+  });
+  svg.appendChild(svgEl("rect", { class: "menu__bar menu__bar--t", x: 3, y: 6, width: 18, height: 2 }));
+  svg.appendChild(svgEl("rect", { class: "menu__bar menu__bar--m", x: 3, y: 11, width: 18, height: 2 }));
+  svg.appendChild(svgEl("rect", { class: "menu__bar menu__bar--b", x: 3, y: 16, width: 18, height: 2 }));
+  return svg;
+}
+
+export function renderHeader() {
   const root = el("div", { class: "siteheader__inner" });
 
   const skip = el("a", { class: "skip-link", href: "#screen" }, "Skip to content");
@@ -266,57 +284,25 @@ export function renderHeader(modeLabel) {
     )
   );
 
-  const here = currentHash();
-
-  function linkAttrs(href) {
-    const a = { href: href };
-    // Treat "#/" and "#/welcome" as the same About target for the marker.
-    const norm = here === "#/" ? "#/welcome" : here;
-    if (norm === href) a["aria-current"] = "page";
-    return a;
-  }
-
-  function startOverButton(cls, onDone) {
-    const b = el(
-      "button",
-      { class: cls, type: "button", "data-action": "menu-startover" },
-      "Start over"
-    );
-    b.addEventListener("click", function () {
-      if (onDone) onDone();
-      window.dispatchEvent(new CustomEvent("soulstice:startover"));
-    });
-    return b;
-  }
-
-  // ---- desktop: the words, inline ----------------------------------------
-  const nav = el("nav", { class: "siteheader__nav", "data-role": "header-nav", "aria-label": "Sections" });
+  // ---- desktop: the three words, inline, all one tone -------------------
+  const nav = el("nav", { class: "siteheader__nav", "data-role": "header-nav", "aria-label": "Menu" });
   for (const [href, label] of HEADER_LINKS) {
-    nav.appendChild(el("a", Object.assign({ class: "siteheader__navlink" }, linkAttrs(href)), label));
-  }
-  // Start over only matters mid-run; show it inline only during a path.
-  if (modeLabel) {
-    nav.appendChild(startOverButton("siteheader__navlink siteheader__navlink--action", null));
+    nav.appendChild(el("a", { class: "siteheader__navlink", href: href }, label));
   }
   root.appendChild(nav);
 
-  // ---- mobile: a hamburger disclosure ----------------------------------
+  // ---- mobile: a hamburger with the same three items -------------------
   const menu = el("details", { class: "menu" });
   const summary = el("summary", { class: "menu__summary", "aria-label": "Menu" });
-  summary.appendChild(el("span", { class: "menu__bars", "aria-hidden": "true" }));
-  summary.appendChild(el("span", { class: "menu__summary-text" }, "Menu"));
+  summary.appendChild(burgerIcon());
   menu.appendChild(summary);
 
   const mnav = el("nav", { class: "menu__nav" });
   for (const [href, label] of HEADER_LINKS) {
-    const a = el("a", Object.assign({ class: "menu__link" }, linkAttrs(href)), label);
+    const a = el("a", { class: "menu__link", href: href }, label);
     a.addEventListener("click", function () { menu.open = false; });
     mnav.appendChild(a);
   }
-  mnav.appendChild(el("div", { class: "menu__sep" }));
-  mnav.appendChild(
-    startOverButton("menu__link", function () { menu.open = false; })
-  );
   menu.appendChild(mnav);
   root.appendChild(menu);
 

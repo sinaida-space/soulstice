@@ -163,8 +163,8 @@ function router() {
 
 function renderModeSelect() {
   const root = el("section", { class: "modeselect screen-panel", "data-role": "mode-select" });
-  root.appendChild(el("h1", { class: "modeselect__title" }, "Soulstice"));
-  root.appendChild(el("p", { class: "modeselect__sub" }, "A guided self-inquiry instrument for artists."));
+  root.appendChild(el("h1", { class: "modeselect__title" }, "Paths"));
+  root.appendChild(el("p", { class: "modeselect__sub" }, "Every way through the instrument."));
   root.appendChild(
     renderDitherImage("./assets/path/", 3, { className: "modeselect__img", role: "mode-image" })
   );
