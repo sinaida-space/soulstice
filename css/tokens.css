@@ -43,6 +43,14 @@
   --gutter: 2.75rem;
   --rule-w: 1px;
 
+  /* Left/right inset that lines the header and footer text up with the card
+     text in the framed column. Sum of everything between the frame's outer
+     edge and a panel's text: frame border + frame padding + panel margin +
+     panel padding. Keep in step with .frame and #screen > * in app.css. */
+  --chrome-inset: calc(
+    var(--rule-w) + 0.5rem + clamp(0.5rem, 1.6vw, 1.1rem) + var(--step) * 1.4
+  );
+
   /* Reading column. ~46rem holds the measure near 66-72 characters at the
      Geist Pixel advance width — wide enough that the framed column does not
      read as a thin ribbon on a large display. */

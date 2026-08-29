@@ -38,7 +38,7 @@
 .sitefooter__inner {
   max-width: var(--column);
   margin: 0 auto;
-  padding: var(--step) var(--gutter);
+  padding: var(--step) var(--chrome-inset);
 }
 
 .siteheader__inner {
@@ -428,9 +428,14 @@
 /* ---- header on narrow screens ------------------------------------------- */
 
 @media (max-width: 600px) {
-  /* Match the panel inset so the mark lines up with the card text below. */
+  /* Match the narrow-screen panel inset so the mark and footer line up with
+     the card text below: frame border + frame padding + panel margin (0.5rem)
+     + panel padding (1.1rem). See #screen > * in app.css. */
   .siteheader__inner,
-  .sitefooter__inner { padding-left: 1.1rem; padding-right: 1.1rem; }
+  .sitefooter__inner {
+    padding-left: calc(2.1rem + var(--rule-w));
+    padding-right: calc(2.1rem + var(--rule-w));
+  }
 
   /* Mark on the left, hamburger on the right, one row. */
   .siteheader__inner { flex-wrap: nowrap; }
