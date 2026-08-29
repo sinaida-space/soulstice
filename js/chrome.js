@@ -245,10 +245,14 @@ export function renderHeader(modeLabel) {
     el("a", { class: "siteheader__mark", href: "#/welcome" }, "soulstice")
   );
 
-  // A direct way back to the path list from anywhere.
-  root.appendChild(
-    el("a", { class: "siteheader__paths", href: "#/", "data-role": "paths-link" }, "Paths")
-  );
+  // A direct way back to the path list, but only while a path is running. On the
+  // welcome / privacy / 404 screens and on the path list itself it is just noise
+  // (the Menu already lists every path), so it is left out there.
+  if (modeLabel) {
+    root.appendChild(
+      el("a", { class: "siteheader__paths", href: "#/", "data-role": "paths-link" }, "Paths")
+    );
+  }
 
   // The current path name is shown inside the card box, not here.
 
