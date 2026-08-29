@@ -8,6 +8,9 @@ html { background: var(--ground); }
 
 body {
   margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   background: var(--ground);
   color: var(--ink);
   font-family: var(--font-body);
@@ -26,9 +29,9 @@ body {
 /* ---- Frame: two full-height red vertical rules around the column ---- */
 
 .frame {
+  width: 100%;
   max-width: var(--column);
   margin: 0 auto;
-  min-height: 100vh;
   padding: 0 0.5rem;
   border-left: var(--rule-w) solid var(--rule);
   border-right: var(--rule-w) solid var(--rule);
@@ -65,13 +68,13 @@ body {
 .chrome__ground:hover { color: var(--ink); border-color: var(--ink-soft); }
 
 .screen {
-  padding: calc(var(--step) * 2) 0 calc(var(--step) * 3);
+  padding: calc(var(--step) * 2) 0;
 }
 
 /* ---- The panel: every screen's readable content sits on this opaque card,
    with the backdrop showing in the margin on all four sides. One rule for
    welcome, mode-select, all six modes, the arc-break, the card renderer's
-   output, the generated-document screen, privacy, imprint and 404. ---- */
+   output, the generated-document screen, privacy and 404. ---- */
 
 #screen > * {
   background: var(--surface);

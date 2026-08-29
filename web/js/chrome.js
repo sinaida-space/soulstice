@@ -210,8 +210,7 @@ export function renderFooter() {
   const links = el("nav", { class: "sitefooter__links" });
   const internal = [
     { href: "#/welcome", label: "About" },
-    { href: "#/privacy", label: "Privacy & storage" },
-    { href: "#/imprint", label: "Imprint" }
+    { href: "#/privacy", label: "Privacy & storage" }
   ];
   const external = [
     { href: "https://sinaida.eu", label: "sinaida.eu ↗" },

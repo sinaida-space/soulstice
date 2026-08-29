@@ -20,7 +20,7 @@ import { buildCompass, renderOutputScreen } from "./output.js";
 import { groundRoutes } from "./modes/ground.reg.js";
 import { secondaryRoutes } from "./modes/secondary.reg.js";
 import { renderWelcome, readConsent } from "./welcome.js";
-import { renderPrivacy, renderImprint, renderNotFound } from "./pages.js";
+import { renderPrivacy, renderNotFound } from "./pages.js";
 import { renderHeader, renderFooter, initView } from "./chrome.js";
 import { initBackdrop } from "./backdrop.js";
 
@@ -113,7 +113,6 @@ function router() {
   // Always reachable, no consent needed.
   if (mode === "welcome") return mount(renderWelcome());
   if (mode === "privacy") return mount(renderPrivacy());
-  if (mode === "imprint") return mount(renderImprint());
   if (mode === "404") return mount(renderNotFound());
 
   // Consent guard: the mode-select (#/) and every mode route need a valid
