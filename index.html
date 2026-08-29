@@ -4,7 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SOULSTICE</title>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self'; font-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'none'">
+  <meta name="referrer" content="no-referrer">
   <meta name="description" content="A tool for reflection for artists: why you make what you make, which of it is yours, and where to go next. Runs entirely in your browser. By Sinaida — https://sinaida.eu">
+  <meta name="author" content="Sinaida Krivchenko">
+  <link rel="canonical" href="https://sinaida-space.github.io/soulstice/">
 
   <link rel="icon" href="./assets/icon.svg" type="image/svg+xml">
   <link rel="icon" href="./assets/favicon-32.png" sizes="32x32" type="image/png">
@@ -34,6 +38,27 @@
   <link rel="stylesheet" href="./css/chrome.css">
   <link rel="stylesheet" href="./css/backdrop.css">
   <link rel="stylesheet" href="./css/print.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "SOULSTICE",
+    "url": "https://sinaida-space.github.io/soulstice/",
+    "description": "A guided self-inquiry instrument for artists: why you make what you make, which of it is yours, and where to go next. Runs entirely in your browser; no accounts, no analytics, no data leaves the device.",
+    "applicationCategory": "EducationalApplication",
+    "operatingSystem": "Any (modern web browser with JavaScript and ES modules)",
+    "browserRequirements": "Requires JavaScript. Requires ES modules.",
+    "isAccessibleForFree": true,
+    "inLanguage": "en",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "author": {
+      "@type": "Person",
+      "name": "Sinaida Krivchenko",
+      "url": "https://sinaida.eu"
+    }
+  }
+  </script>
 </head>
 <body>
   <header id="site-header" class="siteheader"></header>

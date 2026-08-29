@@ -1,0 +1,12 @@
+# Cloudflare Pages response headers.
+# Ignored by GitHub Pages; active once this repo is deployed on Cloudflare Pages.
+# The CSP here mirrors the <meta http-equiv> in index.html / 404.html and adds
+# frame-ancestors (which a meta tag cannot carry). Keep the two in sync.
+
+/*
+  Content-Security-Policy: default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self'; font-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: no-referrer
+  Permissions-Policy: accelerometer=(), autoplay=(), camera=(), display-capture=(), encrypted-media=(), fullscreen=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), midi=(), payment=(), picture-in-picture=(), usb=(), interest-cohort=()
+  Strict-Transport-Security: max-age=31536000
