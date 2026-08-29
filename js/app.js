@@ -98,6 +98,9 @@ function mount(node) {
   host.replaceChildren(node);
   if (Store.isDegraded()) host.appendChild(degradedNotice());
   focusPanel(node);
+  // Every screen starts at the top. Without this a deep link (or any route
+  // change) can land mid-page, because focusing the panel pulls it into view.
+  window.scrollTo(0, 0);
 }
 
 // Move focus to the freshly mounted panel so keyboard and screen-reader users
@@ -108,7 +111,7 @@ function focusPanel(node) {
   if (!node || node.nodeType !== 1 || typeof node.focus !== "function") return;
   if (!node.hasAttribute("tabindex")) node.setAttribute("tabindex", "-1");
   try {
-    node.focus({ preventScroll: false });
+    node.focus({ preventScroll: true });
   } catch (e) {
     node.focus();
   }
@@ -456,6 +459,7 @@ function renderDone(mode, state) {
       root.appendChild(again);
       root.appendChild(home);
       focusPanel(root);
+      window.scrollTo(0, 0);
       return;
     } catch (e) {
       // Fall through to the plain stub if the assembler throws.

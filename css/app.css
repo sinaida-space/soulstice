@@ -93,6 +93,15 @@ body {
 }
 #screen > *:last-child { margin-bottom: 0; }
 
+/* The panel takes programmatic focus on every route change so screen-reader and
+   keyboard users land on the new screen. It is not an interactive control, so it
+   shows no focus ring of its own (mobile Safari draws a blue-grey box otherwise);
+   the real controls inside it keep their own :focus-visible outlines. */
+#screen:focus,
+#screen:focus-visible,
+#screen > *:focus,
+#screen > *:focus-visible { outline: none; }
+
 :root[data-view="light"] #screen > * {
   border-color: var(--haze);
   box-shadow: 0 8px 26px rgba(0, 0, 0, 0.12);
