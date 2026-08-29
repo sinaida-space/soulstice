@@ -93,7 +93,7 @@ const CAVEAT = "> (picked, not stated in your words)";
 // Assembler-written, so it runs through typo(). Appended as the final block of
 // every generated document: a horizontal rule, then this one line.
 const FOOTNOTE = typo(
-  "Made with Soulstice, an instrument by Sinaida Krivchenko · sinaida.eu"
+  "Made with SOULSTICE, an instrument by Sinaida Krivchenko · sinaida.eu"
 );
 
 function withFootnote(markdown) {

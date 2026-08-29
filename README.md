@@ -1,12 +1,13 @@
-# Soulstice
+# SOULSTICE
 
 <img width="3072" height="384" alt="image" src="https://github.com/user-attachments/assets/ccf34d63-4214-4c69-8870-4d68ded4e166" />
 
-A static, self-guided build of the Soulstice self-inquiry instrument for artists.
+A static, self-guided build of the SOULSTICE self-inquiry instrument for artists.
 Runs entirely in the browser: no build step, no framework, no bundler, no external
 requests. English only, and it works through Google&nbsp;Translate.
 
 **Live:** <https://sinaida-space.github.io/soulstice/>
+&nbsp;·&nbsp; **Claude Code skill:** [`sinaida-space/soulstice-skill`](https://github.com/sinaida-space/soulstice-skill)
 
 All six modes are here: Passage (the full inquiry, ending in a written Compass),
 Journal, Lens, Ground, Statement, Return. Every answer stays in `localStorage` on
@@ -60,7 +61,7 @@ or a `header` over twelve characters.
 
 ## The skill
 
-Soulstice began as a Claude Code skill. That part now lives in its own repository:
+SOULSTICE began as a Claude Code skill. That part now lives in its own repository:
 [`sinaida-space/soulstice-skill`](https://github.com/sinaida-space/soulstice-skill).
 
 ## Data contract

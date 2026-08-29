@@ -63,8 +63,8 @@ function renderHero() {
   hero.appendChild(
     el(
       "h1",
-      { class: "welcomehero__title", "data-text": "Welcome to Soulstice" },
-      "Welcome to Soulstice"
+      { class: "welcomehero__title", "data-text": "WELCOME TO SOULSTICE" },
+      "WELCOME TO SOULSTICE"
     )
   );
 
@@ -94,7 +94,7 @@ export function renderWelcome() {
   // The premise
   root.appendChild(el("h2", { class: "welcome__h" }, typoTitle("The idea")));
   paragraphs(root, [
-    "Sinaida made this because the work you give your life to should make you happy, and that kind of happiness comes from doing work that matters to you. Getting there starts with being able to name your own practice in plain words, and Soulstice is built to help you do that."
+    "Sinaida made this because the work you give your life to should make you happy, and that kind of happiness comes from doing work that matters to you. Getting there starts with being able to name your own practice in plain words, and SOULSTICE is built to help you do that."
   ]);
 
   // Who it is for
@@ -106,7 +106,7 @@ export function renderWelcome() {
   // The instrument
   root.appendChild(el("h2", { class: "welcome__h" }, typoTitle("The instrument")));
   paragraphs(root, [
-    "Soulstice asks you a long run of questions about the work you make: the things you avoid, the things you inherited, the parts that are genuinely yours, and the direction you are working toward. You answer by choosing from concrete options or writing your own. At the end it arranges your answers into a document you keep.",
+    "SOULSTICE asks you a long run of questions about the work you make: the things you avoid, the things you inherited, the parts that are genuinely yours, and the direction you are working toward. You answer by choosing from concrete options or writing your own. At the end it arranges your answers into a document you keep.",
     "It runs entirely in your browser. Nothing you write is sent anywhere. Nothing is stored except on your own device, so you can stop and come back.",
     "A full pass is two to four hours of real thinking. You do not have to do it in one sitting."
   ]);
@@ -129,7 +129,7 @@ export function renderWelcome() {
   const disc = el("aside", { class: "welcome__disclaimer", "data-role": "disclaimer" });
   disc.appendChild(el("span", { class: "card__label" }, "Disclaimer"));
   paragraphs(disc, [
-    "Soulstice is a self-reflection instrument. It is not advice.",
+    "SOULSTICE is a self-reflection instrument. It is not advice.",
     "It gives no career guidance, and it is not medical, psychological, legal, financial, or professional advice of any kind. It does not assess, diagnose, or treat anything. It cannot read what you write and it does not respond to you. It follows a fixed path and arranges your answers at the end.",
     "If you need a professional, this is not a substitute for one."
   ]);
@@ -179,7 +179,7 @@ export function renderWelcome() {
   // About the author
   root.appendChild(el("h2", { class: "welcome__h" }, typoTitle("About the author")));
   paragraphs(root, [
-    "Soulstice was made by Sinaida Krivchenko, a new-media artist in Prague. She builds interactive projections and visual systems for stages and performances, and now and then a tool like this one. She trained as an engineer before moving to art full time."
+    "SOULSTICE was made by Sinaida Krivchenko, a new-media artist in Prague. She builds interactive projections and visual systems for stages and performances, and now and then a tool like this one. She trained as an engineer before moving to art full time."
   ]);
   const links = el("p", { class: "welcome__authorlinks" });
   links.appendChild(
