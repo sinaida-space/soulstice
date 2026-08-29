@@ -549,4 +549,12 @@ initStorageNotice();
 initBackdrop();
 window.addEventListener("hashchange", router);
 window.addEventListener("soulstice:startover", onMenuStartOver);
+
+// A bare visit — no route in the URL — opens the welcome screen, never Paths.
+// In-app the "Paths" link still sets #/ and the router shows the mode list;
+// this guard only fires on the first load of the page.
+const bootHash = window.location.hash;
+if (!bootHash || bootHash === "#" || bootHash === "#/") {
+  window.location.hash = "#/welcome";
+}
 router();
