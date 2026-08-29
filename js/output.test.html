@@ -206,7 +206,7 @@
 
     // ---- M10: PDF flow + footnote on every build* -------------------------
     const flat = (s) => String(s).replace(/ /g, " ");
-    const FOOT_RE = /\n---\n\nMade with Soulstice, an instrument by Sinaida Krivchenko · sinaida\.eu\s*$/;
+    const FOOT_RE = /\n---\n\nMade with SOULSTICE, an instrument by Sinaida Krivchenko · sinaida\.eu\s*$/;
 
     const m10builds = {
       "buildCompass": () => buildCompass(state),
@@ -221,7 +221,7 @@
     };
     for (const name in m10builds) {
       const md = m10builds[name]().markdown;
-      check(name + ": ends with the Soulstice footnote block", FOOT_RE.test(flat(md)));
+      check(name + ": ends with the SOULSTICE footnote block", FOOT_RE.test(flat(md)));
       check(name + ": no .md / data: download affordance in the markdown",
         !md.includes("](data:") && !/\bDownload \.md\b/.test(md));
     }

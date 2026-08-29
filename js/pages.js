@@ -25,7 +25,7 @@ export function renderPrivacy() {
     el(
       "p",
       null,
-      "Soulstice runs entirely in your browser. The whole picture is short."
+      "SOULSTICE runs entirely in your browser. The whole picture is short."
     )
   );
 
@@ -34,7 +34,7 @@ export function renderPrivacy() {
     el(
       "p",
       null,
-      "Nothing. Soulstice has no accounts, no sign-in, no contact form, no comments, no analytics. It loads no third-party scripts, fonts, or embeds. It sets no cookies. Nothing you type is transmitted anywhere."
+      "Nothing. SOULSTICE has no accounts, no sign-in, no contact form, no comments, no analytics. It loads no third-party scripts, fonts, or embeds. It sets no cookies. Nothing you type is transmitted anywhere."
     )
   );
 
@@ -43,7 +43,7 @@ export function renderPrivacy() {
     el(
       "p",
       null,
-      "Your answers, your progress, and the document Soulstice generates are saved in this browser's local storage, on your device only, so you can leave and resume. This never leaves your machine and no one else can read it, the author included."
+      "Your answers, your progress, and the document SOULSTICE generates are saved in this browser's local storage, on your device only, so you can leave and resume. This never leaves your machine and no one else can read it, the author included."
     )
   );
   const removeP = el("p", null, "You can remove all of it at any time with ");
@@ -76,7 +76,7 @@ export function renderPrivacy() {
     el(
       "p",
       null,
-      "Under the GDPR you have the right to access, correct, erase, restrict, or object to the processing of your personal data, and the right to data portability. Because Soulstice collects and holds no personal data about you, there is nothing here for the author to produce, change, or delete. Your on-device data is already fully under your control."
+      "Under the GDPR you have the right to access, correct, erase, restrict, or object to the processing of your personal data, and the right to data portability. Because SOULSTICE collects and holds no personal data about you, there is nothing here for the author to produce, change, or delete. Your on-device data is already fully under your control."
     )
   );
   const contactP = el("p", null, "For any question, contact ");

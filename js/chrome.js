@@ -227,14 +227,12 @@ function eraseSoulsticeKeys() {
 
 // ---- header ------------------------------------------------------------------
 
-// The whole menu: three items, one tone, no active-state colour.
-//   Start  -> the consent screen, the very beginning
+// The whole menu: two items, one tone, no active-state colour.
+//   Start  -> the consent screen, the very beginning (also holds the "about" text)
 //   Paths  -> the list of every way through
-//   About  -> what the instrument is (same screen as Start; different intent)
 const HEADER_LINKS = [
   ["#/welcome", "Start"],
-  ["#/", "Paths"],
-  ["#/welcome", "About"]
+  ["#/", "Paths"]
 ];
 
 const SVG_NS = "http://www.w3.org/2000/svg";
@@ -279,8 +277,8 @@ export function renderHeader() {
   root.appendChild(
     el(
       "a",
-      { class: "siteheader__mark", href: "#/welcome", "data-text": "soulstice" },
-      "soulstice"
+      { class: "siteheader__mark", href: "#/welcome", "data-text": "SOULSTICE" },
+      "SOULSTICE"
     )
   );
 
@@ -370,13 +368,13 @@ export function renderFooter() {
     el(
       "p",
       { class: "sitefooter__credit" },
-      "Soulstice — an instrument by Sinaida Krivchenko"
+      "SOULSTICE — an instrument by Sinaida Krivchenko"
     )
   );
 
   const links = el("nav", { class: "sitefooter__links" });
   const internal = [
-    { href: "#/welcome", label: "About" },
+    { href: "#/welcome", label: "Start" },
     { href: "#/privacy", label: "Privacy & storage" }
   ];
   const external = [
@@ -464,7 +462,7 @@ function confirmPanel(host) {
     el(
       "p",
       { class: "erase__q" },
-      "Erase all Soulstice data from this browser? This cannot be undone."
+      "Erase all SOULSTICE data from this browser? This cannot be undone."
     )
   );
   const yes = el(
