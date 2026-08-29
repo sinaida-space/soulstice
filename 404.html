@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SOULSTICE</title>
   <meta name="robots" content="noindex">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self'; font-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'none'">
+  <meta name="referrer" content="no-referrer">
 
   <link rel="icon" href="./assets/icon.svg" type="image/svg+xml">
   <link rel="icon" href="./assets/favicon-32.png" sizes="32x32" type="image/png">
@@ -19,11 +21,7 @@
   <link rel="stylesheet" href="./css/chrome.css">
   <link rel="stylesheet" href="./css/print.css">
 
-  <script>
-    // GitHub Pages serves this file for any missing path under the site.
-    // Hand control to the app and show the styled 404 view.
-    location.hash = "#/404";
-  </script>
+  <script src="./js/nav-404.js"></script>
 </head>
 <body>
   <header id="site-header" class="siteheader"></header>
