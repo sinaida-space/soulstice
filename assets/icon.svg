@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="SOULSTICE">
+  <rect width="64" height="64" fill="#050505"/>
+  <!-- pixel solstice cross -->
+  <rect x="28" y="4"  width="8"  height="56" fill="#cd0000"/>
+  <rect x="4"  y="28" width="56" height="8"  fill="#cd0000"/>
+  <rect x="22" y="22" width="20" height="20" fill="#ff1a1a"/>
+  <!-- scattered pixels, echo of the starfield -->
+  <g fill="#cd0000">
+    <rect x="12" y="12" width="4" height="4"/>
+    <rect x="48" y="14" width="4" height="4"/>
+    <rect x="14" y="46" width="4" height="4"/>
+    <rect x="46" y="48" width="4" height="4"/>
+  </g>
+</svg>
