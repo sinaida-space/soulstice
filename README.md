@@ -40,8 +40,8 @@ direction comes from evidence instead of another guess.
 
 - **A Compass** (`~/.claude/soulstice/compass-YYYY-MM-DD.md`): the document from the
   full walk. Your own words organised, contradictions left standing rather than
-  resolved, three directions the material actually supports, a short stop list, and
-  one small dateable test. What you want when you need a considered answer to "what
+  resolved, an inventory of what the work already does well, three directions the
+  material actually supports, a short stop list, and one small dateable test. What you want when you need a considered answer to "what
   now" and are willing to spend two to four hours getting there.
 - **A journal** (`~/.claude/soulstice/journal.md`): a running file for doing one piece
   of the inquiry at a time, over weeks or months, with a drift review every fifth
@@ -162,8 +162,13 @@ it returns a verdict with a reason attached. So the options are often deliberate
 near-misses: four wrong sentences get a better answer out of someone than one open
 question does.
 
-Two places keep open text, because no card can substitute: listing everything you have
-made in five years, and the closing question, which is "what did you not say?"
+The card is scaffolding for the blank screen, and it comes off once you are standing.
+When your last few corrections have come back as full sentences in your own words and
+you are arguing with the material rather than staring at it, the follow-up drops the
+options and just asks. Some questions keep open text from the start, because no card
+can substitute: listing everything you have made in five years, the closing question
+("what did you not say?"), and the between-arcs question about what you would keep
+making if no one would ever see it.
 
 ## Method
 
@@ -230,6 +235,17 @@ Then `/soulstice`, or just ask Claude what your work is really about.
 This is an inquiry tool. Diagnosis, spiritual instruction and care belong elsewhere,
 with people. If something surfaces that is past what an instrument can hold, the skill
 is instructed to stop and say so.
+
+## Made by
+
+Sinaida Krivchenko, a new media artist based in Prague, working globally with
+interactive projection, TouchDesigner, GLSL and generative systems. Background in
+biomedical engineering and, before the art practice, creative direction in the
+cultural sector. She built Soulstice to run on her own work first: a body of pieces
+with no visible through-line and an artist statement that had to get written.
+
+- Work: [sinaida.eu](https://sinaida.eu)
+- Instagram: [@sin.ai.da](https://instagram.com/sin.ai.da)
 
 ## License
 

@@ -45,7 +45,14 @@ attention. Mark the one they said would hurt to lose.>
 ## Where I make from
 <layer 8: the physical signal for right, the signal for wrong, the conditions that
 have to be present. Layer 9: the felt quality of the present and the refusal, both
-verbatim.>
+verbatim. From the Arc II break: her verbatim answer to "which part would you keep
+doing if no one would ever see it again" — the audience-independent core.>
+
+## What already works
+<from the Arc II break: two or three things the body of work already does well, each
+tied to a named piece or moment. Her words. Inventory, not praise. If a strength was
+absent from the material, that absence is a finding and belongs in "Still
+unresolved", not here.>
 
 ## Not mine
 <what Arc I removed. Inherited rules they chose to drop, borrowed wants, softenings,
