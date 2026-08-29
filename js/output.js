@@ -795,7 +795,18 @@ export function renderOutputScreen(doc, mountNode) {
 
   if (d.mode) root.appendChild(renderLlmKit(d.mode, d.markdown || ""));
 
-  if (mountNode) mountNode.replaceChildren(root);
+  if (mountNode) {
+    mountNode.replaceChildren(root);
+    // Land at the top of the finished document, not wherever the last card left
+    // the scroll. Mirrors mountScreen / app.js mount().
+    if (!root.hasAttribute("tabindex")) root.setAttribute("tabindex", "-1");
+    try {
+      root.focus({ preventScroll: true });
+    } catch (e) {
+      root.focus();
+    }
+    window.scrollTo(0, 0);
+  }
   return root;
 }
 
