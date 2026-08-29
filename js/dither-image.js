@@ -12,17 +12,18 @@ import { el } from "./dom.js";
 
 export function renderDitherImage(dir, count, opts) {
   const o = opts || {};
+  const n = 1 + Math.floor(Math.random() * count);
+  const src = dir + n + ".png";
+
   const img = el("div", {
     class: "ditherimg" + (o.className ? " " + o.className : ""),
     "data-role": o.role || "dither-image",
+    "data-src": src,
     "aria-hidden": "true",
     tabindex: "0",
     role: "button",
     "aria-label": "Invert the image"
   });
-
-  const n = 1 + Math.floor(Math.random() * count);
-  const src = dir + n + ".png";
   let inverted = false;
 
   function paint() {

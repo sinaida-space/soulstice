@@ -227,6 +227,22 @@ function eraseSoulsticeKeys() {
 
 // ---- header ------------------------------------------------------------------
 
+// Header links, in order. "About" is the welcome screen; the rest are the six
+// paths. No "Paths" meta-link: the path names are the navigation.
+const HEADER_LINKS = [
+  ["#/welcome", "About"],
+  ["#/passage", "Passage"],
+  ["#/journal", "Journal"],
+  ["#/lens", "Lens"],
+  ["#/ground", "Ground"],
+  ["#/statement", "Statement"],
+  ["#/return", "Return"]
+];
+
+function currentHash() {
+  return window.location.hash || "#/welcome";
+}
+
 export function renderHeader(modeLabel) {
   const root = el("div", { class: "siteheader__inner" });
 
@@ -241,74 +257,69 @@ export function renderHeader(modeLabel) {
   });
   root.appendChild(skip);
 
+  // Wordmark, with a CRT/VHS glitch in Full view (data-text drives the layers).
   root.appendChild(
-    el("a", { class: "siteheader__mark", href: "#/welcome" }, "soulstice")
-  );
-
-  // A direct way back to the path list, but only while a path is running. On the
-  // welcome / privacy / 404 screens and on the path list itself it is just noise
-  // (the Menu already lists every path), so it is left out there.
-  if (modeLabel) {
-    root.appendChild(
-      el("a", { class: "siteheader__paths", href: "#/", "data-role": "paths-link" }, "Paths")
-    );
-  }
-
-  // The current path name is shown inside the card box, not here.
-
-  const tail = el("div", { class: "siteheader__tail" });
-
-  // The Full / Light and Reduce-effects controls live in the footer (M9).
-
-  // disclosure menu — the shape of the whole instrument. About and Privacy are
-  // in the footer, so they are not repeated here.
-  const menu = el("details", { class: "menu" });
-  const summary = el("summary", { class: "menu__summary" }, "Menu");
-  menu.appendChild(summary);
-  const nav = el("nav", { class: "menu__nav" });
-
-  function addLink(href, label, extraClass) {
-    const a = el(
+    el(
       "a",
-      { class: "menu__link" + (extraClass ? " " + extraClass : ""), href: href },
-      label
-    );
-    a.addEventListener("click", function () { menu.open = false; });
-    nav.appendChild(a);
-  }
-  function addSep() {
-    nav.appendChild(el("div", { class: "menu__sep" }));
-  }
-
-  // Every path, so the whole instrument is visible at a glance.
-  for (const p of [
-    ["#/passage", "Passage"],
-    ["#/journal", "Journal"],
-    ["#/lens", "Lens"],
-    ["#/ground", "Ground"],
-    ["#/statement", "Statement"],
-    ["#/return", "Return"]
-  ]) {
-    addLink(p[0], p[1]);
-  }
-  addSep();
-
-  // Start over the current path. app.js owns the confirm and the reset.
-  const over = el(
-    "button",
-    { class: "menu__link", type: "button", "data-action": "menu-startover" },
-    "Start over"
+      { class: "siteheader__mark", href: "#/welcome", "data-text": "soulstice" },
+      "soulstice"
+    )
   );
-  over.addEventListener("click", function () {
-    menu.open = false;
-    window.dispatchEvent(new CustomEvent("soulstice:startover"));
-  });
-  nav.appendChild(over);
 
-  menu.appendChild(nav);
-  tail.appendChild(menu);
+  const here = currentHash();
 
-  root.appendChild(tail);
+  function linkAttrs(href) {
+    const a = { href: href };
+    // Treat "#/" and "#/welcome" as the same About target for the marker.
+    const norm = here === "#/" ? "#/welcome" : here;
+    if (norm === href) a["aria-current"] = "page";
+    return a;
+  }
+
+  function startOverButton(cls, onDone) {
+    const b = el(
+      "button",
+      { class: cls, type: "button", "data-action": "menu-startover" },
+      "Start over"
+    );
+    b.addEventListener("click", function () {
+      if (onDone) onDone();
+      window.dispatchEvent(new CustomEvent("soulstice:startover"));
+    });
+    return b;
+  }
+
+  // ---- desktop: the words, inline ----------------------------------------
+  const nav = el("nav", { class: "siteheader__nav", "data-role": "header-nav", "aria-label": "Sections" });
+  for (const [href, label] of HEADER_LINKS) {
+    nav.appendChild(el("a", Object.assign({ class: "siteheader__navlink" }, linkAttrs(href)), label));
+  }
+  // Start over only matters mid-run; show it inline only during a path.
+  if (modeLabel) {
+    nav.appendChild(startOverButton("siteheader__navlink siteheader__navlink--action", null));
+  }
+  root.appendChild(nav);
+
+  // ---- mobile: a hamburger disclosure ----------------------------------
+  const menu = el("details", { class: "menu" });
+  const summary = el("summary", { class: "menu__summary", "aria-label": "Menu" });
+  summary.appendChild(el("span", { class: "menu__bars", "aria-hidden": "true" }));
+  summary.appendChild(el("span", { class: "menu__summary-text" }, "Menu"));
+  menu.appendChild(summary);
+
+  const mnav = el("nav", { class: "menu__nav" });
+  for (const [href, label] of HEADER_LINKS) {
+    const a = el("a", Object.assign({ class: "menu__link" }, linkAttrs(href)), label);
+    a.addEventListener("click", function () { menu.open = false; });
+    mnav.appendChild(a);
+  }
+  mnav.appendChild(el("div", { class: "menu__sep" }));
+  mnav.appendChild(
+    startOverButton("menu__link", function () { menu.open = false; })
+  );
+  menu.appendChild(mnav);
+  root.appendChild(menu);
+
   return root;
 }
 

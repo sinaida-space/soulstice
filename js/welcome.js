@@ -15,6 +15,7 @@
 import { el } from "./dom.js";
 import { typo, typoTitle } from "./typo.js";
 import { renderDitherImage } from "./dither-image.js";
+import { runBoot } from "./boot.js";
 
 export const CONSENT_KEY = "soulstice:v1:consent";
 export const POLICY_VERSION = 1;
@@ -197,6 +198,9 @@ export function renderWelcome() {
     )
   );
   root.appendChild(links);
+
+  // MS-DOS boot sequence — self-decides whether there is any load to cover.
+  runBoot(root);
 
   return root;
 }
