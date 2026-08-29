@@ -160,7 +160,7 @@ body {
 
 .field {
   font-family: var(--font-body);
-  font-weight: 300;
+  font-weight: 400;
   font-size: var(--fs-body);
   color: var(--ink);
   background: var(--field-bg);
@@ -279,7 +279,7 @@ body {
 .output-doc {
   color: var(--ink);
   font-family: var(--font-body);
-  font-weight: 300;
+  font-weight: 400;
   margin-bottom: calc(var(--step) * 2);
 }
 
