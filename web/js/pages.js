@@ -126,12 +126,6 @@ export function renderImprint() {
   site.appendChild(extLink("https://sinaida.eu", "sinaida.eu"));
   root.appendChild(site);
 
-  const src = el("p", null, "Source: ");
-  src.appendChild(
-    extLink("https://github.com/sinaida-space/soulstice", "github.com/sinaida-space/soulstice")
-  );
-  root.appendChild(src);
-
   const tail = el(
     "p",
     null,
