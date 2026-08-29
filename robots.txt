@@ -1,8 +1,8 @@
-# SOULSTICE — https://sinaida-space.github.io/soulstice/
+# SOULSTICE — https://soulstice.pages.dev/
 # Public and free to use. Findable in search; not for AI training.
 
 User-agent: *
 Allow: /
 Content-Signal: search=yes, ai-train=no, ai-input=no
 
-Sitemap: https://sinaida-space.github.io/soulstice/sitemap.xml
+Sitemap: https://soulstice.pages.dev/sitemap.xml
