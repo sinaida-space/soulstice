@@ -181,16 +181,17 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 0.5rem 1rem;
-  max-width: var(--column);
-  margin: 0 auto;
+  justify-content: center;
+  gap: 0.5rem 1.4rem;
+  /* Full viewport width — a site-wide strip, not a column-width card. */
   padding: 0.8rem var(--gutter);
   background: var(--surface);
   border-top: var(--rule-w) solid var(--rule);
 }
 
 .storagenote__text {
-  flex: 1 1 16rem;
+  flex: 0 1 auto;
+  max-width: 40rem;
   margin: 0;
   font-size: var(--fs-small);
   line-height: 1.4;
