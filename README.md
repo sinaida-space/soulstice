@@ -78,3 +78,15 @@ and `js/app.js`, which carry the frozen contracts verbatim.
   at render time.
 - Re-rendering a card fully replaces its container subtree, so a text node
   mutated by Google Translate never feeds back into logic.
+
+## Support & handoff
+
+- Status: active (maintained by Sinaida Krivchenko)
+- Run locally: `python3 -m http.server 8765`, then open http://localhost:8765/ (no build step)
+- Requirements: a modern browser with ES modules and localStorage; answers stay on the device
+- Handing over: the frozen data contracts are in the module headers of js/store.js, js/card.js and js/app.js; the copy draft is in CONTENT.md; run `node tools/validate.mjs` after data edits; licence terms are in LICENSE
+- Contact: https://sinaida.eu/collaborate
+
+## How this was made
+
+Sinaida comes up with the idea, the concept and the way to make it into a system. The making uses whatever the piece needs, from drawing by hand to AI-native production. She cares about integrity and a smooth experience, so every work adjusts to its environment, and each project ships with a rider, a contingency plan and her support.
