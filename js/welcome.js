@@ -119,7 +119,7 @@ export function renderWelcome() {
     "Most cards offer written options. You can always write your own instead.",
     "Your progress is saved in this browser only. Close the tab and return whenever.",
     "At the end you get a written document in your own words, organised. Save it as a PDF.",
-    "There is a separate short mode, Ground, for low moments. It carries its own note on its limits, and a list of ways to reach a person."
+    "There is a separate short mode, Ground, for low moments. You separate what happened from the verdict you drew from it, check that verdict against your own work, and end with one small action and three projects. A list of crisis lines stays on screen the whole time."
   ]) {
     list.appendChild(el("li", null, typo(item)));
   }
@@ -129,9 +129,10 @@ export function renderWelcome() {
   const disc = el("aside", { class: "welcome__disclaimer", "data-role": "disclaimer" });
   disc.appendChild(el("span", { class: "card__label" }, "Disclaimer"));
   paragraphs(disc, [
-    "SOULSTICE is a self-reflection instrument. It is not advice.",
-    "It gives no career guidance, and it is not medical, psychological, legal, financial, or professional advice of any kind. It does not assess, diagnose, or treat anything. It cannot read what you write and it does not respond to you. It follows a fixed path and arranges your answers at the end.",
-    "If you need a professional, this is not a substitute for one."
+    "SOULSTICE is for personal reflection only. It is a set of questions for self-reflection, nothing more.",
+    "It is not therapy, and it is not medical, psychological, legal, financial, career or professional advice of any kind. It makes no claim about your health or wellbeing. It does not assess, diagnose or treat anything. It cannot read what you write and it does not respond to you. It follows a fixed path and arranges your answers at the end.",
+    "Its sequence of questions is adapted from an esoteric teaching and shaped with coaching techniques. It is a reflection practice. It has not been tested as a clinical or scientific method and does not claim to be one.",
+    "It does not replace a doctor, psychologist or therapist. If something is wrong, please go to a professional. You use SOULSTICE at your own risk."
   ]);
   root.appendChild(disc);
 
@@ -147,7 +148,7 @@ export function renderWelcome() {
   const label = el(
     "label",
     { class: "consent__label", for: "consent-box" },
-    typo("I have read the above. I understand this is a self-reflection tool and not advice, and I want to begin.")
+    typo("I have read the above. I understand this is a set of questions for personal reflection only, not therapy or advice, and I use it at my own risk.")
   );
   row.appendChild(box);
   row.appendChild(label);
