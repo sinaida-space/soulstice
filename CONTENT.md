@@ -31,19 +31,19 @@ A full pass is two to four hours of real thinking. You do not have to do it in o
 - Most cards offer written options. You can always write your own instead.
 - Your progress is saved in this browser only. Close the tab and return whenever.
 - At the end you get a written document in your own words, organised. Save it as a PDF.
-- There is a separate short mode, Ground, for low moments. It carries its own note on its limits, and a list of ways to reach a person.
+- There is a separate short mode, Ground, for low moments. You separate what happened from the verdict you drew from it, check that verdict against your own work, and end with one small action and three projects. A list of crisis lines stays on screen the whole time.
 
 **Disclaimer** *(framed block, directly above the consent control)*
 
-Soulstice is a self-reflection instrument. It is not advice.
+Soulstice is for personal reflection only. It is a set of questions for self-reflection, nothing more.
 
-It gives no career guidance, and it is not medical, psychological, legal, financial, or professional advice of any kind. It does not assess, diagnose, or treat anything. It cannot read what you write and it does not respond to you. It follows a fixed path and arranges your answers at the end.
+It is not therapy, and it is not medical, psychological, legal, financial, career or professional advice of any kind. It makes no claim about your health or wellbeing. It does not assess, diagnose or treat anything. It cannot read what you write and it does not respond to you. It follows a fixed path and arranges your answers at the end.
 
-If you need a professional, this is not a substitute for one.
+It does not replace a doctor, psychologist or therapist. If something is wrong, please go to a professional. You use Soulstice at your own risk.
 
 **Consent control**
 
-☐ I have read the above. I understand this is a self-reflection tool and not advice, and I want to begin.
+☐ I have read the above. I understand this is a set of questions for personal reflection only, not therapy or advice, and I use it at my own risk.
 
 Button: **Begin**
 

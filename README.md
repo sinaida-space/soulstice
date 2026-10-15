@@ -15,6 +15,20 @@ the one device; nothing is ever sent anywhere. Passage ends in a Compass you sav
 as a PDF, with a set of prompts for taking it into a language model to question
 what you wrote.
 
+## For personal reflection only
+
+SOULSTICE is a set of questions for self-reflection, nothing more. It is not therapy and
+not medical or psychological help, and it makes no claim about your health or wellbeing.
+It does not replace a doctor, psychologist or therapist: if something is wrong, please go
+to a professional. You use it at your own risk.
+
+**Ground** is a short mode for an evening when the work feels pointless. You separate
+what happened from the verdict you drew from it, check that verdict against your own
+work, pick one small action and name three projects; at the end it writes a short page.
+A panel with crisis lines stays above the questions the whole time. The page cannot read
+what you type, so it cannot notice if you are in danger: if you are, stop and contact a
+person or your local emergency number.
+
 ## Run it locally
 
 From the repository root:
