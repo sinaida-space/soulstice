@@ -60,14 +60,14 @@ export function renderPrivacy() {
     el(
       "p",
       null,
-      "The site is served as static files by GitHub Pages, with Fastly as its content-delivery network. To deliver any web page, a host processes basic technical request data: your IP address, your browser's user-agent string, the file requested, and a timestamp. GitHub and Fastly do this on their own infrastructure, keep it briefly for security and reliability under their own retention schedules, and do not use it to build an advertising profile. The author does not receive or store these logs."
+      "The site is served as static files from two addresses: soulstice.pages.dev on Cloudflare Pages, and a copy on GitHub Pages, with Fastly as GitHub's content-delivery network. To deliver any web page, a host processes basic technical request data: your IP address, your browser's user-agent string, the file requested, and a timestamp. Cloudflare, GitHub and Fastly do this on their own infrastructure and keep it for security and reliability under their own terms and retention schedules. The author does not receive or store these logs."
     )
   );
   root.appendChild(
     el(
       "p",
       null,
-      "Where GitHub and Fastly process this data outside the EU and EEA, they rely on the safeguards in their own data-processing terms, which incorporate the EU Standard Contractual Clauses. Legal basis: the legitimate interest in delivering the site securely."
+      "Where Cloudflare, GitHub and Fastly process this data outside the EU and EEA, they rely on the safeguards in their own data-processing terms, which incorporate the EU Standard Contractual Clauses. Legal basis: the legitimate interest in delivering the site securely."
     )
   );
 
@@ -101,7 +101,7 @@ export function renderPrivacy() {
       "If this policy changes, the new version replaces this page and the date below updates."
     )
   );
-  root.appendChild(el("p", { class: "page__meta" }, "Last updated: 29 August 2026."));
+  root.appendChild(el("p", { class: "page__meta" }, "Last updated: 18 October 2026."));
 
   return root;
 }
