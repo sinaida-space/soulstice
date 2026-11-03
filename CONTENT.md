@@ -117,7 +117,7 @@ Where GitHub and Fastly process this data outside the EU and EEA, they rely on t
 
 Under the GDPR you have the right to access, correct, erase, restrict, or object to the processing of your personal data, and the right to data portability. Because Soulstice collects and holds no personal data about you, there is nothing here for the author to produce, change, or delete. Your on-device data is already fully under your control.
 
-For any question, contact closest.dilly7p@icloud.com.
+For any question, write via sinaida.eu.
 
 You also have the right to complain to a supervisory authority. In the Czech Republic that is the Office for Personal Data Protection (Úřad pro ochranu osobních údajů), uoou.gov.cz.
 

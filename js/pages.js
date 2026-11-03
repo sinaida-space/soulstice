@@ -7,10 +7,6 @@ import { el } from "./dom.js";
 // outbound link, never an embed, so nothing third-party loads here.
 export const UNWIND_PLAYLIST = "https://open.spotify.com/playlist/1lnhhzpja7u0aP2uiccYW2";
 
-function mailto(address) {
-  return el("a", { href: "mailto:" + address }, address);
-}
-
 function extLink(href, text) {
   return el("a", { href: href, target: "_blank", rel: "noopener" }, text);
 }
@@ -79,8 +75,8 @@ export function renderPrivacy() {
       "Under the GDPR you have the right to access, correct, erase, restrict, or object to the processing of your personal data, and the right to data portability. Because SOULSTICE collects and holds no personal data about you, there is nothing here for the author to produce, change, or delete. Your on-device data is already fully under your control."
     )
   );
-  const contactP = el("p", null, "For any question, contact ");
-  contactP.appendChild(mailto("closest.dilly7p@icloud.com"));
+  const contactP = el("p", null, "For any question, write via ");
+  contactP.appendChild(extLink("https://sinaida.eu/", "sinaida.eu"));
   contactP.appendChild(document.createTextNode("."));
   root.appendChild(contactP);
 
